@@ -20,7 +20,7 @@ class NewsController extends BaseController {
       final response = await apiServices.newsApi(pageNo, 10, type);
 
       isLoader.value = false;
-      if (response == null) Common.showToast("Server Error!");
+      //if (response == null) Common.showToast("Server Error!");
       if (response != null && response.status == 200) {
         if (response.news.isNotEmpty) {
           newsList.addAll(response.news);
@@ -31,7 +31,7 @@ class NewsController extends BaseController {
         pageCount += 1;
       }
     } catch (e) {
-      Common.showToast("Server error");
+      Common.showToast("Something went wrong!");
       debugPrint(e.toString());
     }
   }
@@ -41,7 +41,7 @@ class NewsController extends BaseController {
     try {
       final response = await apiServices.newsApi(pageNo, 10, type);
       hideLoader();
-      if (response == null) Common.showToast("Server Error!");
+      //if (response == null) Common.showToast("Server Error!");
       if (response != null && response.status == 200) {
         if (response.news.isNotEmpty) {
           newsList.addAll(response.news);
@@ -52,7 +52,7 @@ class NewsController extends BaseController {
         pageCount += 1;
       }
     } catch (e) {
-      Common.showToast("Server error");
+      //Common.showToast("Server error");
       debugPrint(e.toString());
     }
   }
@@ -63,7 +63,7 @@ class NewsController extends BaseController {
       final response = await apiServices.videoApi(pageNo, 10, type);
 
       isLoader.value = false;
-      if (response == null) Common.showToast("Server Error!");
+      if (response == null) Common.showToast("Something went wrong!");
       if (response != null && response.status == 200) {
         if (response.news.isNotEmpty) {
           newsList.addAll(response.news);
@@ -74,7 +74,7 @@ class NewsController extends BaseController {
         pageCount += 1;
       }
     } catch (e) {
-      Common.showToast("Server error");
+      //Common.showToast("Server error");
       debugPrint(e.toString());
     }
   }
@@ -84,7 +84,7 @@ class NewsController extends BaseController {
     try {
       final response = await apiServices.videoApi(pageNo, 10, type);
       hideLoader();
-      if (response == null) Common.showToast("Server Error!");
+      //if (response == null) Common.showToast("Server Error!");
       if (response != null && response.status == 200) {
         if (response.news.isNotEmpty) {
           newsList.addAll(response.news);
@@ -95,7 +95,7 @@ class NewsController extends BaseController {
         pageCount += 1;
       }
     } catch (e) {
-      Common.showToast("Server error");
+      //Common.showToast("Server error");
       debugPrint(e.toString());
     }
   }

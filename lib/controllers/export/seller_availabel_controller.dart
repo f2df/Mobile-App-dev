@@ -21,7 +21,7 @@ class SellerController extends BaseController {
     isLoader.value = true;
     final response = await apiServices.sellerListApi();
     isLoader.value = false;
-    if (response == null) Common.showToast("Server Error!");
+    //if (response == null) Common.showToast("Server Error!");
     if (response != null && response.status == 200) {
       buyerList = response.sellerList;
     }
@@ -40,7 +40,7 @@ class SellerController extends BaseController {
     final response = await apiServices.addSellerApi(show, productName, name,
         phoneNumber, location, offerPrice, quantity, expectedDate);
     hideLoader();
-    if (response == null) Common.showToast("Server Error!");
+    //if (response == null) Common.showToast("Server Error!");
     if (response != null && response.status == 200) {
       showSuccessConnectDialog();
     } else {

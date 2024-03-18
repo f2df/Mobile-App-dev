@@ -44,7 +44,7 @@ class TrainingController extends BaseController {
     try {
       final response = await apiServices.applyTrainingDropDownApi();
       isLoader.value = false;
-      if (response == null) Common.showToast("Server Error!");
+      //if (response == null) Common.showToast("Server Error!");
       if (response != null &&
           response.status == 200 &&
           response.trainingType.isNotEmpty) {
@@ -78,7 +78,7 @@ class TrainingController extends BaseController {
         discription: userDescriptionController.text.toString(),
       );
       //hideLoader();
-      if (response == null) Common.showToast("Server Error!");
+      //if (response == null) Common.showToast("Server Error!");
       if (response != null && response.status == 200) {
         userNameController.text = "";
         userEmailController.text = "";
@@ -97,7 +97,7 @@ class TrainingController extends BaseController {
     try {
       final response = await apiServices.eventApi();
       isEventLoader.value = false;
-      if (response == null) Common.showToast("Server Error!");
+      //if (response == null) Common.showToast("Server Error!");
       if (response != null &&
           response.status == 200 ) {
         upcomingEventList=response.upcomingEvents;
@@ -114,7 +114,7 @@ class TrainingController extends BaseController {
     try {
       final response = await apiServices.eventApi();
       isPostEventLoader.value = false;
-      if (response == null) Common.showToast("Server Error!");
+      if (response == null) Common.showToast("Something went wrong!");
       if (response != null &&
           response.status == 200 ) {
         upcomingEventList=response.upcomingEvents;

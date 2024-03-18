@@ -18,7 +18,7 @@ class VendorOrderController extends BaseController {
     isLoader(true);
     final response = await apiService.vendorOrdersListApi();
     isLoader(false);
-    if (response == null) Common.showToast("Server Error!");
+    if (response == null) Common.showToast("Something went wrong!");
     if (response != null &&
         response.status == 200 &&
         response.orderList != null &&
@@ -31,7 +31,7 @@ class VendorOrderController extends BaseController {
     showLoader();
     final response = await apiService.acceptOrderApi(orderUuid: orderUuid);
     hideLoader();
-    if (response == null) Common.showToast("Server Error!");
+    if (response == null) Common.showToast("Something went wrong!");
     if (response != null &&
         response.status == 200 &&
         response.message.isNotEmpty) Common.showToast(response.message);
@@ -41,7 +41,7 @@ class VendorOrderController extends BaseController {
     showLoader();
     final response = await apiService.rejectOrderApi(orderUuid: orderUuid);
     hideLoader();
-    if (response == null) Common.showToast("Server Error!");
+    if (response == null) Common.showToast("Something went wrong!");
     if (response != null &&
         response.status == 200 &&
         response.message.isNotEmpty) Common.showToast(response.message);

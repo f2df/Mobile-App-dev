@@ -844,12 +844,11 @@ class ProductDetail extends AppPageWithAppBar {
                   color: MyColors.themeColor,
                   textColor: Colors.white,
                   shape: const CircleBorder(),
-                  child: const Icon(
-                    Icons.add,
+                  child: SvgPicture.asset("assets/png/icon_chat_app.svg"),
                   ),
                 ),
               ),
-            )),
+            ),
             const SizedBox(
               width: 10,
             ),

@@ -48,7 +48,7 @@ class ProfileOptions extends AppPageWithAppBar {
     return InkWell(
       onTap: () {
         if (appPreferences.isLoggedIn) {
-          EditProfile.start(fromTab: "Home");
+          EditProfile.start(fromTab: "FromLogin");
         } else {
           LoginPage.start();
         }

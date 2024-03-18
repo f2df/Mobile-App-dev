@@ -17,7 +17,7 @@ class LoginController extends BaseController {
     try {
       final response = await apiServices.loginApi(userId);
       hideLoader();
-      if (response == null) Common.showToast("Server Error!");
+      //if (response == null) Common.showToast("Server Error!");
       if (response != null &&
           response.status == 200 &&
           response.loginData != null) {

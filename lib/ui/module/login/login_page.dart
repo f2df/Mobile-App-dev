@@ -3,8 +3,10 @@ import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:mcsofttech/theme/my_theme.dart';
+import 'package:mcsofttech/ui/dialog/loader.dart';
 import '../../../constants/Constant.dart';
 import '../../../controllers/login/login_controller.dart';
+import '../../../data/preferences/AppPreferences.dart';
 import '../../../services/navigator.dart';
 import '../../../utils/palette.dart';
 import '../../base/page.dart';
@@ -23,7 +25,7 @@ class LoginPage extends AppPageWithAppBar {
   LoginPage({Key? key}) : super(key: key);
 
   static Future<bool?> start<bool>() {
-    return navigateTo<bool>(routeName);
+    return navigateOffAll<bool>(routeName);
   }
 
   RxBool isTermCondition = false.obs;
@@ -35,87 +37,88 @@ class LoginPage extends AppPageWithAppBar {
 
   @override
   Widget get body {
-    return SafeArea(
+    loginController.callForceUpdateApi();
+    return Obx(() => loginController.isUpdateLoader.value?const Loader():SafeArea(
         child: Stack(
-      children: [
-        SizedBox(
-          height: MediaQuery.of(Get.context!).size.height,
-          child: LoginCarousel(),
-        ),
-        Align(
-          alignment: Alignment.bottomCenter,
-          child: SizedBox(
-            width: MediaQuery.of(Get.context!).size.width,
-            height: MediaQuery.of(Get.context!).size.height / 1.6,
-            child: Card(
-              shape: const RoundedRectangleBorder(
-                borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(30),
-                  topRight: Radius.circular(30),
+          children: [
+            SizedBox(
+              height: MediaQuery.of(Get.context!).size.height,
+              child: LoginCarousel(),
+            ),
+            Align(
+              alignment: Alignment.bottomCenter,
+              child: SizedBox(
+                width: MediaQuery.of(Get.context!).size.width,
+                height: MediaQuery.of(Get.context!).size.height / 1.6,
+                child: Card(
+                  shape: const RoundedRectangleBorder(
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(30),
+                      topRight: Radius.circular(30),
+                    ),
+                  ),
+                  child: Column(
+                    children: [
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      Text(
+                        "WELCOME TO",
+                        style: TextStyles.headingTexStyle(
+                          color: Palette.kColorDarkGrey,
+                          fontSize: 15,
+                          fontWeight: FontWeight.bold,
+                          fontFamily: 'Montserrat',
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      Text("F 2 D F",
+                          style: TextStyles.headingTexStyle(
+                            color: MyColors.themeColor,
+                            fontSize: 30,
+                            fontWeight: FontWeight.bold,
+                            fontFamily: 'Montserrat',
+                          )),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      enterMobileNUmberText,
+                      phoneNumber,
+                      const Padding(
+                        padding: EdgeInsets.only(left: 30, right: 20),
+                        child: Divider(
+                          height: 2,
+                          color: MyColors.kColorDarkGrey,
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      termAndCondition,
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      getOtpButton,
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      bottomRow,
+                      const SizedBox(
+                        height: 30,
+                      ),
+                      skipText,
+                      const SizedBox(
+                        height: 20,
+                      ),
+                    ],
+                  ),
                 ),
               ),
-              child: Column(
-                children: [
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  Text(
-                    "WELCOME TO",
-                    style: TextStyles.headingTexStyle(
-                      color: Palette.kColorDarkGrey,
-                      fontSize: 15,
-                      fontWeight: FontWeight.bold,
-                      fontFamily: 'Montserrat',
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  Text("F 2 D F",
-                      style: TextStyles.headingTexStyle(
-                        color: MyColors.themeColor,
-                        fontSize: 30,
-                        fontWeight: FontWeight.bold,
-                        fontFamily: 'Montserrat',
-                      )),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  enterMobileNUmberText,
-                  phoneNumber,
-                  const Padding(
-                    padding: EdgeInsets.only(left: 30, right: 20),
-                    child: Divider(
-                      height: 2,
-                      color: MyColors.kColorDarkGrey,
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  termAndCondition,
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  getOtpButton,
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  bottomRow,
-                  const SizedBox(
-                    height: 30,
-                  ),
-                  skipText,
-                  const SizedBox(
-                    height: 20,
-                  ),
-                ],
-              ),
-            ),
-          ),
-        )
-      ],
-    ));
+            )
+          ],
+        )));
   }
 
   Widget get termAndCondition {
@@ -284,7 +287,10 @@ class LoginPage extends AppPageWithAppBar {
   Widget get skipText {
     return InkWell(
       onTap: () {
-        Home.start(1);
+        final appPreferences = Get.find<AppPreferences>();
+        appPreferences.saveStoreId("0");
+        Home.start(0);
+
       },
       child: SizedBox(
         height: 20,

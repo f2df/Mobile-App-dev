@@ -22,7 +22,7 @@ class OrderDetailsController extends BaseController {
     final response =
         await apiService.customerOrderDetailApi(orderUuid: orderUuid);
     isLoader(false);
-    if (response == null) Common.showToast("Server Error!");
+    if (response == null) Common.showToast("Something went wrong!");
     if (response != null &&
         response.status == 200 &&
         response.orderList != null &&
@@ -35,7 +35,7 @@ class OrderDetailsController extends BaseController {
     showLoader();
     final response = await apiService.cancelUserOrderApi(orderUuid: orderUuid);
     hideLoader();
-    if (response == null) Common.showToast("Server Error!");
+    if (response == null) Common.showToast("Something went wrong!");
     if (response != null &&
         response.status == 200 &&
         response.message.isNotEmpty) Common.showToast(response.message);

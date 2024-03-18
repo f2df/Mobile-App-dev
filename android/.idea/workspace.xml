@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="NONE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="5e33133b-76f0-4005-bcf2-d1ad385cc098" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../.idea/f2df.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/google-services.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/google-services.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/release/app-release.aab" beforeDir="false" afterPath="$PROJECT_DIR$/app/release/app-release.aab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/release/app-release.apk" beforeDir="false" afterPath="$PROJECT_DIR$/app/release/app-release.apk" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/release/output-metadata.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/release/output-metadata.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build/ios/Pods.build/Release-iphonesimulator/FMDB.build/dgph" beforeDir="false" afterPath="$PROJECT_DIR$/../build/ios/Pods.build/Release-iphonesimulator/FMDB.build/dgph" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build/ios/Pods.build/Release-iphonesimulator/Firebase.build/dgph" beforeDir="false" afterPath="$PROJECT_DIR$/../build/ios/Pods.build/Release-iphonesimulator/Firebase.build/dgph" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build/ios/Pods.build/Release-iphonesimulator/FirebaseCore.build/dgph" beforeDir="false" afterPath="$PROJECT_DIR$/../build/ios/Pods.build/Release-iphonesimulator/FirebaseCore.build/dgph" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build/ios/Pods.build/Release-iphonesimulator/FirebaseCoreInternal.build/dgph" beforeDir="false" afterPath="$PROJECT_DIR$/../build/ios/Pods.build/Release-iphonesimulator/FirebaseCoreInternal.build/dgph" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build/ios/Pods.build/Release-iphonesimulator/FirebaseDynamicLinks.build/dgph" beforeDir="false" afterPath="$PROJECT_DIR$/../build/ios/Pods.build/Release-iphonesimulator/FirebaseDynamicLinks.build/dgph" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build/ios/Pods.build/Release-iphonesimulator/Flutter.build/dgph" beforeDir="false" afterPath="$PROJECT_DIR$/../build/ios/Pods.build/Release-iphonesimulator/Flutter.build/dgph" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build/ios/Pods.build/Release-iphonesimulator/GTMSessionFetcher.build/dgph" beforeDir="false" afterPath="$PROJECT_DIR$/../build/ios/Pods.build/Release-iphonesimulator/GTMSessionFetcher.build/dgph" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build/ios/Pods.build/Release-iphonesimulator/Google-Mobile-Ads-SDK.build/dgph" beforeDir="false" afterPath="$PROJECT_DIR$/../build/ios/Pods.build/Release-iphonesimulator/Google-Mobile-Ads-SDK.build/dgph" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build/ios/Pods.build/Release-iphonesimulator/GoogleAppMeasurement.build/dgph" beforeDir="false" afterPath="$PROJECT_DIR$/../build/ios/Pods.build/Release-iphonesimulator/GoogleAppMeasurement.build/dgph" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build/ios/Pods.build/Release-iphonesimulator/GoogleDataTransport.build/dgph" beforeDir="false" afterPath="$PROJECT_DIR$/../build/ios/Pods.build/Release-iphonesimulator/GoogleDataTransport.build/dgph" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build/ios/Pods.build/Release-iphonesimulator/GoogleMLKit.build/dgph" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build/ios/Pods.build/Release-iphonesimulator/GoogleToolboxForMac.build/dgph" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build/ios/Pods.build/Release-iphonesimulator/GoogleUserMessagingPlatform.build/dgph" beforeDir="false" afterPath="$PROJECT_DIR$/../build/ios/Pods.build/Release-iphonesimulator/GoogleUserMessagingPlatform.build/dgph" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build/ios/Pods.build/Release-iphonesimulator/GoogleUtilities.build/dgph" beforeDir="false" afterPath="$PROJECT_DIR$/../build/ios/Pods.build/Release-iphonesimulator/GoogleUtilities.build/dgph" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build/ios/Pods.build/Release-iphonesimulator/GoogleUtilitiesComponents.build/dgph" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build/ios/Pods.build/Release-iphonesimulator/MLImage.build/dgph" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build/ios/Pods.build/Release-iphonesimulator/MLKitBarcodeScanning.build/dgph" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build/ios/Pods.build/Release-iphonesimulator/MLKitCommon.build/dgph" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build/ios/Pods.build/Release-iphonesimulator/MLKitVision.build/dgph" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build/ios/Pods.build/Release-iphonesimulator/MTBBarcodeScanner.build/dgph" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build/ios/Pods.build/Release-iphonesimulator/OrderedSet.build/dgph" beforeDir="false" afterPath="$PROJECT_DIR$/../build/ios/Pods.build/Release-iphonesimulator/OrderedSet.build/dgph" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build/ios/Pods.build/Release-iphonesimulator/Pods-Runner.build/dgph" beforeDir="false" afterPath="$PROJECT_DIR$/../build/ios/Pods.build/Release-iphonesimulator/Pods-Runner.build/dgph" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build/ios/Pods.build/Release-iphonesimulator/PromisesObjC.build/dgph" beforeDir="false" afterPath="$PROJECT_DIR$/../build/ios/Pods.build/Release-iphonesimulator/PromisesObjC.build/dgph" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build/ios/Pods.build/Release-iphonesimulator/Protobuf.build/dgph" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build/ios/Pods.build/Release-iphonesimulator/Toast.build/dgph" beforeDir="false" afterPath="$PROJECT_DIR$/../build/ios/Pods.build/Release-iphonesimulator/Toast.build/dgph" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build/ios/Pods.build/Release-iphonesimulator/firebase_core.build/dgph" beforeDir="false" afterPath="$PROJECT_DIR$/../build/ios/Pods.build/Release-iphonesimulator/firebase_core.build/dgph" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build/ios/Pods.build/Release-iphonesimulator/firebase_dynamic_links.build/dgph" beforeDir="false" afterPath="$PROJECT_DIR$/../build/ios/Pods.build/Release-iphonesimulator/firebase_dynamic_links.build/dgph" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build/ios/Pods.build/Release-iphonesimulator/flutter_inappwebview.build/dgph" beforeDir="false" afterPath="$PROJECT_DIR$/../build/ios/Pods.build/Release-iphonesimulator/flutter_inappwebview.build/dgph" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build/ios/Pods.build/Release-iphonesimulator/flutter_keyboard_visibility.build/dgph" beforeDir="false" afterPath="$PROJECT_DIR$/../build/ios/Pods.build/Release-iphonesimulator/flutter_keyboard_visibility.build/dgph" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build/ios/Pods.build/Release-iphonesimulator/flutter_local_notifications.build/dgph" beforeDir="false" afterPath="$PROJECT_DIR$/../build/ios/Pods.build/Release-iphonesimulator/flutter_local_notifications.build/dgph" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build/ios/Pods.build/Release-iphonesimulator/flutter_native_splash.build/dgph" beforeDir="false" afterPath="$PROJECT_DIR$/../build/ios/Pods.build/Release-iphonesimulator/flutter_native_splash.build/dgph" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build/ios/Pods.build/Release-iphonesimulator/flutter_phone_direct_caller.build/dgph" beforeDir="false" afterPath="$PROJECT_DIR$/../build/ios/Pods.build/Release-iphonesimulator/flutter_phone_direct_caller.build/dgph" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build/ios/Pods.build/Release-iphonesimulator/flutter_share.build/dgph" beforeDir="false" afterPath="$PROJECT_DIR$/../build/ios/Pods.build/Release-iphonesimulator/flutter_share.build/dgph" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build/ios/Pods.build/Release-iphonesimulator/fluttertoast.build/dgph" beforeDir="false" afterPath="$PROJECT_DIR$/../build/ios/Pods.build/Release-iphonesimulator/fluttertoast.build/dgph" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build/ios/Pods.build/Release-iphonesimulator/geocoding_ios.build/dgph" beforeDir="false" afterPath="$PROJECT_DIR$/../build/ios/Pods.build/Release-iphonesimulator/geocoding_ios.build/dgph" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build/ios/Pods.build/Release-iphonesimulator/geolocator_apple.build/dgph" beforeDir="false" afterPath="$PROJECT_DIR$/../build/ios/Pods.build/Release-iphonesimulator/geolocator_apple.build/dgph" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build/ios/Pods.build/Release-iphonesimulator/google_mobile_ads.build/dgph" beforeDir="false" afterPath="$PROJECT_DIR$/../build/ios/Pods.build/Release-iphonesimulator/google_mobile_ads.build/dgph" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build/ios/Pods.build/Release-iphonesimulator/image_picker_ios.build/dgph" beforeDir="false" afterPath="$PROJECT_DIR$/../build/ios/Pods.build/Release-iphonesimulator/image_picker_ios.build/dgph" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build/ios/Pods.build/Release-iphonesimulator/mobile_scanner.build/dgph" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build/ios/Pods.build/Release-iphonesimulator/nanopb.build/dgph" beforeDir="false" afterPath="$PROJECT_DIR$/../build/ios/Pods.build/Release-iphonesimulator/nanopb.build/dgph" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build/ios/Pods.build/Release-iphonesimulator/package_info_plus.build/dgph" beforeDir="false" afterPath="$PROJECT_DIR$/../build/ios/Pods.build/Release-iphonesimulator/package_info_plus.build/dgph" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build/ios/Pods.build/Release-iphonesimulator/path_provider_foundation.build/dgph" beforeDir="false" afterPath="$PROJECT_DIR$/../build/ios/Pods.build/Release-iphonesimulator/path_provider_foundation.build/dgph" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build/ios/Pods.build/Release-iphonesimulator/permission_handler_apple.build/dgph" beforeDir="false" afterPath="$PROJECT_DIR$/../build/ios/Pods.build/Release-iphonesimulator/permission_handler_apple.build/dgph" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build/ios/Pods.build/Release-iphonesimulator/qr_code_scanner.build/dgph" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build/ios/Pods.build/Release-iphonesimulator/razorpay-pod.build/dgph" beforeDir="false" afterPath="$PROJECT_DIR$/../build/ios/Pods.build/Release-iphonesimulator/razorpay-pod.build/dgph" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build/ios/Pods.build/Release-iphonesimulator/razorpay_flutter.build/dgph" beforeDir="false" afterPath="$PROJECT_DIR$/../build/ios/Pods.build/Release-iphonesimulator/razorpay_flutter.build/dgph" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build/ios/Pods.build/Release-iphonesimulator/share.build/dgph" beforeDir="false" afterPath="$PROJECT_DIR$/../build/ios/Pods.build/Release-iphonesimulator/share.build/dgph" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build/ios/Pods.build/Release-iphonesimulator/shared_preferences_foundation.build/dgph" beforeDir="false" afterPath="$PROJECT_DIR$/../build/ios/Pods.build/Release-iphonesimulator/shared_preferences_foundation.build/dgph" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build/ios/Pods.build/Release-iphonesimulator/sqflite.build/dgph" beforeDir="false" afterPath="$PROJECT_DIR$/../build/ios/Pods.build/Release-iphonesimulator/sqflite.build/dgph" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build/ios/Pods.build/Release-iphonesimulator/store_redirect.build/dgph" beforeDir="false" afterPath="$PROJECT_DIR$/../build/ios/Pods.build/Release-iphonesimulator/store_redirect.build/dgph" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build/ios/Pods.build/Release-iphonesimulator/url_launcher_ios.build/dgph" beforeDir="false" afterPath="$PROJECT_DIR$/../build/ios/Pods.build/Release-iphonesimulator/url_launcher_ios.build/dgph" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build/ios/Pods.build/Release-iphonesimulator/webview_flutter_wkwebview.build/dgph" beforeDir="false" afterPath="$PROJECT_DIR$/../build/ios/Pods.build/Release-iphonesimulator/webview_flutter_wkwebview.build/dgph" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/Podfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/Podfile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/Runner.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/Runner.xcodeproj/project.pbxproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lib/constants/Constant.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../lib/constants/Constant.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lib/controllers/addandsell/add_and_sell_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../lib/controllers/addandsell/add_and_sell_controller.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lib/controllers/banking/banking_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../lib/controllers/banking/banking_controller.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lib/controllers/cart/cart_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../lib/controllers/cart/cart_controller.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lib/controllers/category/category_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../lib/controllers/category/category_controller.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lib/controllers/category/sub_cat_brwse_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../lib/controllers/category/sub_cat_brwse_controller.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lib/controllers/category/sub_category_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../lib/controllers/category/sub_category_controller.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lib/controllers/export/buyes_availability_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../lib/controllers/export/buyes_availability_controller.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lib/controllers/export/buyes_requirement_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../lib/controllers/export/buyes_requirement_controller.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lib/controllers/export/seller_availabel_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../lib/controllers/export/seller_availabel_controller.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lib/controllers/home/home_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../lib/controllers/home/home_controller.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lib/controllers/login/login_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../lib/controllers/login/login_controller.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lib/controllers/meridhukaan/add_user_action_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../lib/controllers/meridhukaan/add_user_action_controller.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lib/controllers/meridhukaan/boost_product_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../lib/controllers/meridhukaan/boost_product_controller.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lib/controllers/meridhukaan/enqury_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../lib/controllers/meridhukaan/enqury_controller.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lib/controllers/meridhukaan/meri_dukaan_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../lib/controllers/meridhukaan/meri_dukaan_controller.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lib/controllers/meridhukaan/my_product_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../lib/controllers/meridhukaan/my_product_controller.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lib/controllers/meridhukaan/total_training_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../lib/controllers/meridhukaan/total_training_controller.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lib/controllers/meridhukaan/user_dashboard_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../lib/controllers/meridhukaan/user_dashboard_controller.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lib/controllers/news/news_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../lib/controllers/news/news_controller.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lib/controllers/orders/customer_order_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../lib/controllers/orders/customer_order_controller.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lib/controllers/orders/order_details_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../lib/controllers/orders/order_details_controller.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lib/controllers/orders/vendor_order_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../lib/controllers/orders/vendor_order_controller.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lib/controllers/product/product_list_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../lib/controllers/product/product_list_controller.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lib/controllers/product/product_search_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../lib/controllers/product/product_search_controller.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lib/controllers/profile_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../lib/controllers/profile_controller.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lib/controllers/splash/force_update_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../lib/controllers/splash/force_update_controller.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lib/controllers/testimonial/testimonial_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../lib/controllers/testimonial/testimonial_controller.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lib/controllers/training/training_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../lib/controllers/training/training_controller.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lib/controllers/userdashboard/user_dashboard_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../lib/controllers/userdashboard/user_dashboard_controller.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lib/data/preferences/shared_preferences.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../lib/data/preferences/shared_preferences.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lib/generated_plugin_registrant.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lib/models/login/LoginData.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../lib/models/login/LoginData.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lib/ui/base/page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../lib/ui/base/page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lib/ui/commonwidget/login_image_carousel.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../lib/ui/commonwidget/login_image_carousel.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lib/ui/module/category/subcategory/widget/sub_best_sellar_card.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../lib/ui/module/category/subcategory/widget/sub_best_sellar_card.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lib/ui/module/category/subcategory/widget/sub_category_card.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../lib/ui/module/category/subcategory/widget/sub_category_card.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lib/ui/module/category/subcategory/widget/sub_category_similler_card.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../lib/ui/module/category/subcategory/widget/sub_category_similler_card.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lib/ui/module/home/home.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../lib/ui/module/home/home.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lib/ui/module/home/tab/dashboard.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../lib/ui/module/home/tab/dashboard.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lib/ui/module/login/login_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../lib/ui/module/login/login_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lib/ui/module/product/product_detail.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../lib/ui/module/product/product_detail.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lib/ui/module/product/product_similler_detail.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../lib/ui/module/product/product_similler_detail.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lib/ui/module/profile/profile_list.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../lib/ui/module/profile/profile_list.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../pubspec.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../splash_screen/linux/flutter/generated_plugin_registrant.cc" beforeDir="false" afterPath="$PROJECT_DIR$/../splash_screen/linux/flutter/generated_plugin_registrant.cc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../splash_screen/linux/flutter/generated_plugin_registrant.h" beforeDir="false" afterPath="$PROJECT_DIR$/../splash_screen/linux/flutter/generated_plugin_registrant.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../splash_screen/linux/flutter/generated_plugins.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../splash_screen/linux/flutter/generated_plugins.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../splash_screen/macos/Flutter/GeneratedPluginRegistrant.swift" beforeDir="false" afterPath="$PROJECT_DIR$/../splash_screen/macos/Flutter/GeneratedPluginRegistrant.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../splash_screen/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../splash_screen/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../splash_screen/windows/flutter/generated_plugin_registrant.cc" beforeDir="false" afterPath="$PROJECT_DIR$/../splash_screen/windows/flutter/generated_plugin_registrant.cc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../splash_screen/windows/flutter/generated_plugin_registrant.h" beforeDir="false" afterPath="$PROJECT_DIR$/../splash_screen/windows/flutter/generated_plugin_registrant.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../splash_screen/windows/flutter/generated_plugins.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../splash_screen/windows/flutter/generated_plugins.cmake" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[/Users/apple/.android/avd/Pixel_2_API_31.avd]" />
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="GenerateSignedApkSettings">
+    <option name="EXPORT_PRIVATE_KEY" value="false" />
+    <option name="KEY_STORE_PATH" value="$PROJECT_DIR$/../../../../../key/f2df_key" />
+    <option name="KEY_ALIAS" value="key0" />
+    <option name="REMEMBER_PASSWORDS" value="true" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2djcRISs6MLidAuy9RPGwqUiCPd" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="BundleExportedModule" value="android.app" />
+    <property name="ExportApk.ApkPath" value="$PROJECT_DIR$/app" />
+    <property name="ExportApk.BuildVariants" value="release" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="RunOnceActivity.cidr.known.project.marker" value="true" />
+    <property name="cidr.known.project.marker" value="true" />
+    <property name="dart.analysis.tool.window.visible" value="false" />
+    <property name="show.migrate.to.gradle.popup" value="false" />
+  </component>
+  <component name="RunManager">
+    <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App">
+      <module name="android.app.main" />
+      <option name="DEPLOY" value="true" />
+      <option name="DEPLOY_APK_FROM_BUNDLE" value="false" />
+      <option name="DEPLOY_AS_INSTANT" value="false" />
+      <option name="ARTIFACT_NAME" value="" />
+      <option name="PM_INSTALL_OPTIONS" value="" />
+      <option name="ALL_USERS" value="false" />
+      <option name="ALWAYS_INSTALL_WITH_PM" value="false" />
+      <option name="CLEAR_APP_STORAGE" value="false" />
+      <option name="DYNAMIC_FEATURES_DISABLED_LIST" value="" />
+      <option name="ACTIVITY_EXTRA_FLAGS" value="" />
+      <option name="MODE" value="default_activity" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
+      <option name="INSPECTION_WITHOUT_ACTIVITY_RESTART" value="false" />
+      <option name="TARGET_SELECTION_MODE" value="DEVICE_AND_SNAPSHOT_COMBO_BOX" />
+      <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="-1" />
+      <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
+      <option name="DEBUGGER_TYPE" value="Auto" />
+      <Auto>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Auto>
+      <Hybrid>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Hybrid>
+      <Java />
+      <Native>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Native>
+      <Profilers>
+        <option name="ADVANCED_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_CONFIGURATION_NAME" value="Java/Kotlin Method Sample (legacy)" />
+        <option name="STARTUP_NATIVE_MEMORY_PROFILING_ENABLED" value="false" />
+        <option name="NATIVE_MEMORY_SAMPLE_RATE_BYTES" value="2048" />
+        <option name="PROFILING_MODE" value="NOT_SET" />
+      </Profilers>
+      <option name="DEEP_LINK" value="" />
+      <option name="ACTIVITY_CLASS" value="" />
+      <option name="SEARCH_ACTIVITY_IN_GLOBAL_SCOPE" value="false" />
+      <option name="SKIP_ACTIVITY_VALIDATION" value="false" />
+      <method v="2">
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="5e33133b-76f0-4005-bcf2-d1ad385cc098" name="Changes" comment="" />
+      <created>1710524919150</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1710524919150</updated>
+    </task>
+    <servers />
+  </component>
+</project>

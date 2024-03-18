@@ -1,5 +1,6 @@
 import 'dart:io' show Platform;
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -530,9 +531,16 @@ class _HomeState extends State<Home> {
   }
 
   void getAddress() async {
-    Position position = await _getGeoLocationPosition();
-    location = 'Lat: ${position.latitude} , Long: ${position.longitude}';
-    getAddressFromLatLong(position);
+    try{
+      Position position = await _getGeoLocationPosition();
+      location = 'Lat: ${position.latitude} , Long: ${position.longitude}';
+      getAddressFromLatLong(position);
+    }catch(e){
+      if (kDebugMode) {
+        print(e);
+      }
+    }
+
   }
 }
 

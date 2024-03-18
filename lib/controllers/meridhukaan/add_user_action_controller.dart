@@ -51,7 +51,7 @@ class AddUserActionController extends BaseController {
         int.parse(qunatity));
     hideLoader();
     if (response == null) {
-      Common.showToast("Server Error!");
+      //Common.showToast("Server Error!");
       Get.find<CartController>().deleteItem(productUuid);
     }
     if (response != null && response.status == 200) {

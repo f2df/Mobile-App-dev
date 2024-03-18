@@ -72,7 +72,7 @@ class HomeController extends BaseController {
     final response = await apiServices.productListFromHomeApi(
         size: 10, page: pageNo.value, type: paramValue);
     hideLoader();
-    if (response == null) Common.showToast("Server Error!");
+    //if (response == null) Common.showToast("Server Error!");
     if (response != null &&
         response.status == 200 &&
         response.products!.isNotEmpty) {
@@ -388,7 +388,7 @@ class HomeController extends BaseController {
     final response = await apiServices.addRequirementApi(show, productName,
         name, phoneNumber, location, offerPrice, quantity, expectedDate);
     hideLoader();
-    if (response == null) Common.showToast("Server Error!");
+    //if (response == null) Common.showToast("Server Error!");
     if (response != null && response.status == 200) {
       // Common.showToast(response.message);
       showSuccessConnectDialog();

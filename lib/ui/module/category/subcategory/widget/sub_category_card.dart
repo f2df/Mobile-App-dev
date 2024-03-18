@@ -99,7 +99,13 @@ class SubCatProductCard extends BaseStateLessWidget {
                           ],
                         ),
                       )),
-                      InkWell(
+                      if ((recommdedProduct.featureDetailsValue!.isNotEmpty &&
+                          recommdedProduct.featureDetailsValue!
+                              .where((element) => element
+                              .productFeatureKey
+                              .toLowerCase()
+                              .contains("mrp"))
+                              .isNotEmpty))InkWell(
                         onTap: () {
                           if (appPreferences.isLoggedIn) {
                             controller.addItems(

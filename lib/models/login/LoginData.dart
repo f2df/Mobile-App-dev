@@ -1,5 +1,4 @@
 import 'package:mcsofttech/models/login/LoginAddress.dart';
-import 'package:mobile_scanner/mobile_scanner.dart';
 
 class LoginData {
   String createDate;

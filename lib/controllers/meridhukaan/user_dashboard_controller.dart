@@ -29,7 +29,7 @@ class UserDashboardController extends BaseController {
     final response =
         await apiServices.userDashboard(userId: appPreferences.userId);
     isLoader.value = false;
-    if (response == null) Common.showToast("Server Error!");
+    //if (response == null) Common.showToast("Server Error!");
     if (response != null && response.status == 200) {
       userDashboard = response;
       admin.value=response.admin;
@@ -40,7 +40,7 @@ class UserDashboardController extends BaseController {
     isLoader.value = true;
     final response = await apiServices.deleteProductApi(productId: productId,action:action);
     isLoader.value = false;
-    if (response == null) Common.showToast("Server Error!");
+    //if (response == null) Common.showToast("Server Error!");
     if (response != null && response.status == 200) {
       if(!(action=="BUSS DONE" || action=="PARTIAL DONE" )){
         userDashboard!.userProduct.removeAt(index);

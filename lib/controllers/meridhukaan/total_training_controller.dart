@@ -22,7 +22,7 @@ class TotalTrainingController extends BaseController {
       userId: appPreferences.userId,
     );
     isLoader.value = false;
-    if (response == null) Common.showToast("Server Error!");
+    //if (response == null) Common.showToast("Server Error!");
     if (response != null && response.status == 200) {
       trainingList = response.attendedTrainingList;
     }

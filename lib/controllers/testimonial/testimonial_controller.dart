@@ -29,7 +29,7 @@ class TestimonialController extends BaseController {
     final response =
     await apiServices.testimonialApi();
     isLoader.value=false;
-    if (response == null) Common.showToast("Server Error!");
+    //if (response == null) Common.showToast("Server Error!");
     if (response != null && response.status == 200) {
       list=response.testimonial!;
       banner=response.bannerList!;
@@ -42,7 +42,7 @@ class TestimonialController extends BaseController {
     final response =
     await apiServices.testimonialApi();
    hideLoader();
-    if (response == null) Common.showToast("Server Error!");
+    //if (response == null) Common.showToast("Server Error!");
     if (response != null && response.status == 200) {
       list=response.testimonial!;
       banner=response.bannerList!;

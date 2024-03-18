@@ -48,7 +48,7 @@ class BankingController extends BaseController {
         message: userMessageController.text.toString(),
       );
       hideLoader();
-      if (response == null) Common.showToast("Server Error!");
+      //if (response == null) Common.showToast("Server Error!");
       if (response != null && response.status == 200) {
         userNameController.text = "";
         userEmailController.text = "";
@@ -93,7 +93,7 @@ class BankingController extends BaseController {
         message: userMessageController.text.toString(),
       );
       hideLoader();
-      if (response == null) Common.showToast("Server Error!");
+      //if (response == null) Common.showToast("Server Error!");
       if (response != null && response.status == 200) {
         userNameController.text = "";
         userEmailController.text = "";

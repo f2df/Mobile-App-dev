@@ -44,7 +44,11 @@ class Dashboard extends AppPageWithAppBar {
   @override
   Widget get body {
     //Analytics.sendCurrentScreen(AnalyticsConstants.screenDashboard);
+    controller.callProductListFromHomeApi(
+        page: controller.pageNo.value, paramValue: "Home");
     setAtScroll();
+
+
     return Obx(() => controller.isLoader.value
         ? const Loader()
         : SingleChildScrollView(

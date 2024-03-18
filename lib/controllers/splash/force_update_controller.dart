@@ -32,9 +32,9 @@ class SplashController extends BaseController {
     final response =
         await apiServices.forceUpdateApi(appVersion: currentAppVersion);
     isLoader.value = false;
-    if (response == null) Common.showToast("Server Error!");
+    //if (response == null) Common.showToast("Something went wrong!");
     if (response as bool) {
-      showAlertDialog();
+      //showAlertDialog();
       return true;
     } else {
       return true;

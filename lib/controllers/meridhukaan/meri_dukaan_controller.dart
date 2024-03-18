@@ -57,7 +57,7 @@ class MeriDukaanController extends BaseController {
     final response =
         await apiServices.meriDukaanHomeApi(userId: appPreferences.userId);
     isLoader.value = false;
-    if (response == null) Common.showToast("Server Error!");
+    //if (response == null) Common.showToast("Server Error!");
     if (response != null && response.status == "OK") {
       meriDukaanModel = response;
       companyNameController.text = meriDukaanModel?.dukanDetails?.name ?? "";
@@ -100,11 +100,11 @@ class MeriDukaanController extends BaseController {
         url:
             "${Constant.webViewBaseUrl}/my-online-dukan/${myCompanyUrlController.text}");
     hideLoader();
-    if (response == null) Common.showToast("Server Error!");
+    //if (response == null) Common.showToast("Server Error!");
     if (response != null && response.status == "200") {
       Common.showToast(response.message);
     } else {
-      Common.showToast(response?.message ?? "Server Error!");
+      Common.showToast(response?.message ?? "Something went wrong!");
     }
   }
 
@@ -140,7 +140,7 @@ class MeriDukaanController extends BaseController {
         yearOfEstController.text,
         profilePicUrl.value);
     hideLoader();
-    if (response == null) Common.showToast("Server Error!");
+    if (response == null) Common.showToast("Something went wrong!");
     if (response != null) {
       Get.back();
       Common.showToast(response.message);
@@ -152,7 +152,7 @@ class MeriDukaanController extends BaseController {
     final response =
         await apiServices.productListForApi(userId: appPreferences.userId);
     isProductLoader.value = false;
-    if (response == null) Common.showToast("Server Error!");
+    if (response == null) Common.showToast("Something went wrong!");
     if (response != null && response.status == 200) {
       if (response.products!.isNotEmpty) {
         productSetList = response.products;
@@ -214,7 +214,7 @@ class MeriDukaanController extends BaseController {
         userId: appPreferences.userId,
         fileName: "userImage");
     hideLoader();
-    if (response == null) Common.showToast("Server Error!");
+    if (response == null) Common.showToast("Something went wrong!");
     if (response?.status == 200) {
       profilePicUrl.value = response!.data;
       imageUrl.value = response.data;

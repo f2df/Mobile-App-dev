@@ -37,7 +37,7 @@ class SubCategoryController extends BaseController {
     isLoader.value = true;
     final response = await apiServices.subCategoryListApi(catId: catId);
     isLoader.value = false;
-    if (response == null) Common.showToast("Server Error!");
+    //if (response == null) Common.showToast("Server Error!");
     if (response != null && response.status == 200) {
       subCategoryDataList.clear();
       if (response.data != null) {
@@ -59,7 +59,7 @@ class SubCategoryController extends BaseController {
     final response = await apiServices.categoryProductListApi(
         catId: catId, page: pageNo, size: 10);
     hideLoader();
-    if (response == null) Common.showToast("Server Error!");
+    //if (response == null) Common.showToast("Server Error!");
     if (response != null &&
         response.status == 200 &&
         response.products!.isNotEmpty) {

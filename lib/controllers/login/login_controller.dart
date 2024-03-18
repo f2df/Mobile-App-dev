@@ -9,10 +9,12 @@ import 'package:mcsofttech/ui/module/login/otp_page.dart';
 import 'package:mcsofttech/ui/module/profile/profile_list.dart';
 import 'package:mcsofttech/ui/module/profile/profile_page.dart';
 import 'package:mcsofttech/utils/analytics.dart';
+import '../../data/network/apiservices/splash_api_service.dart';
 import '../../utils/common_util.dart';
 
 class LoginController extends BaseController {
   final apiServices = Get.put(LoginApiServices());
+  final apiServicesUpdate = Get.put(SplashApiServices());
   final appPreferences = Get.find<AppPreferences>();
   final mobileController = TextEditingController();
   final referralCodeController = TextEditingController();
@@ -23,6 +25,7 @@ class LoginController extends BaseController {
   final type = "mobile";
   final isLoader = false.obs;
   late LoginData loginModel;
+  final isUpdateLoader =false.obs;
 
   void callLoginApi(
       {mobile, loginId, username, email, type, termAndCondition}) async {
@@ -39,7 +42,7 @@ class LoginController extends BaseController {
       final response =
           await apiServices.loginApi(mobile, loginId, termAndCondition);
       hideLoader();
-      if (response == null) Common.showToast("Server Error!");
+      //if (response == null) Common.showToast("Server Error!");
       if (response != null &&
           response.status == 200 &&
           response.loginData != null) {
@@ -77,7 +80,7 @@ class LoginController extends BaseController {
         true,
       );
       hideLoader();
-      if (response == null) Common.showToast("Server Error!");
+      //if (response == null) Common.showToast("Server Error!");
       if (response != null &&
           response.status == 200 &&
           response.loginData != null) {
@@ -143,5 +146,21 @@ class LoginController extends BaseController {
       return false;
     }
     return true;
+  }
+  Future<bool> callForceUpdateApi() async {
+    String currentAppVersion = "36";
+    isUpdateLoader.value = true;
+    await Common.getAppCurrentVersion()
+        .then((value) => currentAppVersion = value);
+    final response =
+    await apiServicesUpdate.forceUpdateApi(appVersion: currentAppVersion);
+    isUpdateLoader.value = false;
+    //if (response == null) Common.showToast("Something went wrong!");
+    if (response as bool) {
+      //showAlertDialog();
+      return true;
+    } else {
+      return true;
+    }
   }
 }

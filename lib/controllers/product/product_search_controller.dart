@@ -40,7 +40,7 @@ class ProductSearchController extends BaseController {
     final response = await apiServices.productSearchApi(
         size: 10, page: pageNo.value, search: search);
     isLoaderForProduct.value=false;
-    if (response == null) Common.showToast("Server Error!");
+    //if (response == null) Common.showToast("Server Error!");
     if (response != null &&
         response.status == 200 &&
         response.products!.isNotEmpty) {

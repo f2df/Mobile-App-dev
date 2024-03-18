@@ -22,7 +22,7 @@ class BuyerAvailabilityController extends BaseController {
     isLoader.value = true;
     final response = await apiServices.buyerRequirementApi();
     isLoader.value = false;
-    if (response == null) Common.showToast("Server Error!");
+   // if (response == null) Common.showToast("Server Error!");
     if (response != null && response.status == 200) {
       buyerList.value = response.cat;
     }
@@ -49,7 +49,7 @@ class BuyerAvailabilityController extends BaseController {
     final response = await apiServices.addRequirementApi(show, productName,
         name, phoneNumber, location, offerPrice, quantity, expectedDate);
     hideLoader();
-    if (response == null) Common.showToast("Server Error!");
+    //if (response == null) Common.showToast("Server Error!");
     if (response != null && response.status == 200) {
       // Common.showToast(response.message);
       showSuccessConnectDialog();

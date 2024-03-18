@@ -25,7 +25,7 @@ class CartController extends BaseController {
         productId: productId, quantity: quantity);
     hideLoader();
 
-    if (response == null) Common.showToast("Server Error!");
+    //if (response == null) Common.showToast("Server Error!");
     if (response != null && response.status == 200) {
       updateresponse();
     }
@@ -37,7 +37,7 @@ class CartController extends BaseController {
         productId: productId, quantity: quantity);
     hideLoader();
 
-    if (response == null) Common.showToast("Server Error!");
+    //if (response == null) Common.showToast("Server Error!");
     if (response != null && response.status == 200) {
       updateresponse();
     }
@@ -48,7 +48,7 @@ class CartController extends BaseController {
     final response = await apiServices.decreaseQuantityApi(
         productId: productId, quantity: quantity);
     hideLoader();
-    if (response == null) Common.showToast("Server Error!");
+    //if (response == null) Common.showToast("Server Error!");
     if (response != null && response.status == 200) {
       updateresponse();
     }
@@ -58,7 +58,7 @@ class CartController extends BaseController {
     showLoader();
     final response = await apiServices.deleteProductApi(cartUuid: cartUuid);
     hideLoader();
-    if (response == null) Common.showToast("Server Error!");
+    //if (response == null) Common.showToast("Server Error!");
     if (response != null && response.status == 200) {
       updateresponse();
     }

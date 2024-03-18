@@ -843,9 +843,7 @@ class ProductSimilarDetail extends AppPageWithAppBar {
                   color: MyColors.themeColor,
                   textColor: Colors.white,
                   shape: const CircleBorder(),
-                  child: const Icon(
-                    Icons.account_box,
-                  ),
+                  child:  SvgPicture.asset("assets/png/icon_chat_app.svg"),
                 ),
               ),
             )),

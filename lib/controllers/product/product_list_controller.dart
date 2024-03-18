@@ -37,7 +37,7 @@ class ProductController extends BaseController {
     final response =
         await apiServices.productListDetailApi(productId: productId);
     isLoader.value = false;
-    if (response == null) Common.showToast("Server Error!");
+    if (response == null) Common.showToast("Something went wrong!");
     if (response != null && response.status == "OK") {
       productSimilerDetailList.value = response.simillarProduct;
       productUserDetailList.value = response.userProduct;
@@ -49,7 +49,7 @@ class ProductController extends BaseController {
     final response = await apiServices.productListFromSubCatApi(
         size: 10, page: page, pscId: pscIdValue);
     isLoader.value = false;
-    if (response == null) Common.showToast("Server Error!");
+    if (response == null) Common.showToast("Something went wrong!");
     if (response != null &&
         response.status == 200 &&
         response.products!.isNotEmpty) {
@@ -69,7 +69,7 @@ class ProductController extends BaseController {
     final response = await apiServices.productListFromHomeApi(
         size: 10, page: pageNo.value, type: paramValue);
     isLoaderForProduct.value = false;
-    if (response == null) Common.showToast("Server Error!");
+    //if (response == null) Common.showToast("Server Error!");
     if (response != null &&
         response.status == 200 &&
         response.products!.isNotEmpty) {
@@ -89,7 +89,7 @@ class ProductController extends BaseController {
     final response = await apiServices.productListFromCateIdApi(
         size: 10, page: pageNo.value, catId: catId);
     isLoader.value = false;
-    if (response == null) Common.showToast("Server Error!");
+    //if (response == null) Common.showToast("Server Error!");
     if (response != null &&
         response.status == 200 &&
         response.products!.isNotEmpty) {
@@ -109,7 +109,7 @@ class ProductController extends BaseController {
     final response = await apiServices.productSearchApi(
         size: 10, page: pageNo.value, search: search);
     isLoaderForProduct.value=false;
-    if (response == null) Common.showToast("Server Error!");
+    //if (response == null) Common.showToast("Server Error!");
     if (response != null &&
         response.status == 200 &&
         response.products!.isNotEmpty) {

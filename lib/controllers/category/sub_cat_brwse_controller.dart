@@ -13,7 +13,7 @@ class SubCatBrowseController extends BaseController {
     isSubCatListLoader.value = true;
     final response = await apiServices.subCategoryBrowseListApi(catId: catId);
     isSubCatListLoader.value = false;
-    if (response == null) Common.showToast("Server Error!");
+    //if (response == null) Common.showToast("Server Error!");
     if (response != null && response.status == 200) {
       //  subCatBrowseList.clear();
 

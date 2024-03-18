@@ -25,7 +25,7 @@ class MyProductController extends BaseController {
     final response =
         await apiServices.productListForApi(userId: appPreferences.userId);
     isProductLoader.value = false;
-    if (response == null) Common.showToast("Server Error!");
+    if (response == null) Common.showToast("Something went wrong!");
     if (response != null && response.status == 200) {
       if (response.products!.isNotEmpty) {
         productSetList = response.products;

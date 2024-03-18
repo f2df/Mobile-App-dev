@@ -64,7 +64,7 @@ class AddAndSellController extends BaseController {
     final response =
         await apiServices.categoryListApi(productType: type ?? "Sell");
 
-    if (response == null) Common.showToast("Server Error!");
+    //if (response == null) Common.showToast("Server Error!");
     if (response != null &&
         response.status == 200 &&
         response.categoryData!.isNotEmpty) {
@@ -129,7 +129,7 @@ class AddAndSellController extends BaseController {
         productImage2.value,
         userId);
     isLoader.value = false;
-    if (response == null) Common.showToast("Server Error!");
+    //if (response == null) Common.showToast("Server Error!");
     if (response != null && response.status == 200) {
       Common.showToast(response.message);
       Home.start(0);

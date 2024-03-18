@@ -21,30 +21,30 @@ class _CarouselState extends State<LoginCarousel> {
   void initState() {
     super.initState();
     _pageController = PageController(viewportFraction: 1.0, initialPage: 0);
+    try {
+      Future.delayed(Duration.zero, () async {
+        Timer.periodic(const Duration(seconds: 2), (Timer timer) {
+          if (activePage == 2) {
+            end = true;
+          } else if (activePage == 0) {
+            end = false;
+          }
+          if (end == false) {
+            activePage++;
+          } else {
+            activePage--;
+          }
+          if (_pageController.hasListeners) {
+            _pageController.animateToPage(
+              activePage,
+              duration: const Duration(milliseconds: 1000),
+              curve: Curves.easeIn,
+            );
+          }
 
-    Future.delayed(Duration.zero, () async {
-
-      Timer.periodic(const Duration(seconds: 2), (Timer timer) {
-        if (activePage == 2) {
-          end = true;
-        } else if (activePage == 0) {
-          end = false;
-        }
-        if (end == false) {
-          activePage++;
-        } else {
-          activePage--;
-        }
-        _pageController.animateToPage(
-          activePage,
-          duration: const Duration(milliseconds: 1000),
-          curve: Curves.easeIn,
-        );
-      })
-      ;
-    });
-
-
+        });
+      });
+    } catch (e) {}
   }
 
   @override

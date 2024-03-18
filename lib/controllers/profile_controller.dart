@@ -141,7 +141,7 @@ class ProfileController extends BaseController {
         city: addressDistrictCodeController.text,
         pincode: addressLinePinCodeController.text);
     hideLoader();
-    if (response == null) Common.showToast("Server Error!");
+    if (response == null) Common.showToast("Something went wrong!");
     if (response!.status == 200) {
       appPreferences.saveAddress(
           "${userNameController.text}, ${addressLine1Controller.text} ${addressLine2Controller.text} ${addressDistrictCodeController.text} ${addressStateCodeController.text} ${addressLinePinCodeController.text} ${addressStateCodeController.text}");
@@ -160,7 +160,7 @@ class ProfileController extends BaseController {
         userId: appPreferences.userId,
         fileName: "userImage");
     hideLoader();
-    if (response == null) Common.showToast("Server Error!");
+    if (response == null) Common.showToast("Something went wrong!");
     if (response?.status == 200) {
       profilePicUrl.value = response!.data;
       imageUrl.value = response.data;
@@ -174,7 +174,7 @@ class ProfileController extends BaseController {
     isLoader.value = true;
     final response = await _apiService.getProfileApi(id: appPreferences.userId);
     isLoader.value = false;
-    if (response == null) Common.showToast("Server Error!");
+    if (response == null) Common.showToast("Something went wrong!");
     if (response != null &&
         response.status == 200 &&
         response.loginData != null) {

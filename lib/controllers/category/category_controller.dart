@@ -30,7 +30,7 @@ class CategoryController extends BaseController {
     pageNo.value == 0 ? isLoader.value = true : isLoader.value = false;
     final response = await apiServices.categoryListApi(size: 30, page: page);
     isLoader.value = false;
-    if (response == null) Common.showToast("Server Error!");
+    //if (response == null) Common.showToast("Server Error!");
     if (response != null &&
         response.status == 200 &&
         response.categoryData!.isNotEmpty) {

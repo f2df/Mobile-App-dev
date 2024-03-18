@@ -22,7 +22,7 @@ class EnquiryController extends BaseController {
     final response =
         await apiServices.enquiryApi(userId: appPreferences.userId,productType:"Enquiry");
     isLoader.value = false;
-    if (response == null) Common.showToast("Server Error!");
+    //if (response == null) Common.showToast("Server Error!");
     if (response != null && response.status == 200) {
       enquiryList=response.equiryList;
     }else{

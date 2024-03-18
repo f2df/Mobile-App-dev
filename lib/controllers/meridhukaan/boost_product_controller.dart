@@ -18,7 +18,7 @@ class BoostProductController extends BaseController {
     final response = await apiServices.boostApi(
         productId, paymentSuccessResponse, appPreferences.userId);
     hideLoader();
-    if (response == null) Common.showToast("Server Error!");
+    //if (response == null) Common.showToast("Server Error!");
     if (response != null && response.status == 200) {
       Common.showToast(response.message);
     } else {

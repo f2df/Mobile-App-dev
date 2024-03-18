@@ -157,7 +157,7 @@ class AppPageWithAppBar extends AppPage {
   }
   @override
   Widget build(BuildContext context) {
-    DynamicLinksApi().initDynamicLinks(context);
+    //DynamicLinksApi().initDynamicLinks(context);
     Widget content = Scaffold(
       appBar: appBar,
       body: body,

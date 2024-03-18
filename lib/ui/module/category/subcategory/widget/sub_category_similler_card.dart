@@ -102,7 +102,13 @@ class SubCatProductSimillerCard extends BaseStateLessWidget {
                           ],
                         ),
                       )),
-                      Padding(
+                      if ((recommdedProduct.featureDetailsValue!.isNotEmpty &&
+                          recommdedProduct.featureDetailsValue!
+                              .where((element) => element
+                              .productFeatureKey
+                              .toLowerCase()
+                              .contains("mrp"))
+                              .isNotEmpty))Padding(
                         padding: const EdgeInsets.only(bottom: 5),
                         child: SvgPicture.asset("assets/svg/ic_pluse_icon.svg",
                             semanticsLabel: 'Acme Logo'),

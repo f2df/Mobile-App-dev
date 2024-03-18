@@ -37,10 +37,19 @@
             {
               "client_id": "29151504230-4dkqh4hc5takf9gqv2igeapnbk72hmv1.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "29151504230-bjei82shassc1c0cg4saa6n9krtitg1r.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.f2df.mcsofttech",
+                "app_store_id": "1664128046"
+              }
             }
           ]
         }
-      }
+      },
+      "admob_app_id": "ca-app-pub-2745352869491766~2337656285"
     }
   ],
   "configuration_version": "1"
