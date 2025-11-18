@@ -1,7 +1,10 @@
 import 'dart:convert';
 
+import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
+import 'package:get/get.dart';
 import 'package:get/get_connect/http/src/response/response.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:mcsofttech/data/preferences/shared_preferences.dart';
 import 'package:mcsofttech/models/cart/new_order.dart';
 import 'package:mcsofttech/models/meridukaan/userdashboard/Equiry.dart';
@@ -10,11 +13,12 @@ import 'package:mcsofttech/models/productDetail/product_detail_model.dart';
 
 import '../../../constants/Constant.dart';
 import '../../../utils/common_util.dart';
+import '../../preferences/AppPreferences.dart';
 import '../dio_client.dart';
 
 class CartApiServices extends DioClient {
   final client = DioClient.client;
-
+  final appPreferences = Get.find<AppPreferences>();
   Future<CommonModel?> addToCartApi({productId, quantity}) async {
     var inputData = {
       "productId": productId,
@@ -24,6 +28,11 @@ class CartApiServices extends DioClient {
     debugPrint('inputData: $inputData');
     try {
       final response = await client.post(
+        options: Options(
+          headers: {
+            "Authorization": "Bearer ${appPreferences.authToken}",
+          },
+        ),
         "${Constant.baseUrl}/api/cart/add",
         data: jsonEncode(inputData),
       );
@@ -51,6 +60,11 @@ class CartApiServices extends DioClient {
 
     try {
       final response = await client.post(
+        options: Options(
+          headers: {
+            "Authorization": "Bearer ${appPreferences.authToken}",
+          },
+        ),
         "${Constant.baseUrl}/api/cart/increase",
         data: jsonEncode(inputData),
       );
@@ -78,6 +92,11 @@ class CartApiServices extends DioClient {
 
     try {
       final response = await client.post(
+        options: Options(
+          headers: {
+            "Authorization": "Bearer ${appPreferences.authToken}",
+          },
+        ),
         "${Constant.baseUrl}/api/cart/decrease",
         data: jsonEncode(inputData),
       );
@@ -98,6 +117,11 @@ class CartApiServices extends DioClient {
   Future<CommonModel?> deleteProductApi({cartUuid}) async {
     try {
       final response = await client.delete(
+        options: Options(
+          headers: {
+            "Authorization": "Bearer ${appPreferences.authToken}",
+          },
+        ),
         "${Constant.baseUrl}/api/cart/delete/${cartUuid}",
       );
       if (kDebugMode) {
@@ -116,8 +140,15 @@ class CartApiServices extends DioClient {
 
   Future<CartListResponse?> getCartList() async {
     try {
+
       final response = await client.get(
-        "${Constant.baseUrl}/api/cart/list/${SharedConfig.userId}",
+        options: Options(
+          headers: {
+            "Authorization": "Bearer ${appPreferences.authToken}",
+          },
+        ),
+        "${Constant.baseUrl}/api/cart/list/${appPreferences.userId}",
+
       );
       if (kDebugMode) {
         print('outPut: ${response.data}');
@@ -137,7 +168,7 @@ class CartApiServices extends DioClient {
       {List<Map<String, dynamic>>? orderItems}) async {
     var inputData = {
       "userId": SharedConfig.userId,
-      "shippingAddressId": 1,
+      "shippingAddressId": SharedConfig.shippingAddressId,
       "orderItems": orderItems
       // [
       //     {
@@ -151,6 +182,11 @@ class CartApiServices extends DioClient {
     NewOrderResponse? newOrder;
     try {
       final response = await client.post(
+        options: Options(
+          headers: {
+            "Authorization": "Bearer ${appPreferences.authToken}",
+          },
+        ),
         "${Constant.baseUrl}/api/orders/create",
         data: jsonEncode(inputData),
       );
@@ -171,6 +207,11 @@ class CartApiServices extends DioClient {
   Future<CommonModel?> acceptDukanOrderApi({orderUuid}) async {
     try {
       final response = await client.get(
+        options: Options(
+          headers: {
+            "Authorization": "Bearer ${appPreferences.authToken}",
+          },
+        ),
         "${Constant.baseUrl}/api/orders/accept-dukan-order/$orderUuid",
       );
       if (kDebugMode) {
@@ -190,6 +231,11 @@ class CartApiServices extends DioClient {
   Future<CommonModel?> rejectDukanOrderApi({orderUuid}) async {
     try {
       final response = await client.get(
+        options: Options(
+          headers: {
+            "Authorization": "Bearer ${appPreferences.authToken}",
+          },
+        ),
         "${Constant.baseUrl}/api/orders/reject-dukan-order/$orderUuid",
       );
       if (kDebugMode) {
@@ -209,6 +255,11 @@ class CartApiServices extends DioClient {
   Future<CommonModel?> cancelUserOrderApi({orderUuid}) async {
     try {
       final response = await client.get(
+        options: Options(
+          headers: {
+            "Authorization": "Bearer ${appPreferences.authToken}",
+          },
+        ),
         "${Constant.baseUrl}/api/orders/cancel-user-order/$orderUuid",
       );
       if (kDebugMode) {

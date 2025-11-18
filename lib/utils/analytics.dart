@@ -1,10 +1,10 @@
-/*import 'package:firebase_analytics/firebase_analytics.dart';
-import 'package:firebase_analytics/observer.dart';*/
+import 'package:firebase_analytics/firebase_analytics.dart';
+import 'package:firebase_analytics/observer.dart';
 import 'package:mcsofttech/data/preferences/shared_preferences.dart';
 
 class Analytics {
   Analytics._();
-/*
+
 
   static final _analytics = FirebaseAnalytics();
 
@@ -41,6 +41,6 @@ static Future<void> logUser({
 
 
 }
-*/
+
 
 }

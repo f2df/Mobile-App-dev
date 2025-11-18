@@ -109,6 +109,7 @@ class _DrawerDashboardState extends State<DrawerDashboard> {
               invite(context),
               contactUs,
               appPreferences.isLoggedIn ? logout : const SizedBox.shrink(),
+              const Text("Powered By F2DF PRIVATE LIMITED",style: TextStyle(color: MyColors.themeColor,fontWeight: FontWeight.w500),),
               const SizedBox(
                 height: 100,
               ),
@@ -356,7 +357,7 @@ class _DrawerDashboardState extends State<DrawerDashboard> {
         ),
         onTap: () {
           NavigationWebView.start("shipping_And_delivery_policy".tr,
-              "${Constant.webViewBaseUrl}/new-f2df/shipping-delivery-policy.html");
+              "${Constant.webViewBaseUrl}/cancellation/shipping-delivery");
         },
       ),
     );
@@ -388,7 +389,7 @@ class _DrawerDashboardState extends State<DrawerDashboard> {
         ),
         onTap: () {
           NavigationWebView.start("seller_term_and_condition".tr,
-              "${Constant.webViewBaseUrl}/new-f2df/seller-m-term-conditions.html");
+              "${Constant.webViewBaseUrl}/cancellation/termsAndUse");
         },
       ),
     );
@@ -398,7 +399,7 @@ class _DrawerDashboardState extends State<DrawerDashboard> {
     return InkWell(
       onTap: () {
         NavigationWebView.start("privacy_policy".tr,
-            "${Constant.webViewBaseUrl}//new-f2df/privacy-policy.html");
+            "${Constant.webViewBaseUrl}/new-f2df/privacy-policy.html");
       },
       child: ListTile(
         leading: const Icon(Icons.privacy_tip_outlined),
@@ -423,7 +424,7 @@ class _DrawerDashboardState extends State<DrawerDashboard> {
         ),
         onTap: () {
           NavigationWebView.start("privacy_policy".tr,
-              "${Constant.webViewBaseUrl}/new-f2df/privacy-policy.html");
+              "${Constant.webViewBaseUrl}/cancellation/privacyPolicy");
         },
       ),
     );
@@ -455,7 +456,7 @@ class _DrawerDashboardState extends State<DrawerDashboard> {
         ),
         onTap: () {
           NavigationWebView.start("cancellation_policy".tr,
-              "${Constant.webViewBaseUrl}/new-f2df/cancellation-policy.html");
+              "${Constant.webViewBaseUrl}/cancellation/policyCancellation");
         },
       ),
     );
@@ -487,7 +488,7 @@ class _DrawerDashboardState extends State<DrawerDashboard> {
         ),
         onTap: () {
           NavigationWebView.start("terms_conditions".tr,
-              "${Constant.webViewBaseUrl}/new-f2df/terms-conditions.html");
+              "${Constant.webViewBaseUrl}/cancellation/termsAndUse");
         },
       ),
     );

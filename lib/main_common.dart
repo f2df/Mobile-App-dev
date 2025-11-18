@@ -31,7 +31,7 @@ Future<void> mainCommon(String env) async {
     //FirebaseNotifications.flutterLocalNotificationsPlugin;
     //https://www.youtube.com/watch?v=Hg1ZJjWzRxs for iOS notification
     MobileAds.instance.initialize();
-    //Analytics.logAppOpen();
+    Analytics.logAppOpen();
    /* MobileAds.instance.updateRequestConfiguration(
       RequestConfiguration(
         testDeviceIds: <String>['CC4A58D8BB0AFCC571E4AAC6BCAA5F68'],
@@ -44,11 +44,11 @@ Future<void> mainCommon(String env) async {
 
 
 }
-/*Analytics.firebaseAnalyticsObserver*/
+
 GetMaterialApp get getMaterialApp => GetMaterialApp(
       title: '',
       debugShowCheckedModeBanner: false,
-      navigatorObservers: [],
+      navigatorObservers: <NavigatorObserver>[Analytics.firebaseAnalyticsObserver],
       translations: TranslateData(),
       locale: const Locale(
         'en',

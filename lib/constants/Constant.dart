@@ -1,10 +1,10 @@
 class Constant {
   static const String ALL_RIGHT_RESERVED = "Jumpq All rights are reserved ";
-  static const String baseUrl = "https://f2df.in";//"http://103.159.85.236:3000";//"https://f2df.com.in";
+  static const String baseUrl = "http://103.174.103.166:3000";//"""https://f2df.in";//"http://103.159.85.236:3000";//"https://f2df.com.in";
   static const String webViewBaseUrl = "https://f2df.com";//"""https://f2df.com";
-  static const String baseUrlUAT = "http://103.159.85.236:3000";//"""http://103.159.85.236:3000";
+  static const String baseUrlUAT = "http://103.174.103.166:3000";//"""http://103.159.85.236:3000";
   static const String webViewBaseUrlUAT = "https://f2df.com";//"http://103.159.85.236:3000";//"""https://f2df.com";
-  static const String baseImageUrl = "https://f2df.in";
+  static const String baseImageUrl = "http://103.174.103.166:3000";
   static const String DARK_THEME = "dark_theme";
   static const String DEVICE_UID = "device_uid";
   static const String DEVICE_TOKEN = "device_token";
@@ -21,6 +21,8 @@ class Constant {
   static const String USER_MOBILE = "user_mobile";
   static const String USER_PROFILE = "user_profile";
   static const String USER_PROFILE_ALL_DATA = "user_data";
+  static const String saltKey = "099eb0cd-02cf-4e2a-8aca-3e6c6aff0399";
+  static const int saltIndex = 1;
 
   static const List<String> MONTH_LIST = [
     "Jan",

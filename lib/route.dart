@@ -1,4 +1,6 @@
+import 'package:geocode/geocode.dart';
 import 'package:mcsofttech/routes/account/account_route.dart';
+import 'package:mcsofttech/routes/address/add_address.dart';
 import 'package:mcsofttech/routes/cart/cart_route.dart';
 import 'package:mcsofttech/routes/category/category_route.dart';
 import 'package:mcsofttech/routes/export/export_route.dart';
@@ -31,6 +33,7 @@ class Routes {
     moduleRoutes.addAll(NewsVideoRoutes.routes);
     moduleRoutes.addAll(TestimonialRoutes.routes);
     moduleRoutes.addAll(ExportRoutes.routes);
+    moduleRoutes.addAll(AddressRoutes.routes);
     return moduleRoutes;
   }
 }

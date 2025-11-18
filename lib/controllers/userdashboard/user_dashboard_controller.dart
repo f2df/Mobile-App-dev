@@ -4,6 +4,7 @@ import 'package:mcsofttech/controllers/base_getx_controller.dart';
 import 'package:mcsofttech/data/network/apiservices/user_api_service.dart';
 import 'package:mcsofttech/data/preferences/AppPreferences.dart';
 import 'package:mcsofttech/models/login/LoginData.dart';
+import 'package:mcsofttech/models/login/login_model_first.dart';
 import '../../utils/common_util.dart';
 
 class LoginController extends BaseController {

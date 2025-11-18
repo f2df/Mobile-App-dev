@@ -23,6 +23,7 @@ class TrainingController extends BaseController {
   final userEmailController = TextEditingController();
   final userMobileController = TextEditingController();
   final userDescriptionController = TextEditingController();
+  final priceController = TextEditingController();
   final trainingDateController = TextEditingController();
   final trainingTypeList = <TrainingType>[].obs;
   final trainingVenue = <Venue>[].obs;

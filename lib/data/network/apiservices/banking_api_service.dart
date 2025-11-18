@@ -1,15 +1,20 @@
 import 'dart:convert';
+import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:mcsofttech/models/message_status_model.dart';
 import '../../../constants/Constant.dart';
 import '../../../models/banking/apply_insaurance.dart';
 import '../../../models/login/login_input_model.dart';
 import '../../../models/login/login_model.dart';
+import '../../preferences/AppPreferences.dart';
+import '../../preferences/shared_preferences.dart';
 import '../dio_client.dart';
 
 class BankingApiServices extends DioClient {
   final client = DioClient.client;
-
+  final appPreferences = Get.find<AppPreferences>();
   Future<CommonModel?> applyInsuranceApi(
       {name, email,loanAmount,cropAmount, mobile, address, message}) async {
     String inputData = jsonEncode(ApplyInsauranceInput(
@@ -24,6 +29,11 @@ class BankingApiServices extends DioClient {
     CommonModel? commonModel;
     try {
       final response = await client.post(
+        options: Options(
+          headers: {
+            "Authorization": "Bearer ${appPreferences.authToken}",
+          },
+        ),
         "${Constant.baseUrl}/home/saveInsurance",
         data: inputData,
       );
@@ -56,6 +66,11 @@ class BankingApiServices extends DioClient {
     CommonModel? commonModel;
     try {
       final response = await client.post(
+        options: Options(
+          headers: {
+            "Authorization": "Bearer ${appPreferences.authToken}",
+          },
+        ),
         "${Constant.baseUrl}/home/saveLoan",
         data: inputData,
       );

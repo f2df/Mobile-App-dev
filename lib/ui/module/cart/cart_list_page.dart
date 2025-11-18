@@ -6,6 +6,7 @@ import 'package:mcsofttech/models/meridukaan/userdashboard/Equiry.dart';
 import 'package:mcsofttech/theme/my_theme.dart';
 import 'package:mcsofttech/ui/base/page.dart';
 import 'package:mcsofttech/ui/dialog/loader.dart';
+import 'package:mcsofttech/ui/module/address/address_list.dart';
 import 'package:mcsofttech/ui/module/cart/kart_card.dart';
 import 'package:mcsofttech/ui/module/home/home.dart';
 import 'package:mcsofttech/utils/common_util.dart';
@@ -18,6 +19,7 @@ import '../../../services/navigator.dart';
 import '../../../utils/palette.dart';
 import '../../commonwidget/primary_elevated_button.dart';
 import '../../commonwidget/text_style.dart';
+import '../address/add_address.dart';
 
 class CartListPage extends AppPageWithAppBar {
   static String routeName = "/cartListPage";
@@ -139,53 +141,62 @@ class CartListPage extends AppPageWithAppBar {
           child: SizedBox(
             child: PrimaryElevatedBtn(
                 buttonStyle: checkOutButtonStyle, "proceed_to_pay".tr, () {
-              // wishController.createOrderId(wishController.totalPrice.value*100);
-              showModalBottomSheet(
-                  isScrollControlled: true,
-                  shape: const RoundedRectangleBorder(
-                      borderRadius: BorderRadius.only(
-                          topRight: Radius.circular(8.0),
-                          topLeft: Radius.circular(15.0)),
-                      side: BorderSide(color: Colors.white)),
-                  context: Get.context!,
-                  builder: (BuildContext c) {
-                    return Padding(
-                        padding: MediaQuery.of(Get.context!).viewInsets,
-                        child: Container(
-                            child: Wrap(
-                          children: <Widget>[
-                            const SizedBox(
-                              height: 10,
-                            ),
-                            const SizedBox(
-                              height: 10,
-                            ),
-                            const Divider(
-                              height: 1,
-                              color: MyColors.themeColor,
-                            ),
-                            const SizedBox(
-                              height: 10,
-                            ),
-                            Padding(
-                              padding:
-                                  const EdgeInsets.only(left: 10, right: 10),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.stretch,
-                                children: [
-                                  payFullPayment,
-                                  const SizedBox(
-                                    height: 10,
-                                  ),
-                                  if (wishController.totalPrice.value > 1000)
-                                    payPartial,
-                                  const SizedBox(height: 50),
-                                ],
-                              ),
-                            ),
-                          ],
-                        )));
-                  });
+                  if(!appPreference.isSaveAddress){
+                    AddressList.start("Add Address");
+
+
+                    return;
+                  }else{
+                    // wishController.createOrderId(wishController.totalPrice.value*100);
+                    showModalBottomSheet(
+                        isScrollControlled: true,
+                        shape: const RoundedRectangleBorder(
+                            borderRadius: BorderRadius.only(
+                                topRight: Radius.circular(8.0),
+                                topLeft: Radius.circular(15.0)),
+                            side: BorderSide(color: Colors.white)),
+                        context: Get.context!,
+                        builder: (BuildContext c) {
+                          return Padding(
+                              padding: MediaQuery.of(Get.context!).viewInsets,
+                              child: Container(
+                                  child: Wrap(
+                                    children: <Widget>[
+                                      const SizedBox(
+                                        height: 10,
+                                      ),
+                                      const SizedBox(
+                                        height: 10,
+                                      ),
+                                      const Divider(
+                                        height: 1,
+                                        color: MyColors.themeColor,
+                                      ),
+                                      const SizedBox(
+                                        height: 10,
+                                      ),
+                                      Padding(
+                                        padding:
+                                        const EdgeInsets.only(left: 10, right: 10),
+                                        child: Column(
+                                          crossAxisAlignment: CrossAxisAlignment.stretch,
+                                          children: [
+                                            payFullPayment,
+                                            const SizedBox(
+                                              height: 10,
+                                            ),
+                                            if (wishController.totalPrice.value > 1000)
+                                              payPartial,
+                                            const SizedBox(height: 50),
+                                          ],
+                                        ),
+                                      ),
+                                    ],
+                                  )));
+                        });
+                  }
+
+
             }, borderRadius: 1.0),
           )),
     );

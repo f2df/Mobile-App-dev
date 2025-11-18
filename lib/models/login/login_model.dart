@@ -1,7 +1,7 @@
 import 'LoginData.dart';
 
 class LoginModel {
-  LoginData? loginData;
+  LoginTokenData? loginData;
   String message;
   int status;
 
@@ -9,7 +9,7 @@ class LoginModel {
 
   factory LoginModel.fromJson(Map<String, dynamic> json) {
     return LoginModel(
-      loginData: json['data'] != null ? LoginData.fromJson(json['data']) : null,
+      loginData: json['data'] != null ? LoginTokenData.fromJson(json['data']) : null,
       message: json['message'],
       status: json['status'],
     );

@@ -16,4 +16,5 @@ class AppPreferenceKey {
   static const String storeId = "storeId";
   static const String banner = "banner";
   static const String tutorialShow = "tutorialShow";
+  static const String delivaryAddress = "delivaryAddress";
 }

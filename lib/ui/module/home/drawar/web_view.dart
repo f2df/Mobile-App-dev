@@ -34,7 +34,7 @@ class NavigationWebView extends AppPageWithAppBar {
         SingleChildScrollView(
           physics: const NeverScrollableScrollPhysics(),
           child: SizedBox(
-            height: screenHeight - 290,
+            height: screenHeight - 330,
             child: WebView(
               gestureRecognizers: Set()
                 ..add(Factory<VerticalDragGestureRecognizer>(

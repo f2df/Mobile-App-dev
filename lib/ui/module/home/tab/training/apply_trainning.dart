@@ -88,6 +88,10 @@ class ApplyTraining extends BaseStateLessWidget {
                   const SizedBox(
                     height: 20,
                   ),
+                  price,
+                  const SizedBox(
+                    height: 20,
+                  ),
                   applyButtonTraining,
                   const SizedBox(
                     height: 20,
@@ -284,6 +288,29 @@ class ApplyTraining extends BaseStateLessWidget {
       decoration: InputDecoration(
         prefixIcon: const Icon(Icons.account_box_rounded),
         hintText: 'enter_user_description'.tr,
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(10),
+          borderSide: const BorderSide(
+            width: .10,
+            color: Palette.appColor,
+          ),
+        ),
+        filled: true,
+        contentPadding: const EdgeInsets.all(16),
+        fillColor: Colors.white,
+      ),
+    );
+  }
+  Widget get price {
+    controller.priceController.text = "1000";
+
+    return TextField(
+      controller: controller.priceController,
+      textAlign: TextAlign.left,
+      keyboardType: TextInputType.none,
+      decoration: InputDecoration(
+        prefixIcon: const Icon(Icons.currency_rupee),
+        hintText: "Training Price",
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(10),
           borderSide: const BorderSide(

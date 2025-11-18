@@ -1,14 +1,18 @@
 import 'dart:convert';
 import 'package:flutter/foundation.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import '../../../constants/Constant.dart';
 import '../../../models/login/login_input_model.dart';
 import '../../../models/login/login_model.dart';
+import '../../../models/login/login_model_first.dart';
+import '../../preferences/AppPreferences.dart';
 import '../dio_client.dart';
 
 class LoginApiServices extends DioClient {
   final client = DioClient.client;
-
-  Future<LoginModel?> loginApi(String mobile, String loginId,bool termAndCondition) async {
+  final appPreferences = Get.find<AppPreferences>();
+  Future<LoginFirstModel?> loginApi(String mobile, String loginId,bool termAndCondition) async {
     String type = "mobile";
     if (mobile.toString().isEmpty) {
       type = "gmail";
@@ -17,7 +21,7 @@ class LoginApiServices extends DioClient {
         LoginInputModel(mobile: mobile, googleId: loginId, type: type,termAndCondition:termAndCondition));
 
     debugPrint('inputData: $inputData');
-    LoginModel? loginModel;
+    LoginFirstModel? loginModel;
     try {
       final response = await client.post(
         "${Constant.baseUrl}/login",
@@ -28,7 +32,7 @@ class LoginApiServices extends DioClient {
         print('outPut: ${response.data}');
       }
       try {
-        loginModel = LoginModel.fromJson(response.data);
+        loginModel = LoginFirstModel.fromJson(response.data);
       } catch (e) {
         debugPrint(e.toString());
       }

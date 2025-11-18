@@ -214,5 +214,8 @@ static Future<void> launchUrl(String url)async{
         chooserTitle: chooserTitle??""
     );
   }
+  static int getRandomNumber(){
+    return  Random().nextInt(6) +1;
+  }
 
 }

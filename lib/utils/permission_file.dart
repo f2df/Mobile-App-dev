@@ -20,6 +20,8 @@ Future<bool> requestPermission(Permission permission, String permisionLable,
               rational: rational)
           : false;
     case PermissionStatus.permanentlyDenied:
+    case PermissionStatus.provisional:
+      // TODO: Handle this case.
   }
   return false;
 }

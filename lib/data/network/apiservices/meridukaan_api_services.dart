@@ -2,6 +2,8 @@ import 'dart:convert';
 import 'dart:io';
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:mcsofttech/models/meridukaan/userdashboard/common_model_response.dart';
 import 'package:mcsofttech/models/order/orderInputModel.dart';
 import 'package:razorpay_flutter/razorpay_flutter.dart';
@@ -17,17 +19,24 @@ import '../../../models/meridukaan/userdashboard/TrainingModel.dart';
 import '../../../models/meridukaan/userdashboard/userDashboard.dart';
 import '../../../models/meridukaan/userdashboard/userDynamicDashboard.dart';
 import '../../../models/meridukaan/userdashboard/user_dashboard_card_data_model.dart';
+import '../../preferences/AppPreferences.dart';
+import '../../preferences/shared_preferences.dart';
 import '../dio_client.dart';
 
 class MeriDukaanApiServices extends DioClient {
   final client = DioClient.client;
-
+  final appPreferences = Get.find<AppPreferences>();
   Future<MeriDukaanModel?> meriDukaanHomeApi({userId}) async {
     var inputData = {"id": userId};
     debugPrint('inputData: $inputData');
     MeriDukaanModel? meriDukaanModel;
     try {
       final response = await client.post(
+        options: Options(
+          headers: {
+            "Authorization": "Bearer ${appPreferences.authToken}",
+          },
+        ),
         "${Constant.baseUrl}/myDukan/getDukanDetail",
         data: jsonEncode(inputData),
       );
@@ -52,6 +61,11 @@ class MeriDukaanApiServices extends DioClient {
     UserDashboardCardDataModel? data;
     try {
       final response = await client.post(
+        options: Options(
+          headers: {
+            "Authorization": "Bearer ${appPreferences.authToken}",
+          },
+        ),
         "${Constant.baseUrl}/getInterestListByUser",
         data: jsonEncode(inputData),
       );
@@ -75,6 +89,11 @@ class MeriDukaanApiServices extends DioClient {
     CommonResponseModel? data;
     try {
       final response = await client.post(
+        options: Options(
+          headers: {
+            "Authorization": "Bearer ${appPreferences.authToken}",
+          },
+        ),
         "${Constant.baseUrl}/product/getOrderId",
         data: jsonEncode(inputData),
       );
@@ -104,6 +123,11 @@ class MeriDukaanApiServices extends DioClient {
     UserDashboardCardDataModel? data;
     try {
       final response = await client.post(
+        options: Options(
+          headers: {
+            "Authorization": "Bearer ${appPreferences.authToken}",
+          },
+        ),
         "${Constant.baseUrl}/deleteInterestListByUser",
         data: jsonEncode(inputData),
       );
@@ -133,6 +157,11 @@ class MeriDukaanApiServices extends DioClient {
     CommonResponseModel? data;
     try {
       final response = await client.post(
+        options: Options(
+          headers: {
+            "Authorization": "Bearer ${appPreferences.authToken}",
+          },
+        ),
         "${Constant.baseUrl}/updateInterestListByUser",
         data: jsonEncode(inputData),
       );
@@ -158,6 +187,11 @@ class MeriDukaanApiServices extends DioClient {
     TrainingModel? data;
     try {
       final response = await client.post(
+        options: Options(
+          headers: {
+            "Authorization": "Bearer ${appPreferences.authToken}",
+          },
+        ),
         "${Constant.baseUrl}/getTrainingAttended",
         data: jsonEncode(inputData),
       );
@@ -211,6 +245,11 @@ class MeriDukaanApiServices extends DioClient {
     CommonResponseModel? data;
     try {
       final response = await client.post(
+        options: Options(
+          headers: {
+            "Authorization": "Bearer ${appPreferences.authToken}",
+          },
+        ),
         "${Constant.baseUrl}/addInterest",
         data: addUserActionData,
       );
@@ -234,6 +273,11 @@ class MeriDukaanApiServices extends DioClient {
     CheckCompanyLinkModel? commonResponseModel;
     try {
       final response = await client.post(
+        options: Options(
+          headers: {
+            "Authorization": "Bearer ${appPreferences.authToken}",
+          },
+        ),
         "${Constant.baseUrl}/myDukan/checkDukanLink",
         data: jsonEncode(inputData),
       );
@@ -297,6 +341,11 @@ class MeriDukaanApiServices extends DioClient {
     CheckCompanyLinkModel? commonResponseModel;
     try {
       final response = await client.post(
+        options: Options(
+          headers: {
+            "Authorization": "Bearer ${appPreferences.authToken}",
+          },
+        ),
         "${Constant.baseUrl}/myDukan/addMyDukan",
         data: inputData,
       );
@@ -320,6 +369,11 @@ class MeriDukaanApiServices extends DioClient {
     debugPrint('inputData: $inputData');
     try {
       final response = await client.post(
+        options: Options(
+          headers: {
+            "Authorization": "Bearer ${appPreferences.authToken}",
+          },
+        ),
         "${Constant.baseUrl}//product/getProductsByUser",
         data: jsonEncode(inputData),
       );
@@ -348,6 +402,11 @@ class MeriDukaanApiServices extends DioClient {
     debugPrint('inputData: $inputData');
     try {
       final response = await client.post(
+        options: Options(
+          headers: {
+            "Authorization": "Bearer ${appPreferences.authToken}",
+          },
+        ),
         "${Constant.baseUrl}/uploadImage",
         data: inputData,
       );
@@ -372,6 +431,11 @@ class MeriDukaanApiServices extends DioClient {
     UserDynamicDashboard? userDashboard;
     try {
       final response = await client.post(
+        options: Options(
+          headers: {
+            "Authorization": "Bearer ${appPreferences.authToken}",
+          },
+        ),
         "${Constant.baseUrl}/dashboard",
         data: jsonEncode(inputData),
       );
@@ -395,6 +459,11 @@ class MeriDukaanApiServices extends DioClient {
     CommonModelResponse? data;
     try {
       final response = await client.post(
+        options: Options(
+          headers: {
+            "Authorization": "Bearer ${appPreferences.authToken}",
+          },
+        ),
         "${Constant.baseUrl}/product/editProduct/",
         data: jsonEncode(inputData),
       );
@@ -442,6 +511,11 @@ class MeriDukaanApiServices extends DioClient {
     CommonModelResponse? data;
     try {
       final response = await client.post(
+        options: Options(
+          headers: {
+            "Authorization": "Bearer ${appPreferences.authToken}",
+          },
+        ),
         "${Constant.baseUrl}/product/saveTransaction",
         data: orderInputModel,
       );
@@ -473,6 +547,11 @@ class MeriDukaanApiServices extends DioClient {
     debugPrint('inputData: $inputData');
     try {
       final response = await client.post(
+        options: Options(
+          headers: {
+            "Authorization": "Bearer ${appPreferences.authToken}",
+          },
+        ),
         "${Constant.baseUrl}/product/boostProduct",
         data: inputData,
       );
@@ -496,6 +575,11 @@ class MeriDukaanApiServices extends DioClient {
     debugPrint('inputData: $inputData');
     try {
       final response = await client.post(
+        options: Options(
+          headers: {
+            "Authorization": "Bearer ${appPreferences.authToken}",
+          },
+        ),
         "${Constant.baseUrl}/getInterestListByType",
         data: inputData,
       );

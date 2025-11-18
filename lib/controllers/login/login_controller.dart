@@ -4,6 +4,7 @@ import 'package:mcsofttech/controllers/base_getx_controller.dart';
 import 'package:mcsofttech/data/network/apiservices/login_api_service.dart';
 import 'package:mcsofttech/data/preferences/AppPreferences.dart';
 import 'package:mcsofttech/models/login/LoginData.dart';
+import 'package:mcsofttech/models/login/login_model_first.dart';
 import 'package:mcsofttech/ui/module/home/home.dart';
 import 'package:mcsofttech/ui/module/login/otp_page.dart';
 import 'package:mcsofttech/ui/module/profile/profile_list.dart';
@@ -24,7 +25,8 @@ class LoginController extends BaseController {
   final userProfileData = "";
   final type = "mobile";
   final isLoader = false.obs;
-  late LoginData loginModel;
+  late LoginTokenData loginModel;
+  late LoginData loginFirstModel;
   final isUpdateLoader =false.obs;
 
   void callLoginApi(
@@ -46,19 +48,19 @@ class LoginController extends BaseController {
       if (response != null &&
           response.status == 200 &&
           response.loginData != null) {
-        loginModel = response.loginData!;
-        appPreferences.saveEmail(loginModel.email);
-        appPreferences.saveUserName(loginModel.name);
-        appPreferences.saveUserId(loginModel.id.toString());
-        appPreferences.saveUserImage(loginModel.img);
+        loginFirstModel = response.loginData!;
+        appPreferences.saveEmail(loginFirstModel.email);
+        appPreferences.saveUserName(loginFirstModel.name);
+        appPreferences.saveUserId(loginFirstModel.id.toString());
+        appPreferences.saveUserImage(loginFirstModel.img);
         appPreferences.saveMobile(mobile ?? "");
         appPreferences.saveLoggedIn(true);
-        appPreferences.saveReferralCode(loginModel.reffralCode);
-        appPreferences.saveUserExit(loginModel.userExist);
+        appPreferences.saveReferralCode(loginFirstModel.reffralCode);
+        appPreferences.saveUserExit(loginFirstModel.userExist);
         if (type == "mobile") {
           appPreferences.saveLoggedIn(false);
           OtpPage.start(mobile);
-        } else if (!loginModel.userExist) {
+        } else if (!loginFirstModel.userExist) {
           ProfileOptions.start(fromTab: "FromLogin");
         } else {
           // Analytics.logLogin(loginMethod: "mobile");
@@ -84,15 +86,15 @@ class LoginController extends BaseController {
       if (response != null &&
           response.status == 200 &&
           response.loginData != null) {
-        loginModel = response.loginData!;
-        appPreferences.saveEmail(loginModel.email);
-        appPreferences.saveUserName(loginModel.name);
-        appPreferences.saveUserId(loginModel.id.toString());
-        appPreferences.saveUserImage(loginModel.img);
+        loginFirstModel = response.loginData!;
+        appPreferences.saveEmail(loginFirstModel.email);
+        appPreferences.saveUserName(loginFirstModel.name);
+        appPreferences.saveUserId(loginFirstModel.id.toString());
+        appPreferences.saveUserImage(loginFirstModel.img);
         appPreferences.saveMobile(mobile ?? "");
         //appPreferences.saveLoggedIn(true);
-        appPreferences.saveReferralCode(loginModel.reffralCode);
-        appPreferences.saveUserExit(loginModel.userExist);
+        appPreferences.saveReferralCode(loginFirstModel.reffralCode);
+        appPreferences.saveUserExit(loginFirstModel.userExist);
       }
     } catch (e) {
       debugPrint(e.toString());
@@ -114,16 +116,17 @@ class LoginController extends BaseController {
         response.status == 200 &&
         response.loginData != null) {
       loginModel = response.loginData!;
-      appPreferences.saveEmail(loginModel.email);
-      //appPreferences.saveAddress(loginModel.address);
-      appPreferences.saveUserName(loginModel.name);
-      appPreferences.saveUserId(loginModel.id.toString());
-      appPreferences.saveUserImage(loginModel.img);
+      appPreferences.saveEmail(loginModel.loginData!.email);
+      appPreferences.saveAuthToken(loginModel.token);
+      appPreferences.saveUserName(loginModel.loginData!.name);
+      appPreferences.saveUserId(loginModel.loginData!.id.toString());
+      appPreferences.saveUserImage(loginModel.loginData!.img);
       appPreferences.saveLoggedIn(true);
-      if (response.loginData!.userExist) {
+      if (response.loginData!.loginData!.userExist) {
         Home.start(0);
       } else {
-        ProfileOptions.start(fromTab: "FromLogin");
+        Home.start(0);
+       // ProfileOptions.start(fromTab: "FromLogin");
       }
     }
   }

@@ -21,6 +21,7 @@ import 'package:mcsofttech/utils/analytics_constant.dart';
 import 'package:mcsofttech/utils/common_util.dart';
 import 'package:mcsofttech/utils/palette.dart';
 import 'package:permission_handler/permission_handler.dart';
+import 'package:phonepe_payment_sdk/phonepe_payment_sdk.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../../../controllers/addandsell/add_and_sell_controller.dart';
@@ -71,10 +72,45 @@ class _HomeState extends State<Home> {
   ]; // to store nested tabs
   final PageStorageBucket bucket = PageStorageBucket();
   Widget currentScreen = Dashboard();
+  Object? result;
+  String bodyy = "";
+  String callback = "flutterDemoApp";
+  String checksum = "";
+
+  Map<String, String> headers = {};
+  bool enableLogs = true;
+  String environmentValue = 'PRODUCTION';
+  String appId = "com.f2df.mcsofttech";
+  String merchantId = "M220EMX87XH1T";
+  //String packageName = "com.phonepe.app";
+  bool enablelogin=true;
   double width = 0.0; // Our first view in viewport
+  void initPhonePeSdk() {
+    PhonePePaymentSdk.init(environmentValue, appId, merchantId, enableLogs)
+        .then((isInitialized) => {
+      setState(() {
+        result = 'PhonePe SDK Initialized - $isInitialized';
+        print(result);
+      })
+    })
+        .catchError((error) {
+      handleError(error);
+      return <dynamic>{};
+    });
+  }
+  void handleError(error) {
+
+    if (error is Exception) {
+      result = error.toString();
+    } else {
+      result = {"error": error};
+    }
+
+  }
   @override
   void initState() {
     super.initState();
+    initPhonePeSdk();
     currentTab = Home.currentPage;
     //currentScreen=const MeriDukaanTabTabs();
     if (currentTab == 1) {
@@ -547,3 +583,4 @@ class _HomeState extends State<Home> {
 class HomeInterface {
   void clickOnList() {}
 }
+

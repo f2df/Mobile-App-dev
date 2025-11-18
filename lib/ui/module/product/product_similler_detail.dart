@@ -1,12 +1,9 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:mcsofttech/constants/Constant.dart';
 import 'package:mcsofttech/controllers/cart/cart_controller.dart';
 import 'package:mcsofttech/controllers/meridhukaan/add_user_action_controller.dart';
-import 'package:mcsofttech/controllers/product/product_Detail_controller.dart';
 import 'package:mcsofttech/data/preferences/AppPreferences.dart';
 import 'package:mcsofttech/models/home/AllProduct.dart';
 import 'package:mcsofttech/ui/base/page.dart';
@@ -14,7 +11,6 @@ import 'package:mcsofttech/ui/dialog/loader.dart';
 import 'package:mcsofttech/ui/module/login/login_page.dart';
 import 'package:mcsofttech/ui/module/product/product_list.dart';
 import 'package:mcsofttech/ui/module/product/widget/image_carousel.dart';
-import 'package:provider/provider.dart';
 import 'package:razorpay_flutter/razorpay_flutter.dart';
 import 'package:share/share.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -22,10 +18,8 @@ import '../../../controllers/addandsell/add_and_sell_controller.dart';
 import '../../../controllers/meridhukaan/total_visitor_controller.dart';
 import '../../../controllers/product/product_list_controller.dart';
 import '../../../models/product_featureDetailsValue.dart';
-import '../../../notifire/cart_notifire.dart';
 import '../../../services/navigator.dart';
 import '../../../theme/my_theme.dart';
-import '../../../utils/analytics.dart';
 import '../../../utils/common_util.dart';
 import '../../../utils/palette.dart';
 import '../../commonwidget/bottom_bar.dart';
@@ -47,7 +41,7 @@ class ProductSimilarDetail extends AppPageWithAppBar {
     comingFrom,
     allProduct,
   }) {
-    if (comingFrom == "Similar") {
+    if (comingFrom == "detail") {
       return navigatePlacementNamedl(routeName,
           currentPageTitle: title,
           arguments: {
@@ -65,7 +59,7 @@ class ProductSimilarDetail extends AppPageWithAppBar {
   final appPreferences = Get.find<AppPreferences>();
   final wishController = Get.put(TotalVisitorController());
   late AllProduct allProduct;
-  final quantity = 1.obs;
+  final quantity = 0.obs;
 
   @override
   List<Widget>? get action => [
@@ -143,7 +137,7 @@ class ProductSimilarDetail extends AppPageWithAppBar {
   Widget get body {
     //  Analytics.sendCurrentScreen("ProductDetail");
     allProduct = arguments['allProduct'];
-    quantity.value = allProduct.quantity < 1 ? 1 : 1;
+    quantity.value = allProduct.quantity < 1 ? 0 : 0;
     controllerProduct.callProductDetailApi(productId: allProduct.p_id);
     return Obx(
         () => controllerProduct.isLoader.value ? const Loader() : container);
@@ -353,7 +347,7 @@ class ProductSimilarDetail extends AppPageWithAppBar {
                           width: screenWidget / 2.2,
                           child: SubCatProductSimillerCard(
                               controllerProduct.productUserDetailList[i],
-                              "detail"))),
+                              "Similar"))),
             ),
           )
         ],
@@ -423,7 +417,7 @@ class ProductSimilarDetail extends AppPageWithAppBar {
         list.add(SizedBox(
           width: screenWidget / 2.2,
           child: SubCatProductSimillerCard(
-              controllerProduct.productSimilerDetailList[i], "detail"),
+              controllerProduct.productSimilerDetailList[i], "Product Detail"),
         ));
       }
     }
@@ -1026,7 +1020,11 @@ class ProductSimilarDetail extends AppPageWithAppBar {
         padding: const EdgeInsets.only(left: 12, right: 12),
         child: Column(
           children: [
-            Row(
+            if (allProduct.featureDetailsValue!.isNotEmpty &&
+                allProduct.featureDetailsValue!
+                    .where((element) =>
+                    element.productFeatureKey.toLowerCase().contains("mrp"))
+                    .isNotEmpty)Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 incrementCount,

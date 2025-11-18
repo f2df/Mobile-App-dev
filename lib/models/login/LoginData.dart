@@ -1,5 +1,28 @@
 import 'package:mcsofttech/models/login/LoginAddress.dart';
 
+class LoginTokenData {
+  LoginData? loginData;
+  String token;
+
+  LoginTokenData({this.loginData, required this.token});
+
+  factory LoginTokenData.fromJson(Map<String, dynamic> json) {
+    return LoginTokenData(
+        loginData:
+            json['user'] != null ? LoginData.fromJson(json['user']) : null,
+        token: json['token']);
+  }
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['user'] = loginData;
+    data['token'] = token;
+    if (loginData != null) {
+      data['user'] = loginData?.toJson();
+    }
+    return data;
+  }
+}
+
 class LoginData {
   String createDate;
   String email = "";
@@ -35,7 +58,8 @@ class LoginData {
       required this.role,
       required this.userExist,
       required this.status,
-      required this.updateDate,this.userType="FPO"});
+      required this.updateDate,
+      this.userType = "FPO"});
 
   factory LoginData.fromJson(Map<String, dynamic> json) {
     return LoginData(
@@ -43,7 +67,7 @@ class LoginData {
           ? LoginAddress?.fromJson(json['address'])
           : null,
       createDate: json['createDate'] ?? "",
-      userType:json['userType'] ?? "FPO",
+      userType: json['userType'] ?? "FPO",
       email: json['email'] ?? "",
       gender: json['gender'] ?? "",
       googleId: json['googleId'] ?? "",
@@ -52,10 +76,10 @@ class LoginData {
       mobile: json['mobile'] ?? 0,
       name: json['name'] ?? "",
       reffralCode: json['reffralCode'] ?? "",
-      otp: json['otp'] ?? "",
+      otp: json['otp'] ?? 0,
       password: json['password'] ?? "",
       role: json['role'] ?? "",
-      status: json['status'] ?? "",
+      status: json['status'] ?? false,
       userExist: json['userExist'] ?? false,
       updateDate: json['updateDate'] ?? "",
     );

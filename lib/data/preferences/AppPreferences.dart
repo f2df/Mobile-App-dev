@@ -33,13 +33,16 @@ class AppPreferences {
     return sharedPreferences.getBool(key) ?? false;
   }
 
-  int _getInt(String key, {int defaultValue = 0}) {
+  int _saveInt(String key, {int defaultValue = 0}) {
     final str = _getString(key, defaultValue: defaultValue.toString());
     final value = int.tryParse(str!);
     if (value != null) {
       return value;
     }
     return defaultValue;
+  }
+  int getInt(String key, {int defaultValue = 0}) {
+    return sharedPreferences.getInt(key) ?? 0;
   }
 
   Future<void> saveEmail(String email) {
@@ -116,6 +119,16 @@ class AppPreferences {
 
   Future<void> saveLoggedIn(bool loggedIn) {
     return _saveBoolean(AppPreferenceKey.loggedIn, loggedIn);
+  }
+
+  bool get isSaveAddress {
+    return getBoolean(AppPreferenceKey.delivaryAddress);
+  }
+  Future<void> saveDelivaryAddress(bool delivaryAddress) {
+    return _saveBoolean(AppPreferenceKey.delivaryAddress, delivaryAddress);
+  }
+  int saveDelivaryAddressId(int delivaryAddressId) {
+    return _saveInt(AppPreferenceKey.delivaryAddress, defaultValue: delivaryAddressId);
   }
 
   bool get isLoggedIn {

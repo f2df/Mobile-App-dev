@@ -168,9 +168,9 @@ class AddAndSellController extends BaseController {
       }
 
     } else {
-      if (await requestPermission(Permission.storage, 'Storage') == false) {
+      /*if (await requestPermission(Permission.storage, 'Storage') == false) {
         return;
-      }
+      }*/
       if(type=='1'){
         try {
           final image =
@@ -216,9 +216,9 @@ class AddAndSellController extends BaseController {
         Common.showToast('Failed to pick image: $e');
       }
     } else {
-      if (await requestPermission(Permission.storage, 'Storage') == false) {
+      /*if (await requestPermission(Permission.storage, 'Storage') == false) {
         return;
-      }
+      }*/
       try {
         final image =
             await ImagePicker().pickImage(source: ImageSource.gallery);

@@ -1,14 +1,19 @@
 import 'dart:convert';
+import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import '../../../constants/Constant.dart';
 import '../../../models/login/login_input_model.dart';
 import '../../../models/login/login_model.dart';
 import '../../../models/newandvideo/NewDetailModel.dart';
+import '../../preferences/AppPreferences.dart';
+import '../../preferences/shared_preferences.dart';
 import '../dio_client.dart';
 
 class NewsApiServices extends DioClient {
   final client = DioClient.client;
-
+  final appPreferences = Get.find<AppPreferences>();
   Future<NewDetailModel?> newsApi(int pageNo, int size,String type) async {
 
     String inputData = jsonEncode({"pageNo":pageNo,"size":size,"type":"news"});
@@ -16,6 +21,11 @@ class NewsApiServices extends DioClient {
     NewDetailModel? newDetailModel;
     try {
       final response = await client.post(
+        options: Options(
+          headers: {
+            "Authorization": "Bearer ${appPreferences.authToken}",
+          },
+        ),
         "${Constant.baseUrl}/news/getAllNews",
         data: inputData,
       );
@@ -40,6 +50,11 @@ class NewsApiServices extends DioClient {
     NewDetailModel? newDetailModel;
     try {
       final response = await client.post(
+        options: Options(
+          headers: {
+            "Authorization": "Bearer ${appPreferences.authToken}",
+          },
+        ),
         "${Constant.baseUrl}/news/getAllVideoNews",
         data: inputData,
       );

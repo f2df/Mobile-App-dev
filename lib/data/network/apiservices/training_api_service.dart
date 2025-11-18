@@ -1,5 +1,8 @@
 import 'dart:convert';
+import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:mcsofttech/models/message_status_model.dart';
 import 'package:mcsofttech/models/training/events_model.dart';
 import 'package:mcsofttech/models/training/trainingDropdown/training_model.dart';
@@ -8,11 +11,13 @@ import '../../../models/banking/apply_insaurance.dart';
 import '../../../models/login/login_input_model.dart';
 import '../../../models/login/login_model.dart';
 import '../../../models/training/apply_training_input.dart';
+import '../../preferences/AppPreferences.dart';
+import '../../preferences/shared_preferences.dart';
 import '../dio_client.dart';
 
 class TrainingApiServices extends DioClient {
   final client = DioClient.client;
-
+  final appPreferences = Get.find<AppPreferences>();
   Future<CommonModel?> applyTrainingApi({
     id,
     name,
@@ -38,6 +43,11 @@ class TrainingApiServices extends DioClient {
     CommonModel? commonModel;
     try {
       final response = await client.post(
+        options: Options(
+          headers: {
+            "Authorization": "Bearer ${appPreferences.authToken}",
+          },
+        ),
         "${Constant.baseUrl}/home/saveTraining",
         data: inputData,
       );
@@ -62,6 +72,11 @@ class TrainingApiServices extends DioClient {
     TrainingModel? trainingModel;
     try {
       final response = await client.post(
+        options: Options(
+          headers: {
+            "Authorization": "Bearer ${appPreferences.authToken}",
+          },
+        ),
         "${Constant.baseUrl}/home/trainingType",
         data: inputData,
       );
@@ -85,6 +100,11 @@ class TrainingApiServices extends DioClient {
     EventsModel? eventsModel;
     try {
       final response = await client.post(
+        options: Options(
+          headers: {
+            "Authorization": "Bearer ${appPreferences.authToken}",
+          },
+        ),
         "${Constant.baseUrl}/event/getSuccessfulEvents",
         data: inputData,
       );

@@ -1,5 +1,8 @@
 import 'dart:convert';
+import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:mcsofttech/models/common_message_model.dart';
 import '../../../constants/Constant.dart';
 import '../../../models/export/add_requirenment_input_model.dart';
@@ -8,15 +11,22 @@ import '../../../models/export/exportList_data_model.dart';
 import '../../../models/export/exportList_seller_data_model.dart';
 import '../../../models/login/login_input_model.dart';
 import '../../../models/login/login_model.dart';
+import '../../preferences/AppPreferences.dart';
+import '../../preferences/shared_preferences.dart';
 import '../dio_client.dart';
 
 class ExportApiServices extends DioClient {
   final client = DioClient.client;
-
+  final appPreferences = Get.find<AppPreferences>();
   Future<ExportBuyer?> buyerRequirementApi() async {
     ExportBuyer? data;
     try {
       final response = await client.post(
+        options: Options(
+          headers: {
+            "Authorization": "Bearer ${appPreferences.authToken}",
+          },
+        ),
         "${Constant.baseUrl}/home/getExportQuantity",
         data: jsonEncode({}),
       );
@@ -38,6 +48,11 @@ class ExportApiServices extends DioClient {
     ExportListSellerDataModel? data;
     try {
       final response = await client.post(
+        options: Options(
+          headers: {
+            "Authorization": "Bearer ${appPreferences.authToken}",
+          },
+        ),
         "${Constant.baseUrl}/getSellerList",
         data: jsonEncode({}),
       );
@@ -78,6 +93,11 @@ class ExportApiServices extends DioClient {
     CommonResponseModel? data;
     try {
       final response = await client.post(
+        options: Options(
+          headers: {
+            "Authorization": "Bearer ${appPreferences.authToken}",
+          },
+        ),
         "${Constant.baseUrl}/addSellerReq",
         data: inputData,
       );
@@ -119,6 +139,11 @@ class ExportApiServices extends DioClient {
     CommonResponseModel? data;
     try {
       final response = await client.post(
+        options: Options(
+          headers: {
+            "Authorization": "Bearer ${appPreferences.authToken}",
+          },
+        ),
         "${Constant.baseUrl}/buyerAvailablityAdd",
         data: inputData,
       );

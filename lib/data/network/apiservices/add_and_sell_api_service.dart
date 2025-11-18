@@ -1,5 +1,8 @@
 import 'dart:convert';
+import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 
 import 'package:mcsofttech/models/message_status_model.dart';
 import '../../../constants/Constant.dart';
@@ -7,17 +10,24 @@ import '../../../models/add_product_model.dart';
 import '../../../models/add_sell_product_add_model.dart';
 import '../../../models/category/categoryModel.dart';
 
+import '../../preferences/AppPreferences.dart';
+import '../../preferences/shared_preferences.dart';
 import '../dio_client.dart';
 
 class AddSellApiServices extends DioClient {
   final client = DioClient.client;
-
+  final appPreferences = Get.find<AppPreferences>();
   Future<CategoryModel?> categoryListApi({productType = "Sell"}) async {
     var inputData = {"productType": productType ?? ""};
     CategoryModel? categoryModel;
     debugPrint('inputData: $inputData');
     try {
       final response = await client.post(
+        options: Options(
+          headers: {
+            "Authorization": "Bearer ${appPreferences.authToken}",
+          },
+        ),
         "${Constant.baseUrl}/home/getAllCategory",
         data: jsonEncode(inputData),
       );
@@ -68,6 +78,11 @@ class AddSellApiServices extends DioClient {
     CommonModel? commonModel;
     try {
       final response = await client.post(
+        options: Options(
+          headers: {
+            "Authorization": "Bearer ${appPreferences.authToken}",
+          },
+        ),
         "${Constant.baseUrl}/product/addProduct",
         data: addProductDetail,
       );

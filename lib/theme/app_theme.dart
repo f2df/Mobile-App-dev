@@ -5,25 +5,25 @@ class AppTheme {
 
   static ThemeData themeData(context, {bool isDarkTheme = false}) {
     TextTheme textTheme = TextTheme(
-      headline1: MyTextStyle.headline1,
-      headline2: MyTextStyle.headline2,
-      headline3: MyTextStyle.headline3,
+      displayLarge: MyTextStyle.headline1,
+      displayMedium: MyTextStyle.headline2,
+      displaySmall: MyTextStyle.headline3,
 
       /// light text
-      headline4: MyTextStyle.headline4,
-      headline5: MyTextStyle.headline5,
-      headline6: MyTextStyle.headline6,
-      subtitle1: MyTextStyle.title,
+      headlineMedium: MyTextStyle.headline4,
+      headlineSmall: MyTextStyle.headline5,
+      titleLarge: MyTextStyle.headline6,
+      titleMedium: MyTextStyle.title,
 
       /// bold text
-      subtitle2: MyTextStyle.subtitle,
+      titleSmall: MyTextStyle.subtitle,
 
       /// semi bold
-      bodyText1: MyTextStyle.body1,
-      bodyText2: MyTextStyle.body2,
+      bodyLarge: MyTextStyle.body1,
+      bodyMedium: MyTextStyle.body2,
 
       /// label
-      caption: MyTextStyle.caption,
+      bodySmall: MyTextStyle.caption,
 
       /// caption
     );
@@ -37,10 +37,7 @@ class AppTheme {
           cursorColor: MyColors.appColor,
           selectionColor: MyColors.appColor,
           selectionHandleColor: MyColors.appColor),
-      primarySwatch: MyColors.appColor,
       primaryColor: isDarkTheme ? Colors.black : MyColors.appColor,
-
-      backgroundColor: isDarkTheme ? Colors.black : Colors.white,
 
       indicatorColor: isDarkTheme ? const Color(0xff0E1D36) : Color(0xFF3F51B5),
 
@@ -65,7 +62,7 @@ class AppTheme {
             statusBarColor: MyColors.appColor,
             statusBarIconBrightness: Brightness.light),
       ),
-      textTheme: textTheme,
+      textTheme: textTheme, colorScheme: ColorScheme.fromSwatch(primarySwatch: MyColors.appColor).copyWith(background: isDarkTheme ? Colors.black : Colors.white),
     );
   }
 }

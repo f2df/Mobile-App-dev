@@ -67,8 +67,8 @@ class ProfileController extends BaseController {
         Common.showToast('Failed to pick image: $e');
       }
     } else {
-      if (await requestPermission(Permission.storage, 'Storage') == false)
-        return;
+     /* if (await requestPermission(Permission.storage, 'Storage') == false)
+        return;*/
       try {
         final image =
             await ImagePicker().pickImage(source: ImageSource.gallery);
@@ -139,7 +139,7 @@ class ProfileController extends BaseController {
         address2: addressLine2Controller.text,
         state: addressStateCodeController.text,
         city: addressDistrictCodeController.text,
-        pincode: addressLinePinCodeController.text);
+        pincode: addressLinePinCodeController.text,token:appPreferences.authToken);
     hideLoader();
     if (response == null) Common.showToast("Something went wrong!");
     if (response!.status == 200) {
@@ -172,29 +172,29 @@ class ProfileController extends BaseController {
 
   void callGetProfile() async {
     isLoader.value = true;
-    final response = await _apiService.getProfileApi(id: appPreferences.userId);
+    final response = await _apiService.getProfileApi(id: appPreferences.userId,authToken:appPreferences.authToken);
     isLoader.value = false;
     if (response == null) Common.showToast("Something went wrong!");
     if (response != null &&
         response.status == 200 &&
         response.loginData != null) {
       LoginData loginModel = response.loginData!;
-      appPreferences.saveEmail(loginModel.email);
-      appPreferences.saveUserName(loginModel.name);
-      appPreferences.saveUserId(loginModel.id.toString());
-      appPreferences.saveUserImage(loginModel.img);
+      appPreferences.saveEmail(loginModel!.email);
+      appPreferences.saveUserName(loginModel!.name);
+      appPreferences.saveUserId(loginModel!.id.toString());
+      appPreferences.saveUserImage(loginModel!.img);
       appPreferences.saveLoggedIn(true);
-      userNameController.text = loginModel.name;
-      imageUrl.value = loginModel.img;
-      emailController.text = loginModel.email;
-      addressController.text = loginModel.mobile.toString();
-      selectTypeValue.value=userTypeList.lastWhere((element) => element==loginModel.userType);
-      if (loginModel.address != null) {
-        addressLine1Controller.text = loginModel.address!.address1;
-        addressLine2Controller.text = loginModel.address!.address2;
-        addressLinePinCodeController.text = loginModel.address!.pincode;
-        addressDistrictCodeController.text = loginModel.address!.city;
-        addressStateCodeController.text = loginModel.address!.state;
+      userNameController.text = loginModel!.name;
+      imageUrl.value = loginModel!.img;
+      emailController.text = loginModel!.email;
+      addressController.text = loginModel!.mobile.toString();
+      selectTypeValue.value=userTypeList.lastWhere((element) => element==loginModel!.userType);
+      if (loginModel!.address != null) {
+        addressLine1Controller.text = loginModel.address?.address1??"";
+        addressLine2Controller.text = loginModel.address?.address2??"";
+        addressLinePinCodeController.text = loginModel.address?.pincode??"";
+        addressDistrictCodeController.text = loginModel.address?.city??"";
+        addressStateCodeController.text = loginModel.address?.state??"";
       }
       mobileController.text = loginModel.mobile.toString();
     }

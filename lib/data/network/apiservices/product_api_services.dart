@@ -1,20 +1,30 @@
 import 'dart:convert';
 
+import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:mcsofttech/models/productDetail/product_detail_model.dart';
 import '../../../constants/Constant.dart';
 import '../../../models/category/product_by_cat_id/product_by_cat_id.dart';
+import '../../preferences/AppPreferences.dart';
+import '../../preferences/shared_preferences.dart';
 import '../dio_client.dart';
 
 class ProductApiServices extends DioClient {
   final client = DioClient.client;
-
+  final appPreferences = Get.find<AppPreferences>();
   Future<ProductDetailModel?> productListDetailApi({productId}) async {
     var inputData = {"productId": productId};
     debugPrint('inputData: $inputData');
     ProductDetailModel? productByCatIdModel;
     try {
       final response = await client.post(
+        options: Options(
+          headers: {
+            "Authorization": "Bearer ${appPreferences.authToken}",
+          },
+        ),
         "${Constant.baseUrl}/product/getProductDetails",
         data: jsonEncode(inputData),
       );
@@ -45,6 +55,11 @@ class ProductApiServices extends DioClient {
     ProductByCatIdModel? productByCatIdModel;
     try {
       final response = await client.post(
+        options: Options(
+          headers: {
+            "Authorization": "Bearer ${appPreferences.authToken}",
+          },
+        ),
         "${Constant.baseUrl}/product/products-subcategory",
         data: jsonEncode(inputData),
       );
@@ -69,6 +84,11 @@ class ProductApiServices extends DioClient {
     print('inputData: $inputData');
     try {
       final response = await client.post(
+        options: Options(
+          headers: {
+            "Authorization": "Bearer ${appPreferences.authToken}",
+          },
+        ),
         "${Constant.baseUrl}/product/products",
         data: jsonEncode(inputData),
       );
@@ -92,6 +112,11 @@ class ProductApiServices extends DioClient {
     debugPrint('inputData: $inputData');
     try {
       final response = await client.post(
+        options: Options(
+          headers: {
+            "Authorization": "Bearer ${appPreferences.authToken}",
+          },
+        ),
         "${Constant.baseUrl}/product/getProductsByFilter",
         data: jsonEncode(inputData),
       );
@@ -116,6 +141,11 @@ class ProductApiServices extends DioClient {
     debugPrint('inputData: $inputData');
     try {
       final response = await client.post(
+        options: Options(
+          headers: {
+            "Authorization": "Bearer ${appPreferences.authToken}",
+          },
+        ),
         "${Constant.baseUrl}/product/products-category",
         data: jsonEncode(inputData),
       );
@@ -140,6 +170,11 @@ class ProductApiServices extends DioClient {
     debugPrint('inputData: $inputData');
     try {
       final response = await client.post(
+        options: Options(
+          headers: {
+            "Authorization": "Bearer ${appPreferences.authToken}",
+          },
+        ),
         "${Constant.baseUrl}/product/products-category",
         data: jsonEncode(inputData),
       );

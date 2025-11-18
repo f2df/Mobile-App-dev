@@ -31,6 +31,8 @@ class AllProduct {
   bool assured;
   bool organic;
   int enquiry;
+  String pickupLocationId;
+  String pickuppincode;
 
   AllProduct(
       {this.quantity = 1,
@@ -58,7 +60,9 @@ class AllProduct {
       this.showType = "N",
       this.productShareLink = "",
       this.assured = false,
-      this.organic = false,this.enquiry=0,});
+      this.organic = false,this.enquiry=0,
+      this.pickupLocationId="",
+      this.pickuppincode=""});
 
   factory AllProduct.fromJson(Map<String, dynamic> json) {
     return AllProduct(
@@ -100,7 +104,9 @@ class AllProduct {
         productShareLink:json['productShareLink'] ??"",
         assured: json['assured'] ?? false,
         organic: json['organic'] ?? false,
-        enquiry:json['enquiry']??0);
+        enquiry:json['enquiry']??0,
+      pickupLocationId: json['pickupLocationId'] ?? "",
+      pickuppincode:json['pickuppincode'] ??"",);
   }
 
   Map<String, dynamic> toJson() {
@@ -140,6 +146,8 @@ class AllProduct {
     data['assured'] = assured;
     data['organic'] = organic;
     data['enquiry'] = enquiry;
+    data['pickupLocationId'] =pickupLocationId;
+    data['pickuppincode'] =pickuppincode;
 
     return data;
   }

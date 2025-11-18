@@ -63,7 +63,7 @@ class ProductDetail extends AppPageWithAppBar {
   final appPreferences = Get.find<AppPreferences>();
   final wishController = Get.put(TotalVisitorController());
   late AllProduct allProduct;
-  final quantity = 1.obs;
+  final quantity = 0.obs;
 
   @override
   List<Widget>? get action => [
@@ -141,7 +141,7 @@ class ProductDetail extends AppPageWithAppBar {
   Widget get body {
     //  Analytics.sendCurrentScreen("ProductDetail");
     allProduct = arguments['allProduct'];
-    quantity.value = allProduct.quantity < 1 ? 1 : 1;
+    quantity.value = allProduct.quantity < 1 ? 0 : 0;
     final cartProduct =
         controller.cartList.where((p0) => p0.product_id == allProduct.p_id);
     if (cartProduct.isNotEmpty) quantity.value = cartProduct.first.qunatity;
@@ -1029,7 +1029,11 @@ class ProductDetail extends AppPageWithAppBar {
         padding: const EdgeInsets.only(left: 12, right: 12),
         child: Column(
           children: [
-            Row(
+            if (allProduct.featureDetailsValue!.isNotEmpty &&
+                allProduct.featureDetailsValue!
+                    .where((element) =>
+                    element.productFeatureKey.toLowerCase().contains("mrp"))
+                    .isNotEmpty)Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 incrementCount,

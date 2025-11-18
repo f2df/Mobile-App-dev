@@ -14,6 +14,7 @@ import '../../ui/commonwidget/outline_elevated_button.dart';
 import '../../ui/commonwidget/primary_elevated_button.dart';
 import '../../ui/commonwidget/text_style.dart';
 import '../../utils/common_util.dart';
+import '../meridhukaan/total_visitor_controller.dart';
 
 class HomeController extends BaseController {
   final appPreferences = Get.find<AppPreferences>();
@@ -25,7 +26,7 @@ class HomeController extends BaseController {
   late List<AllProduct> allProductList = <AllProduct>[];
   final pageNo = 0.obs;
   final isLoader = false.obs;
-
+  final wishController = Get.put(TotalVisitorController());
   @override
   void onInit() {
     super.onInit();
@@ -68,7 +69,7 @@ class HomeController extends BaseController {
   }
 
   void callProductListFromHomeApi({page, paramValue}) async {
-    showLoader();
+    //showLoader();
     final response = await apiServices.productListFromHomeApi(
         size: 10, page: pageNo.value, type: paramValue);
     hideLoader();

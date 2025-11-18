@@ -1,15 +1,19 @@
 import 'dart:convert';
-
+import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:mcsofttech/models/common_message_model.dart';
+import 'package:mcsofttech/models/login/login_model_first.dart';
 import '../../../constants/Constant.dart';
-import '../../../models/login/login_model.dart';
 import '../../../models/message_status_model.dart';
+import '../../preferences/AppPreferences.dart';
+import '../../preferences/shared_preferences.dart';
 import '../dio_client.dart';
 
 class ProfileApiServices extends DioClient {
   final client = DioClient.client;
-
+  final appPreferences = Get.find<AppPreferences>();
   Future<CommonModel?> profileApi(
       {mobile,
       email,
@@ -21,7 +25,7 @@ class ProfileApiServices extends DioClient {
       address2,
       city,
       state,
-      pincode}) async {
+      pincode,token}) async {
     late CommonModel? commonResponseModel;
     var inputData = {
       "mobile": mobile,
@@ -41,6 +45,11 @@ class ProfileApiServices extends DioClient {
     debugPrint('inputData: ${jsonEncode(inputData).toString()}');
     try {
       final response = await client.post(
+        options: Options(
+          headers: {
+            "Authorization": "Bearer $token",
+          },
+        ),
         "${Constant.baseUrl}/saveUser",
         data: jsonEncode(inputData).toString(),
       );
@@ -88,12 +97,17 @@ class ProfileApiServices extends DioClient {
     return commonResponseModel;
   }
 
-  Future<LoginModel?> getProfileApi({id}) async {
+  Future<LoginFirstModel?> getProfileApi({id,authToken}) async {
     var inputData = {"id": id};
     debugPrint('inputData: $inputData');
-    LoginModel? loginModel;
+    LoginFirstModel? loginModel;
     try {
       final response = await client.post(
+        options: Options(
+          headers: {
+            "Authorization": "Bearer $authToken",
+          },
+        ),
         "${Constant.baseUrl}/getProfile",
         data: inputData,
       );
@@ -102,7 +116,7 @@ class ProfileApiServices extends DioClient {
         print('outPut: ${response.data}');
       }
       try {
-        loginModel = LoginModel.fromJson(response.data);
+        loginModel = LoginFirstModel.fromJson(response.data);
       } catch (e) {
         debugPrint(e.toString());
       }

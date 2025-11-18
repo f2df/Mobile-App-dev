@@ -44,15 +44,7 @@ class MoreTab extends AppPageWithAppBar {
             const SizedBox(
               height: 10,
             ),
-            Row(
-              children: [
-                banking,
-                const SizedBox(
-                  width: 10,
-                ),
-                training
-              ],
-            ),
+
             const SizedBox(
               height: 10,
             ),
@@ -79,6 +71,15 @@ class MoreTab extends AppPageWithAppBar {
             ),
             const SizedBox(
               height: 10,
+            ),
+            Row(
+              children: [
+                training,
+                const SizedBox(
+                  width: 10,
+                ),
+
+              ],
             ),
           ],
         ),

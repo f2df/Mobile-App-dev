@@ -73,6 +73,10 @@ class CartController extends BaseController {
       cartList.value = response.data?.cartItems ?? [];
       totalValue.value = response.data?.totalPrice ?? 0;
       cartCount.value = cartList.length;
+    }else{
+      cartList.value =[];
+      cartCount.value=0;
+      Get.back();
     }
   }
 }

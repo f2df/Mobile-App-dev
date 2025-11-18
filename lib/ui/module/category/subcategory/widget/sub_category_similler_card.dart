@@ -48,10 +48,10 @@ class SubCatProductSimillerCard extends BaseStateLessWidget {
                     Get.delete<ProductController>();
                     if (comingFrom == "detail") {
                       ProductSimilarDetail.start("Product Detail",
-                          allProduct: recommdedProduct, comingFrom: "detail");
+                          allProduct: recommdedProduct, comingFrom: "Similar");
                     } else {
                       ProductDetail.start("Product Detail",
-                          allProduct: recommdedProduct, comingFrom: "Similar");
+                          allProduct: recommdedProduct, comingFrom: "detail");
                     }
                   },
                   child: Padding(

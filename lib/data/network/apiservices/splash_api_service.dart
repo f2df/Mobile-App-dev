@@ -1,7 +1,9 @@
 import 'dart:convert';
 
+import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 import '../../../constants/Constant.dart';
+import '../../preferences/shared_preferences.dart';
 import '../dio_client.dart';
 
 class SplashApiServices extends DioClient {
@@ -15,6 +17,11 @@ class SplashApiServices extends DioClient {
     debugPrint('inputData: $inputData');
     try {
       final response = await client.post(
+        options: Options(
+          headers: {
+            "Authorization": "Bearer ${SharedConfig.authToken}",
+          },
+        ),
         "${Constant.baseUrl}/home/forceFullyUpdate",
         data: jsonEncode(inputData),
       );

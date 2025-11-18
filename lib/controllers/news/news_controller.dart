@@ -10,7 +10,7 @@ class NewsController extends BaseController {
   final apiServices = Get.put(NewsApiServices());
   final isLoader = false.obs;
   final RxList<News> newsList = <News>[].obs;
-  int pageCount = 1;
+  int pageCount = 0;
   final size = 10;
   final List<BannerList> bannerList = [];
 
