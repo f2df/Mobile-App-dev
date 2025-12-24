@@ -32,13 +32,12 @@ class TotalVisitorController extends BaseController {
 
   void callUserDashboardCardCall(String dataType) async {
      isLoader.value = true;
-
      final response = await apiServices.totalVisitor(
          userId: appPreferences.userId, dataType: dataType);
      isLoader.value = false;
      if (response == null) Common.showToast("Server Error!");
      if (response != null && response.status == 200) {
-        equiryList.value = response.equiryList;
+       // equiryList = response.equiryList;
        totalPrice.value = 0;
        totalPrice.value = response.totalPrice;
      }
@@ -47,37 +46,36 @@ class TotalVisitorController extends BaseController {
   Future<void> createOrderId(amount, List<Map<String, dynamic>> items) async {
 
     showLoader();
-    final response = await cartApiServices.createOrderApi(orderItems: items);
+    final response = await cartApiServices.createOrderApi();
 
     hideLoader();
     if (response == null) return;
-    if (response.statusCode == 200) {
-      debugPrint("sonu${response.data} ::${amount * 100}");
-      buyNow(Common.getRandomNumber().toString(), amount * 100);
+    if (response.orders.isNotEmpty) {
+      buyNow(response.phonepeResponse?.orderId??"", amount * 100,response.orders[0].merchantOrderId,response.phonepeResponse?.token??"");
     } else {
-      Common.showToast(response.message ?? "");
+      Common.showToast("Something went wrong!");
     }
   }
 
   Future<void> createOrderIdForBook(amount) async {
     showLoader();
-    final response = await apiServices.orderCreate(paidAmount: amount);
+    final response = await cartApiServices.createOrderApi();
     hideLoader();
     if (response == null) return;
-    if (response.status == 200) {
-      debugPrint("sonu${response.data} ::${amount * 100}");
-      buyNow(response.data, amount * 100);
+    if (response.orders.isNotEmpty) {
+      debugPrint("sonu${response.orders} ::${amount * 100}");
+      buyNow(response.phonepeResponse?.orderId??"", amount * 100,response.orders[0].merchantOrderId,response.phonepeResponse?.token??"");
     } else {
-      Common.showToast(response.message);
+      Common.showToast("Something went wrong!");
     }
   }
-  String getSalt(String orderId,int amount) {
+  String getSalt(String orderId,int amount,String transaction) {
 
     String apiEndPoint = "/pg/v1/pay";
     var salt = "6ecedc1a-eed9-454b-9a07-5fd33d49dc5d";
     var index = 1;
     return "${sha256
-        .convert(utf8.encode(getBody(orderId,amount,transaction) + apiEndPoint + salt))}###$index";
+        .convert(utf8.encode(getBody("335",amount,transaction) + apiEndPoint + salt))}###$index";
   }
 
   String getBody(String orderId,int amount,String transaction) {
@@ -89,31 +87,36 @@ class TotalVisitorController extends BaseController {
       "amount": 1000,
       "mobileNumber": appPreferences.mobile,
       "callbackUrl": "https://webhook.site/fb8f7b18-790f-4106-80cc-7ea57961dc86",
-      "paymentInstrument": {"type": "PAY_PAGE"}
+      "paymentInstrument": {"type": "PHONEPE"}
     }; // Encode the request body to JSON
     String jsonBody = jsonEncode(body);
     String base64EncodedBody = base64Encode(utf8.encode(jsonBody));
     return base64EncodedBody;
   }
-  void navigate(String result,String orderId){
+  void navigate(String result,String orderId,int amount,String merchantTransectionId){
     if(result.contains("SUCCESS")){
-      saveTransaction(0, 0, "", "", orderId ?? "", totalPrice.value,
-          "","", false);
-
+      ShipRocketTransaction(merchantTransectionId,orderId,amount);
+     /* saveTransaction(0, 0, "", "", orderId ?? "", totalPrice.value,
+          "","", false);*/
     }else{
-      Common.showToast(result);
+      Common.showToast("Payment Failed!");
     }
-    Home.start(0);
+    //Home.start(0);
   }
-  void buyNow(String orderId, int amount) {
-     String value=getSalt(orderId,amount);
+  void buyNow(String orderId, int amount,String merchantId,String token) {
+     //String value=getSalt("335",amount,merchantId);
+     Map<String,dynamic> payload = {
+       "orderId": orderId,
+       "merchantId": "M220EMX87XH1T",
+       "token": token,
+       "paymentMode": {"type": "PAY_PAGE"}
+     };
+     final request=jsonEncode(payload);
+
     try {
-      var response = PhonePePaymentSdk.startTransaction(
-          getBody(orderId,amount,transaction), "https://webhook.site/fb8f7b18-790f-4106-80cc-7ea57961dc86", value, "com.f2df.mcsofttech");
+      var response = PhonePePaymentSdk.startTransaction(request,"myApp");
       response.then((val) => {
-        navigate(val.toString(),orderId)
-
-
+        navigate(val.toString(),orderId,amount,merchantId)
       })
           .catchError((error) {
         handleError(error);
@@ -196,6 +199,24 @@ class TotalVisitorController extends BaseController {
     );
   }
 
+  void ShipRocketTransaction(
+      String merchantTransectionId,String orderId,int totalAmount) async {
+    final response = await apiServices.sendOrderToShipRocket(merchantTransectionId);
+    if (response == null){
+      Home.start(0);
+      return;
+    }
+    if (response.status) {
+      Common.showToast(response.message);
+      cartController.updateresponse();
+      Home.start(0);
+
+
+      /*
+      saveTransaction(0, 0, "", "", orderId ?? "", totalPrice.value,
+          "","", false);*/
+    }
+  }
   void saveTransaction(
       int cartId,
       int code,

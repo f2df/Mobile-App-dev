@@ -122,11 +122,16 @@ class LoginController extends BaseController {
       appPreferences.saveUserId(loginModel.loginData!.id.toString());
       appPreferences.saveUserImage(loginModel.loginData!.img);
       appPreferences.saveLoggedIn(true);
+      appPreferences.saveAddress1(loginModel.loginData?.address?.address1??"");
+      appPreferences.saveAddress2(loginModel.loginData?.address?.address2??"");
+      appPreferences.savePinPCode(loginModel.loginData?.address?.pincode??"");
+      appPreferences.savePCity(loginModel.loginData?.address?.city??"");
+      appPreferences.savePState(loginModel.loginData?.address?.state??"");
       if (response.loginData!.loginData!.userExist) {
         Home.start(0);
       } else {
-        Home.start(0);
-       // ProfileOptions.start(fromTab: "FromLogin");
+        //Home.start(0);
+       ProfileOptions.start(fromTab: "FromLogin");
       }
     }
   }

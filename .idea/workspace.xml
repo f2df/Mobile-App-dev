@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="NONE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="802a2a5d-1f72-4b6e-92c9-47bb2d93a494" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/android/.idea/appInsightsSettings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/.idea/caches/deviceStreaming.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/.idea/deploymentTargetSelector.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/.idea/kotlinc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/.idea/migrations.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/.idea/runConfigurations.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/.idea/studiobot.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/app/src/main/res/values-v35/styles.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/controllers/addaddress/address_list_controller.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/models/PickUpList.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/models/common_data_message_model.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/models/order/checkaserce/CheckServiceResModel.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/models/order/checkaserce/Data.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/models/order/orderdetail/OrderDetail.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/models/order/orderdetail/OrderItems.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/models/order/orderdetail/Orders.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/models/order/orderdetail/PhonePayResponse.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/models/order/orderdetail/User.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/models/order/shiprocket/OrderShipRocket.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/models/order/shiprocket/ShipRocketModel.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/models/order/shiprocket/ShiprocketResponses.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/f2df.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/android/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/android/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/android/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/android/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/release/output-metadata.json" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/release/output-metadata.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/kotlin/com/f2df/mcsofttech/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/src/main/kotlin/com/f2df/mcsofttech/MainActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/res/values/styles.xml" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/src/main/res/values/styles.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/android/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/gradle.properties" beforeDir="false" afterPath="$PROJECT_DIR$/android/gradle.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/android/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ios/Runner/Info.plist" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Runner/Info.plist" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/controllers/addaddress/add_address_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/controllers/addaddress/add_address_controller.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/controllers/addandsell/add_and_sell_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/controllers/addandsell/add_and_sell_controller.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/controllers/cart/cart_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/controllers/cart/cart_controller.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/controllers/login/login_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/controllers/login/login_controller.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/controllers/meridhukaan/add_user_action_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/controllers/meridhukaan/add_user_action_controller.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/controllers/meridhukaan/total_visitor_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/controllers/meridhukaan/total_visitor_controller.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/controllers/product/product_search_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/controllers/product/product_search_controller.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/controllers/profile_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/controllers/profile_controller.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/data/network/apiservices/add_and_sell_api_service.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/data/network/apiservices/add_and_sell_api_service.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/data/network/apiservices/address_services.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/data/network/apiservices/address_services.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/data/network/apiservices/cart_api_services.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/data/network/apiservices/cart_api_services.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/data/network/apiservices/meridukaan_api_services.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/data/network/apiservices/meridukaan_api_services.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/data/preferences/AppPreferences.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/data/preferences/AppPreferences.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/data/preferences/app_preference_key.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/data/preferences/app_preference_key.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/main_common.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main_common.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/models/meridukaan/userdashboard/Equiry.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/models/meridukaan/userdashboard/Equiry.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/models/message_status_model.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/models/message_status_model.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/services/navigator.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/services/navigator.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/ui/base/page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ui/base/page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/ui/module/address/add_address.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ui/module/address/add_address.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/ui/module/address/address_list.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ui/module/address/address_list.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/ui/module/address/address_widget_card.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ui/module/address/address_widget_card.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/ui/module/cart/cart_list_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ui/module/cart/cart_list_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/ui/module/cart/kart_card.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ui/module/cart/kart_card.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/ui/module/category/subcategory/widget/sub_category_card.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ui/module/category/subcategory/widget/sub_category_card.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/ui/module/category/subcategory/widget/sub_category_similler_card.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ui/module/category/subcategory/widget/sub_category_similler_card.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/ui/module/home/home.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ui/module/home/home.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/ui/module/home/mydrawer.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ui/module/home/mydrawer.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/ui/module/news_and_video/news_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ui/module/news_and_video/news_screen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/ui/module/news_and_video/video_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ui/module/news_and_video/video_screen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/ui/module/product/product_detail.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ui/module/product/product_detail.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/ui/module/product/product_list.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ui/module/product/product_list.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/ui/module/product/product_similler_detail.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ui/module/product/product_similler_detail.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/ui/module/profile/profile_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ui/module/profile/profile_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 7
+}</component>
+  <component name="ProjectId" id="36xNvnPlqzzeLJmenJFeuxmXjy2" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Flutter.main.dart.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "RunOnceActivity.readMode.enableVisualFormatting": "true",
+    "ScreenRecorder.SavePath": "/Users/apple/Desktop",
+    "ScreenshotViewer.SavePath": "/Users/apple/Desktop",
+    "android.gradle.sync.needed": "true",
+    "cf.first.check.clang-format": "false",
+    "cidr.known.project.marker": "true",
+    "dart.analysis.tool.window.visible": "false",
+    "git-widget-placeholder": "api__changes",
+    "io.flutter.reload.alreadyRun": "true",
+    "kotlin-language-version-configured": "true",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "show.migrate.to.gradle.popup": "false"
+  }
+}]]></component>
+  <component name="RunManager">
+    <configuration name="main.dart" type="FlutterRunConfigurationType" factoryName="Flutter">
+      <option name="filePath" value="$PROJECT_DIR$/lib/main.dart" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="802a2a5d-1f72-4b6e-92c9-47bb2d93a494" name="Changes" comment="" />
+      <created>1765944497515</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1765944497515</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="Dart">
+          <url>file://$PROJECT_DIR$/lib/controllers/profile_controller.dart</url>
+          <line>47</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="Dart">
+          <url>file://$PROJECT_DIR$/lib/controllers/profile_controller.dart</url>
+          <line>49</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="Dart">
+          <url>file://$PROJECT_DIR$/lib/controllers/profile_controller.dart</url>
+          <line>50</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="Dart">
+          <url>file://$PROJECT_DIR$/lib/controllers/profile_controller.dart</url>
+          <line>51</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="Dart">
+          <url>file://$PROJECT_DIR$/lib/controllers/profile_controller.dart</url>
+          <line>52</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="Dart">
+          <url>file://$PROJECT_DIR$/lib/controllers/login/login_controller.dart</url>
+          <line>118</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="Dart">
+          <url>file://$PROJECT_DIR$/lib/ui/module/product/product_detail.dart</url>
+          <line>49</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="Dart">
+          <url>file://$PROJECT_DIR$/lib/ui/module/product/product_detail.dart</url>
+          <line>54</line>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="Dart">
+          <url>file://$PROJECT_DIR$/lib/ui/module/product/product_detail.dart</url>
+          <line>45</line>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="Dart">
+          <url>file://$PROJECT_DIR$/lib/ui/module/product/product_detail.dart</url>
+          <line>143</line>
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="Dart">
+          <url>file://$PROJECT_DIR$/lib/ui/module/category/subcategory/widget/sub_cat_card.dart</url>
+          <line>30</line>
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="Dart">
+          <url>file://$PROJECT_DIR$/lib/ui/module/meridukaan/my_product.dart</url>
+          <line>114</line>
+          <option name="timeStamp" value="14" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="Dart">
+          <url>file://$PROJECT_DIR$/lib/ui/module/category/subcategory/widget/sub_best_sellar_card.dart</url>
+          <line>45</line>
+          <option name="timeStamp" value="15" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="Dart">
+          <url>file://$PROJECT_DIR$/lib/ui/module/category/subcategory/widget/sub_category_similler_card.dart</url>
+          <line>48</line>
+          <option name="timeStamp" value="16" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="Dart">
+          <url>file://$PROJECT_DIR$/lib/ui/module/home/tab/meri_dukaan_tab.dart</url>
+          <line>382</line>
+          <option name="timeStamp" value="17" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="Dart">
+          <url>file://$PROJECT_DIR$/lib/ui/module/product/widget/product_card.dart</url>
+          <line>33</line>
+          <option name="timeStamp" value="18" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="Dart">
+          <url>file://$PROJECT_DIR$/lib/controllers/cart/cart_controller.dart</url>
+          <line>105</line>
+          <option name="timeStamp" value="19" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="Dart">
+          <url>file://$PROJECT_DIR$/lib/controllers/cart/cart_controller.dart</url>
+          <line>106</line>
+          <option name="timeStamp" value="20" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>

@@ -12,6 +12,7 @@ import 'package:mcsofttech/models/add_sell_product_add_model.dart';
 import 'package:mcsofttech/ui/module/home/home.dart';
 import 'package:permission_handler/permission_handler.dart';
 import '../../data/preferences/AppPreferences.dart';
+import '../../models/PickUpList.dart';
 import '../../models/category/CategoryCatData.dart';
 import '../../models/category/SubCategory.dart';
 import '../../models/category/SubCategoryFeatures.dart';
@@ -24,6 +25,7 @@ class AddAndSellController extends BaseController {
   final appPreferences = Get.find<AppPreferences>();
   final categoryDataList = <CategoryCatData>[];
   final bannerList = <BannerData>[].obs;
+  final pickUpList = <PickUpList>[].obs;
   final priceCheck = false.obs;
   late final Rx<CategoryCatData> categoryCatData = CategoryCatData(
       categoryName: "", categoryImg: "", pc_id: 1, subCategories: []).obs;
@@ -59,6 +61,23 @@ class AddAndSellController extends BaseController {
     super.onInit();
   }
 
+  void getPickUpLocation() async {
+
+    final response =
+    await apiServices.getPickUpLocation();
+
+    //if (response == null) Common.showToast("Server Error!");
+    if (response != null &&
+        response.status == 200 &&
+        response.data!.isNotEmpty) {
+
+      if (response.data != null && response.data!.isNotEmpty) {
+        pickUpList.clear();
+        pickUpList.addAll(response.data!);
+      }
+    }
+  }
+
   void callCategoryAddProductListApi({page = 0, type}) async {
     isLoader.value = true;
     final response =
@@ -84,6 +103,7 @@ class AddAndSellController extends BaseController {
         subCatList.value = categoryDataList.first.subCategories!;
         subCategoryData.value = categoryDataList.first.subCategories!.first;
       }
+      getPickUpLocation();
     }
   }
 

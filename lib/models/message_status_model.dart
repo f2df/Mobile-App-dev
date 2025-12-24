@@ -1,6 +1,5 @@
 class CommonModel {
   String message = "";
-
   int status;
 
   CommonModel({required this.message, required this.status});

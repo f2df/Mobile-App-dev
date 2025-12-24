@@ -32,7 +32,7 @@ class AddUserActionController extends BaseController {
       String updateDate,
       String qunatity,
       String productUuid) async {
-    showLoader();
+      showLoader();
     final response = await apiServices.addUserActionData(
         productImg,
         appPreferences.email,
@@ -63,13 +63,13 @@ class AddUserActionController extends BaseController {
       }
       if (type == "Enquiry" && clickType == "call") {
         await FlutterPhoneDirectCaller.callNumber(productMobile);
-        return;
+        //return;
       }
       if (type == "Enquiry" || clickType == "whatsApp") {
         await launchUrl(Uri.parse(
             "whatsapp://send?phone=+91$productMobile&text=https://www.f2df.com/product/details?id=$product_id \nFor Enquiry on app ‘I am interested in this product "));
 
-        return;
+        //return;
       }
     }
   }

@@ -92,4 +92,36 @@ Future<AddressListModel?> getAddresList()async{
   return commonResponseModel;
 
 }
+  Future<AddressListModel?> checkServiceAbility(String deliveryPincode)async{
+    var inputData = {
+      "userId": SharedConfig.userId,
+
+    };
+    late AddressListModel? commonResponseModel;
+    debugPrint('inputData: ${jsonEncode(inputData).toString()}');
+    try {
+      final response = await client.post(
+        options: Options(
+          headers: {
+            "Authorization": "Bearer ${appPreferences.authToken}",
+          },
+        ),
+        "${Constant.baseUrl}/getDeliveryAddress",
+        data: jsonEncode(inputData).toString(),
+      );
+      if (kDebugMode) {
+        print('outPut: ${response.data}');
+      }
+      try {
+        commonResponseModel = AddressListModel.fromJson(response.data);
+      } catch (e) {
+        debugPrint(e.toString());
+      }
+    } catch (e) {
+      debugPrint(e.toString());
+    }
+
+    return commonResponseModel;
+
+  }
 }

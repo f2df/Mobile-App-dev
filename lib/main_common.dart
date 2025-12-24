@@ -3,7 +3,6 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
-
 import 'package:mcsofttech/environment.dart';
 import 'package:get/get.dart';
 import 'package:mcsofttech/notifire/cart_notifire.dart';
@@ -61,10 +60,8 @@ GetMaterialApp get getMaterialApp => GetMaterialApp(
       ),
       getPages: Routes.get(),
       builder: (context, child) {
-        return MediaQuery(
-          data: MediaQuery.of(context).copyWith(textScaleFactor: 1),
-          child: child ?? Container(),
-        );
+        return child ?? Container();
+
       },
       defaultTransition: Transition.rightToLeftWithFade,
       initialRoute: SplashScreen.routeName,

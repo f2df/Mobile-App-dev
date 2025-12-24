@@ -19,6 +19,7 @@ import '../../../models/meridukaan/userdashboard/TrainingModel.dart';
 import '../../../models/meridukaan/userdashboard/userDashboard.dart';
 import '../../../models/meridukaan/userdashboard/userDynamicDashboard.dart';
 import '../../../models/meridukaan/userdashboard/user_dashboard_card_data_model.dart';
+import '../../../models/order/shiprocket/ShipRocketModel.dart';
 import '../../preferences/AppPreferences.dart';
 import '../../preferences/shared_preferences.dart';
 import '../dio_client.dart';
@@ -484,6 +485,32 @@ class MeriDukaanApiServices extends DioClient {
 
 
 
+  }
+  Future<SHipRocketResModel?> sendOrderToShipRocket(String merchantTranssectionId) async {
+    SHipRocketResModel? subCategoryModel;
+    try {
+      print('shopRocketUrl: ${Constant.baseUrl}/api/payment/callback?merchantOrderId=$merchantTranssectionId}');
+      final response = await client.get(
+          options: Options(
+            headers: {
+              "Authorization": "Bearer ${appPreferences.authToken}",
+            },
+          ),
+          "${Constant.baseUrl}/api/payment/callback?merchantOrderId=$merchantTranssectionId"
+      );
+      print('shopRocketUrl: ${Constant.baseUrl}/api/payment/callback?merchantOrderId=$merchantTranssectionId}');
+      if (kDebugMode) {
+        print('outPut: ${response.data}');
+      }
+      try {
+        subCategoryModel = SHipRocketResModel.fromJson(response.data);
+      } catch (e) {
+        debugPrint(e.toString());
+      }
+    } catch (e) {
+      debugPrint(e.toString());
+    }
+    return subCategoryModel;
   }
   Future<CommonModelResponse?> saveTransaction(
       {cartId,

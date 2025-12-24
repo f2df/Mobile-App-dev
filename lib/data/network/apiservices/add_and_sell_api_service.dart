@@ -10,6 +10,7 @@ import '../../../models/add_product_model.dart';
 import '../../../models/add_sell_product_add_model.dart';
 import '../../../models/category/categoryModel.dart';
 
+import '../../../models/common_data_message_model.dart';
 import '../../preferences/AppPreferences.dart';
 import '../../preferences/shared_preferences.dart';
 import '../dio_client.dart';
@@ -99,4 +100,29 @@ class AddSellApiServices extends DioClient {
     }
     return commonModel;
   }
+  Future<CommonDataResponseModel?> getPickUpLocation() async {
+    try {
+      final response = await client.get(
+        options: Options(
+          headers: {
+            "Authorization": "Bearer ${appPreferences.authToken}",
+          },
+        ),
+        "${Constant.baseUrl}//api/shiprocket/pickup-locations",
+      );
+      if (kDebugMode) {
+        print('outPut: ${response.data}');
+      }
+      try {
+        return CommonDataResponseModel.fromJson(response.data);
+      } catch (e) {
+        debugPrint(e.toString());
+      }
+    } catch (e) {
+      debugPrint(e.toString());
+    }
+    return null;
+  }
+
+
 }

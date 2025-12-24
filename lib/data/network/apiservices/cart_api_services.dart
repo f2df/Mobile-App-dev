@@ -9,9 +9,11 @@ import 'package:mcsofttech/data/preferences/shared_preferences.dart';
 import 'package:mcsofttech/models/cart/new_order.dart';
 import 'package:mcsofttech/models/meridukaan/userdashboard/Equiry.dart';
 import 'package:mcsofttech/models/message_status_model.dart';
+import 'package:mcsofttech/models/order/orderdetail/OrderDetail.dart';
 import 'package:mcsofttech/models/productDetail/product_detail_model.dart';
 
 import '../../../constants/Constant.dart';
+import '../../../models/order/checkaserce/CheckServiceResModel.dart';
 import '../../../utils/common_util.dart';
 import '../../preferences/AppPreferences.dart';
 import '../dio_client.dart';
@@ -19,6 +21,38 @@ import '../dio_client.dart';
 class CartApiServices extends DioClient {
   final client = DioClient.client;
   final appPreferences = Get.find<AppPreferences>();
+
+  Future<CheckServiceResModel?> checkServiceability({p_id,delivary_Id,code=1}) async {
+    var inputData = {
+      "p_id": p_id,
+      "deliveryPincode":delivary_Id,
+      "cod":1
+    };
+    debugPrint('inputData: $inputData');
+    CheckServiceResModel? serviceAbility;
+    try {
+      final response = await client.post(
+        options: Options(
+          headers: {
+            "Authorization": "Bearer ${appPreferences.authToken}",
+          },
+        ),
+        "${Constant.baseUrl}/api/shiprocket/checkServiceability",
+        data: jsonEncode(inputData),
+      );
+      if (kDebugMode) {
+        print('outPut: ${response.data}');
+      }
+      try {
+        return CheckServiceResModel.fromJson(response.data);
+      } catch (e) {
+        debugPrint(e.toString());
+      }
+    } catch (e) {
+      debugPrint(e.toString());
+    }
+    return serviceAbility;
+  }
   Future<CommonModel?> addToCartApi({productId, quantity}) async {
     var inputData = {
       "productId": productId,
@@ -164,22 +198,10 @@ class CartApiServices extends DioClient {
     return null;
   }
 
-  Future<NewOrderResponse?> createOrderApi(
-      {List<Map<String, dynamic>>? orderItems}) async {
-    var inputData = {
-      "userId": SharedConfig.userId,
-      "shippingAddressId": SharedConfig.shippingAddressId,
-      "orderItems": orderItems
-      // [
-      //     {
-      //         "productId": 522,
-      //         "quantity": 10
-      //     }
-      // ]
-    };
-    debugPrint('inputData: $inputData');
+  Future<OrderDetail?> createOrderApi() async {
+    debugPrint('inputData: ${SharedConfig.shippingAddressId}');
 
-    NewOrderResponse? newOrder;
+    OrderDetail? newOrder;
     try {
       final response = await client.post(
         options: Options(
@@ -187,14 +209,14 @@ class CartApiServices extends DioClient {
             "Authorization": "Bearer ${appPreferences.authToken}",
           },
         ),
-        "${Constant.baseUrl}/api/orders/create",
-        data: jsonEncode(inputData),
+        "${Constant.baseUrl}/api/orders/create-sdk/${SharedConfig.userId}",
+
       );
       if (kDebugMode) {
         print('outPut: ${response.data}');
       }
       try {
-        newOrder = NewOrderResponse.fromJson(response.data);
+        newOrder = OrderDetail.fromJson(response.data);
       } catch (e) {
         debugPrint(e.toString());
       }

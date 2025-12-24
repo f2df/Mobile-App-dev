@@ -6,7 +6,7 @@ buildscript {
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:7.1.2'
+        classpath 'com.android.tools.build:gradle:8.8.2'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
         classpath 'com.google.gms:google-services:4.3.5'
     }
@@ -16,8 +16,9 @@ allprojects {
     repositories {
         google()
         mavenCentral()
+
         maven {
-            url  "https://phonepe.mycloudrepo.io/public/repositories/phonepe-intentsdk-android"
+            url "https://phonepe.mycloudrepo.io/public/repositories/phonepe-intentsdk-android"
         }
     }
 }

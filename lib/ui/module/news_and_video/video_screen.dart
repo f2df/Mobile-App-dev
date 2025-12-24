@@ -108,13 +108,19 @@ class VideoScreen extends AppPageWithAppBar {
   }
   List<Widget> get newsList {
     List<Widget> list = [];
+    if(controller.newsList.isEmpty){
+      return list;
+    }
     for (int i = 0; i <= controller.newsList.length-1; i++) {
-      list.add(SizedBox(
-          height: 110,
-          child: SizedBox(
-            width: screenWidget,
-            child:  NewsCard(newsData:controller.newsList[i],newsList: controller.newsList,initialPage: i,type:"Video"),
-          )));
+      if(controller.newsList[i].images.isNotEmpty){
+        list.add(SizedBox(
+            height: 110,
+            child: SizedBox(
+              width: screenWidget,
+              child:  NewsCard(newsData:controller.newsList[i],newsList: controller.newsList,initialPage: i,type:"Video"),
+            )));
+      }
+
       if ((i + 1) % 6 == 0) {
         list.add(SizedBox(
           height: 150,

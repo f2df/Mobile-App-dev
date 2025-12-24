@@ -1,0 +1,28 @@
+{
+    "logs": [
+        {
+            "outputFile": "com.f2df.mcsofttech.app-mergeDebugResources-57:/values-v35/values-v35.xml",
+            "map": [
+                {
+                    "source": "/Users/apple/Documents/f2df/latest7Dec/8feb/18march/dev36/f2df/android/app/src/main/res/values-v35/styles.xml",
+                    "from": {
+                        "startLines": "3",
+                        "startColumns": "4",
+                        "startOffsets": "56",
+                        "endLines": "7",
+                        "endColumns": "12",
+                        "endOffsets": "145"
+                    },
+                    "to": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endLines": "6",
+                        "endColumns": "12",
+                        "endOffsets": "144"
+                    }
+                }
+            ]
+        }
+    ]
+}

@@ -44,8 +44,8 @@ class ProductSearchController extends BaseController {
     if (response != null &&
         response.status == 200 &&
         response.products!.isNotEmpty) {
-      productDataList.clear();
-      productSetList.clear();
+     /* productDataList.clear();
+      productSetList.clear();*/
       pageNo.value += 1;
       if (response.products != null && response.products!.isNotEmpty) {
         productDataList.addAll(response.products!);

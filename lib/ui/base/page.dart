@@ -138,7 +138,6 @@ class AppPageWithAppBar extends AppPage {
   bool get observeVisibleChnages => false;
 
   void onResume() {}
-
   void onPause() {}
 
   Widget get body => Container(

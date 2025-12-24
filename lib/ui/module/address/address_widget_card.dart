@@ -23,6 +23,7 @@ class AddressCard extends BaseStateLessWidget {
       width: screenWidget,
       child: InkWell(
         onTap: () {
+          appPreferences.saveDelivaryAddress(true);
           SharedConfig.shippingAddressId=addressData.id;
           Get.back(result: true);
            },

@@ -102,35 +102,35 @@ class ProductSimilarDetail extends AppPageWithAppBar {
             ),
           ),
         ),
-        InkWell(
-          onTap: () {
-            CartListPage.start("my_cart".tr);
-            if (appPreferences.isLoggedIn) {
-              // KartStorePage.start();
-            } else {
-              //  LogInScreen.start();
-            }
-          },
-          child: Padding(
-            padding:
-                const EdgeInsets.only(left: 0, right: 15, top: 8, bottom: 8),
-            child: Stack(
-              children: [
-                Align(
-                    alignment: Alignment.center,
-                    child: SvgPicture.asset('assets/png/icon_cart.svg')),
-                Positioned(
-                  top: 0,
-                  left: 0,
-                  right: 0,
-                  child: Obx(() => KartCounter(
-                        count: controller.cartCount,
-                      )),
-                )
-              ],
-            ),
-          ),
+    InkWell(
+      onTap: () {
+        CartListPage.start("my_cart".tr);
+        if (appPreferences.isLoggedIn) {
+          // KartStorePage.start();
+        } else {
+          //  LogInScreen.start();
+        }
+      },
+      child: Padding(
+        padding:
+        const EdgeInsets.only(left: 0, right: 15, top: 8, bottom: 8),
+        child: Stack(
+          children: [
+            Align(
+                alignment: Alignment.center,
+                child: SvgPicture.asset('assets/png/icon_cart.svg')),
+            Positioned(
+              top: 0,
+              left: 0,
+              right: 0,
+              child: KartCounter(
+                count: controller.cartCount,
+              ),
+            )
+          ],
         ),
+      ),
+    ),
       ];
 
   @override
@@ -898,10 +898,17 @@ class ProductSimilarDetail extends AppPageWithAppBar {
           ),
           InkWell(
               onTap: () {
-                if (quantity.value >= 1) {
-                  controller.decreaseQuantity(allProduct.p_id.toString(), 1);
-                  quantity.value -= 1;
+                if(controller.cartCount.value>0){
+                  if (quantity.value >= 1) {
+                    controller.decreaseQuantity(allProduct.p_id.toString(), 1,allProduct.quantity);
+                    quantity.value -= 1;
+                  }
+                }else{
+                  if(controller.cartCount<=0){
+                    quantity.value=0;
+                  }
                 }
+
               },
               child: const Icon(
                 Icons.delete_outline_rounded,
@@ -919,7 +926,7 @@ class ProductSimilarDetail extends AppPageWithAppBar {
             child: SizedBox(
               width: 40,
               child: Obx(() => Text(
-                    quantity.value.toString(),
+                controller.getQuanity(allProduct.p_id).toString(),
                     textAlign: TextAlign.center,
                     style: TextStyles.headingTexStyle(color: Palette.appColor),
                   )),
@@ -930,7 +937,11 @@ class ProductSimilarDetail extends AppPageWithAppBar {
           ),
           InkWell(
               onTap: () {
+                if(controller.cartCount<=0){
+                  quantity.value=0;
+                }
                 quantity.value += 1;
+                controller.increaseQuantity(allProduct.p_id.toString(), 1);
               },
               child: Text(
                 "+",
@@ -1040,7 +1051,7 @@ class ProductSimilarDetail extends AppPageWithAppBar {
                       width: 10,
                     ),
                     Obx(() => Text(
-                        "\u{20B9} ${allProduct.productFee * quantity.value}",
+                        "\u{20B9} ${controller.cartCount.value>0?allProduct.productFee * quantity.value:0}",
                         style: TextStyles.headingTexStyle(
                             color: Colors.black,
                             fontSize: 14,

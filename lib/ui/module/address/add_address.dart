@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../controllers/addaddress/add_address_controller.dart';
+import '../../../data/preferences/AppPreferences.dart';
 import '../../../services/navigator.dart';
 import '../../base/page.dart';
 import '../../commonwidget/primary_elevated_button.dart';
@@ -17,9 +18,20 @@ class AddAddress extends AppPageWithAppBar {
   }
 
   final addressController = Get.put(AddressController());
+  final appPreferences = Get.find<AppPreferences>();
 
   @override
   Widget get body {
+    addressController.nameController.text=appPreferences.userName.toString();
+    addressController.mobileController.text=appPreferences.mobile.toString();
+    addressController.houseNoController.text=appPreferences.houseNo.toString();
+    addressController.streetController.text=appPreferences.street.toString();
+    addressController.areaController.text=appPreferences.area.toString();
+    addressController.landmarkController.text=appPreferences.landmark.toString();
+    addressController.cityController.text=appPreferences.city.toString();
+    addressController.stateController.text=appPreferences.state.toString();
+    addressController.countryController.text=appPreferences.country.toString();
+    addressController.pincodeController.text=appPreferences.pinCode.toString();
     return CustomScrollView(
       shrinkWrap: true,
       slivers: <Widget>[
@@ -29,7 +41,7 @@ class AddAddress extends AppPageWithAppBar {
         const SizedBox(height: 20),
         textField("Enter name", addressController.nameController, TextInputType.text),
         const SizedBox(height: 10),
-        textField("Enter mobile", addressController.mobileController, TextInputType.text),
+        textField("Enter mobile", addressController.mobileController, TextInputType.number),
         const SizedBox(height: 10),
         textField("Enter house number", addressController.houseNoController, TextInputType.text),
         const SizedBox(height: 10),
@@ -61,7 +73,7 @@ class AddAddress extends AppPageWithAppBar {
       width: screenWidget,
       height: 45,
       child: PrimaryElevatedBtn(
-          "Save",
+          appPreferences.pinCode.isEmpty?"Save":"Edit",
               () =>
           {addressController.addAddress()},
           borderRadius: 40.0),

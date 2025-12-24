@@ -46,13 +46,21 @@ class SubCatProductSimillerCard extends BaseStateLessWidget {
                     Get.delete<CartController>();
                     Get.delete<AddUserActionController>();
                     Get.delete<ProductController>();
-                    if (comingFrom == "detail") {
-                      ProductSimilarDetail.start("Product Detail",
-                          allProduct: recommdedProduct, comingFrom: "Similar");
+                    ProductDetail.start("Product Detail",
+                        allProduct: recommdedProduct, comingFrom: "Similar");
+                   /* if (comingFrom == "detail") {
+                      Get.offNamed(
+                        '/productDetail',
+                        arguments: {
+                          'allProduct': recommdedProduct,
+                        },
+                      );*//*
+                      ProductDetail.start("Product Detail",
+                          allProduct: recommdedProduct, comingFrom: "Similar");*//*
                     } else {
                       ProductDetail.start("Product Detail",
                           allProduct: recommdedProduct, comingFrom: "detail");
-                    }
+                    }*/
                   },
                   child: Padding(
                     padding: const EdgeInsets.only(
@@ -110,8 +118,12 @@ class SubCatProductSimillerCard extends BaseStateLessWidget {
                               .contains("mrp"))
                               .isNotEmpty))Padding(
                         padding: const EdgeInsets.only(bottom: 5),
-                        child: SvgPicture.asset("assets/svg/ic_pluse_icon.svg",
-                            semanticsLabel: 'Acme Logo'),
+                        child: InkWell(onTap: (){
+                          final controller = Get.put(CartController());
+                          controller.increaseQuantity(recommdedProduct.p_id.toString(), 1);
+
+                        },child: SvgPicture.asset("assets/svg/ic_pluse_icon.svg",
+                            semanticsLabel: 'Acme Logo'),),
                       )
                     ],
                   ),

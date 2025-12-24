@@ -13,19 +13,22 @@ class CartListResponse {
 }
 
 class CartList {
-  List<Equiry>? cartItems;
+  List<Equiry> cartItems;
   int? totalPrice;
 
   CartList({
-    this.cartItems,
+    required this.cartItems,
     this.totalPrice,
   });
 
   factory CartList.fromJson(Map<String, dynamic> json) => CartList(
-        cartItems: json["cartItems"] == null
-            ? []
-            : List<Equiry>.from(
-                json["cartItems"]!.map((x) => Equiry.fromJson(x))),
+
+
+    cartItems: json['cartItems'] != null
+        ? (json['cartItems'] as List)
+        .map((i) => Equiry.fromJson(i))
+        .toList()
+        : [],
         totalPrice: json["totalPrice"].toInt(),
       );
 
@@ -35,6 +38,7 @@ class CartList {
             : List<dynamic>.from(cartItems!.map((x) => x.toJson())),
         "totalPrice": totalPrice,
       };
+
 }
 
 class Equiry {
@@ -54,6 +58,7 @@ class Equiry {
   int user_id;
   int qunatity;
   int actualPrice;
+  int productOldFee;
   String uuid;
 
   Equiry(
@@ -73,6 +78,7 @@ class Equiry {
       required this.user_id,
       required this.qunatity,
       required this.actualPrice,
+        required this.productOldFee,
       required this.uuid});
 
   factory Equiry.fromJson(Map<String, dynamic> json) {
@@ -93,6 +99,7 @@ class Equiry {
         user_id: json['user_id'] ?? 0,
         qunatity: json['qunatity'] ?? 1,
         actualPrice: json['actualPrice'] ?? 0,
+        productOldFee: json['productOldFee'] ?? 0,
         uuid: json['cartUUid'] ?? "");
   }
 
@@ -114,6 +121,7 @@ class Equiry {
     data['user_id'] = user_id;
     data['qunatity'] = qunatity;
     data['actualPrice'] = actualPrice;
+    data['productOldFee'] = productOldFee;
     data['cartUUid'] = uuid;
     return data;
   }

@@ -8,18 +8,11 @@ import 'package:mcsofttech/ui/base/page.dart';
 import 'package:mcsofttech/ui/dialog/loader.dart';
 import 'package:mcsofttech/ui/module/address/address_list.dart';
 import 'package:mcsofttech/ui/module/cart/kart_card.dart';
-import 'package:mcsofttech/ui/module/home/home.dart';
-import 'package:mcsofttech/utils/common_util.dart';
-import 'package:provider/provider.dart';
-import 'package:razorpay_flutter/razorpay_flutter.dart';
 import '../../../controllers/meridhukaan/total_visitor_controller.dart';
-import '../../../controllers/product/product_Detail_controller.dart';
-import '../../../notifire/cart_notifire.dart';
 import '../../../services/navigator.dart';
 import '../../../utils/palette.dart';
 import '../../commonwidget/primary_elevated_button.dart';
 import '../../commonwidget/text_style.dart';
-import '../address/add_address.dart';
 
 class CartListPage extends AppPageWithAppBar {
   static String routeName = "/cartListPage";
@@ -29,17 +22,20 @@ class CartListPage extends AppPageWithAppBar {
   ) {
     return navigateTo<bool>(routeName, currentPageTitle: title);
   }
-
-  final wishController = Get.put(TotalVisitorController());
   final appPreference = Get.find<AppPreferences>();
-  final cartCount = 0.obs;
-  final totalPrice = 0.obs;
+  final controller = Get.put(CartController());
+  final wishController = Get.put(TotalVisitorController());
   late List<Equiry> productList;
+  @override
+  void onResume() {
+    super.onResume();
+    controller.getList();
+  }
 
   @override
   Widget get body {
-    wishController.cartController.update();
-    return Obx(() => wishController.isLoader.value
+    controller.getList();
+    return Obx(() => controller.isLoader.value
         ? const Loader()
         : SafeArea(
             child: Stack(
@@ -47,7 +43,7 @@ class CartListPage extends AppPageWithAppBar {
               Padding(
                   padding:
                       const EdgeInsets.only(left: 12, right: 12, bottom: 0),
-                  child: wishController.equiryList.isNotEmpty
+                  child: controller.cartList.isNotEmpty
                       ? cartList
                       : const SizedBox.shrink()),
               Positioned(
@@ -76,7 +72,7 @@ class CartListPage extends AppPageWithAppBar {
                     children: [
                       Text("subTotal".tr),
                       Obx(() =>
-                          Text("\u{20B9} ${wishController.totalPrice.value}"))
+                          Text("\u{20B9} ${controller.totalValue.value}"))
                     ],
                   ),
                   Divider(
@@ -124,8 +120,8 @@ class CartListPage extends AppPageWithAppBar {
             height: screenHeight / 1.3,
             child: ListView(
               scrollDirection: Axis.vertical,
-              children: List.generate(wishController.equiryList.length,
-                  (i) => KartCard(product: wishController.equiryList[i])),
+              children: List.generate(controller.cartList.length,
+                  (i) => KartCard(product: controller.cartList[i])),
             ),
           )
         ],
@@ -141,12 +137,7 @@ class CartListPage extends AppPageWithAppBar {
           child: SizedBox(
             child: PrimaryElevatedBtn(
                 buttonStyle: checkOutButtonStyle, "proceed_to_pay".tr, () {
-                  if(!appPreference.isSaveAddress){
-                    AddressList.start("Add Address");
 
-
-                    return;
-                  }else{
                     // wishController.createOrderId(wishController.totalPrice.value*100);
                     showModalBottomSheet(
                         isScrollControlled: true,
@@ -159,42 +150,41 @@ class CartListPage extends AppPageWithAppBar {
                         builder: (BuildContext c) {
                           return Padding(
                               padding: MediaQuery.of(Get.context!).viewInsets,
-                              child: Container(
-                                  child: Wrap(
-                                    children: <Widget>[
-                                      const SizedBox(
-                                        height: 10,
-                                      ),
-                                      const SizedBox(
-                                        height: 10,
-                                      ),
-                                      const Divider(
-                                        height: 1,
-                                        color: MyColors.themeColor,
-                                      ),
-                                      const SizedBox(
-                                        height: 10,
-                                      ),
-                                      Padding(
-                                        padding:
-                                        const EdgeInsets.only(left: 10, right: 10),
-                                        child: Column(
-                                          crossAxisAlignment: CrossAxisAlignment.stretch,
-                                          children: [
-                                            payFullPayment,
-                                            const SizedBox(
-                                              height: 10,
-                                            ),
-                                            if (wishController.totalPrice.value > 1000)
-                                              payPartial,
-                                            const SizedBox(height: 50),
-                                          ],
+                              child: Wrap(
+                                children: <Widget>[
+                                  const SizedBox(
+                                    height: 10,
+                                  ),
+                                  const SizedBox(
+                                    height: 10,
+                                  ),
+                                  const Divider(
+                                    height: 1,
+                                    color: MyColors.themeColor,
+                                  ),
+                                  const SizedBox(
+                                    height: 10,
+                                  ),
+                                  Padding(
+                                    padding:
+                                    const EdgeInsets.only(left: 10, right: 10),
+                                    child: Column(
+                                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                                      children: [
+                                        payFullPayment,
+                                        const SizedBox(
+                                          height: 10,
                                         ),
-                                      ),
-                                    ],
-                                  )));
+                                        if (controller.totalValue.value > 1000)
+                                          payPartial,
+                                        const SizedBox(height: 50),
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              ));
                         });
-                  }
+
 
 
             }, borderRadius: 1.0),
@@ -211,8 +201,8 @@ class CartListPage extends AppPageWithAppBar {
         child: PrimaryElevatedBtn(
             "Pay Full Payment",
             () async => wishController.createOrderId(
-                wishController.totalPrice.value,
-                wishController.equiryList.map((element) {
+                controller.totalValue.value,
+                controller.cartList.map((element) {
                   return {
                     "productId": element.product_id,
                     "quantity": element.qunatity
@@ -234,7 +224,7 @@ class CartListPage extends AppPageWithAppBar {
           double data = (price / 10);
           wishController.createOrderId(
               data.toInt(),
-              wishController.equiryList.map((element) {
+              controller.cartList.map((element) {
                 return {
                   "productId": element.product_id,
                   "quantity": element.qunatity
@@ -247,7 +237,7 @@ class CartListPage extends AppPageWithAppBar {
 
   Widget get totalAmountText {
     return Obx(() => Text(
-          "\u{20B9} ${wishController.totalPrice.value}",
+          "\u{20B9} ${controller.totalValue.value}",
           style: TextStyles.headingTexStyle(
               color: Palette.kColorBlack,
               fontSize: 16,

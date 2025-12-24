@@ -34,6 +34,7 @@ class EditProfile extends AppPageWithAppBar {
 
   @override
   Widget get body {
+
     return Obx(() => ListView(
           padding: const EdgeInsets.symmetric(horizontal: 32),
           physics: const BouncingScrollPhysics(),

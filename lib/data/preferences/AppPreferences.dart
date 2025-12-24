@@ -84,6 +84,95 @@ class AppPreferences {
   String get userName {
     return _getString(AppPreferenceKey.userName, defaultValue: "")!;
   }
+  Future<void> saveAddress1(String userName) {
+    return _saveString(AppPreferenceKey.address1, userName);
+  }
+
+  String get address_1 {
+    return _getString(AppPreferenceKey.address1, defaultValue: "")!;
+  }
+  Future<void> saveAddress2(String userName) {
+    return _saveString(AppPreferenceKey.address2, userName);
+  }
+
+  String get address_2 {
+    return _getString(AppPreferenceKey.address2, defaultValue: "")!;
+  }
+  Future<void> savePinPCode(String userName) {
+    return _saveString(AppPreferenceKey.pinPcode, userName);
+  }
+
+  String get pinPCode {
+    return _getString(AppPreferenceKey.pinPcode, defaultValue: "")!;
+  }
+  Future<void> savePCity(String userName) {
+    return _saveString(AppPreferenceKey.pCity, userName);
+  }
+
+  String get pCity {
+    return _getString(AppPreferenceKey.pCity, defaultValue: "")!;
+  }
+  Future<void> savePState(String userName) {
+    return _saveString(AppPreferenceKey.pstate, userName);
+  }
+
+  String get pState {
+    return _getString(AppPreferenceKey.pstate, defaultValue: "")!;
+  }
+  Future<void> saveHouseNo(String userName) {
+    return _saveString(AppPreferenceKey.houseNo, userName);
+  }
+
+
+  String get houseNo {
+    return _getString(AppPreferenceKey.houseNo, defaultValue: "")!;
+  }
+  Future<void> saveStreet(String userName) {
+    return _saveString(AppPreferenceKey.street, userName);
+  }
+
+  String get street {
+    return _getString(AppPreferenceKey.street, defaultValue: "")!;
+  }
+
+  Future<void> saveArea(String userName) {
+    return _saveString(AppPreferenceKey.area, userName);
+  }
+
+  String get area {
+    return _getString(AppPreferenceKey.area, defaultValue: "")!;
+  }
+
+  Future<void> saveLandmark(String userName) {
+    return _saveString(AppPreferenceKey.landmark, userName);
+  }
+
+  String get landmark {
+    return _getString(AppPreferenceKey.landmark, defaultValue: "")!;
+  }
+
+  Future<void> saveCity(String userName) {
+    return _saveString(AppPreferenceKey.city, userName);
+  }
+
+  String get city {
+    return _getString(AppPreferenceKey.city, defaultValue: "")!;
+  }
+
+  Future<void> saveState(String userName) {
+    return _saveString(AppPreferenceKey.state, userName);
+  }
+
+  String get state {
+    return _getString(AppPreferenceKey.state, defaultValue: "")!;
+  }
+  Future<void> saveCountry(String userName) {
+    return _saveString(AppPreferenceKey.state, userName);
+  }
+
+  String get country {
+    return _getString(AppPreferenceKey.state, defaultValue: "")!;
+  }
 
   Future<void> saveAddress(String address) {
     return _saveString(AppPreferenceKey.address, address);
@@ -91,6 +180,13 @@ class AppPreferences {
 
   String get address {
     return _getString(AppPreferenceKey.address, defaultValue: "")!;
+  }
+  Future<void> savePinCode(String address) {
+    return _saveString(AppPreferenceKey.pinCode, address);
+  }
+
+  String get pinCode {
+    return _getString(AppPreferenceKey.pinCode, defaultValue: "")!;
   }
 
   Future<void> saveImg(String img) {
@@ -182,5 +278,25 @@ class AppPreferences {
     saveUserName("");
     saveUserImage("");
     saveEmail("");
+    savePinCode("");
+    saveAddress("");
+    saveAddress1("");
+    saveAddress2("");
+    saveArea("");
+    saveAuthToken("");
+    saveCity("");
+    saveCountry("");
+    saveEmail("");
+    saveHouseNo("");
+    saveLandmark("");
+    saveImg("");
+    saveMobile("");
+    savePCity("");
+    savePinPCode("");
+    savePinCode("");
+    savePState("");
+    saveUserId("");
+    saveState("");
+    saveDelivaryAddress(false);
   }
 }

@@ -46,9 +46,14 @@ class ProfileController extends BaseController {
     mobileController.text = appPreferences.mobile;
     addressController.text = appPreferences.mobile;
     emailController.text = appPreferences.email;
-    callGetProfile();
+   // callGetProfile();
     profilePicUrl.value = Constant.baseImageUrl + appPreferences.userImage;
     imageUrl.value = Constant.baseImageUrl + appPreferences.userImage;
+    addressLine1Controller.text=appPreferences.address_1;
+    addressLine2Controller.text=appPreferences.address_2;
+    addressLinePinCodeController.text=appPreferences.pinPCode;
+    addressDistrictCodeController.text=appPreferences.pCity;
+    addressStateCodeController.text=appPreferences.pState;
     super.onInit();
   }
 
@@ -143,8 +148,16 @@ class ProfileController extends BaseController {
     hideLoader();
     if (response == null) Common.showToast("Something went wrong!");
     if (response!.status == 200) {
+      appPreferences.saveUserName(userNameController.text);
+      appPreferences.saveEmail(emailController.text);
+      appPreferences.saveAddress1(addressLine1Controller.text);
+      appPreferences.saveAddress2(addressLine2Controller.text);
+      appPreferences.savePinPCode(addressLinePinCodeController.text);
+      appPreferences.savePCity(addressDistrictCodeController.text);
+      appPreferences.savePState(addressStateCodeController.text);
       appPreferences.saveAddress(
           "${userNameController.text}, ${addressLine1Controller.text} ${addressLine2Controller.text} ${addressDistrictCodeController.text} ${addressStateCodeController.text} ${addressLinePinCodeController.text} ${addressStateCodeController.text}");
+
       if (fromTab == "FromLogin") {
         Home.start(0);
       } else {

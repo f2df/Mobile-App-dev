@@ -61,7 +61,7 @@ class KartCard extends BaseStateLessWidget {
       padding: const EdgeInsets.only(left: 1, right: 10, top: 10),
       child: Row(
         children: [
-          Text("\u{20B9} ${product.actualPrice * product.qunatity}",
+          Text("\u{20B9} ${product.actualPrice }",
               style: TextStyles.headingTexStyle(
                   fontSize: 12,
                   color: Palette.appColor,
@@ -69,7 +69,7 @@ class KartCard extends BaseStateLessWidget {
           const SizedBox(
             width: 5,
           ),
-          Text("\u{20B9} ${product.price}",
+          Text("\u{20B9} ${product.productOldFee}",
               style: TextStyles.headingTexStyle(
                   fontSize: 12,
                   decoration: TextDecoration.lineThrough,
@@ -97,8 +97,11 @@ class KartCard extends BaseStateLessWidget {
           ),
           InkWell(
               onTap: () {
-                controller.decreaseQuantity(product.product_id.toString(), 1);
-              },
+                if(product.qunatity==1){
+                  controller.deleteItem(product.uuid);
+                }else if(product.qunatity>0){
+                  controller.decreaseQuantity(product.product_id.toString(), 1,product.qunatity);
+                }},
               child: const Icon(
                 Icons.delete_outline_rounded,
                 color: Palette.kColorDarkGrey,
@@ -203,7 +206,7 @@ class KartCard extends BaseStateLessWidget {
           width: 30,
           child: FloatingActionButton(
             onPressed: () {
-              controller.decreaseQuantity(product.product_id.toString(), 1);
+              controller.decreaseQuantity(product.product_id.toString(), 1,0);
             },
             backgroundColor: Colors.white,
             child: const Icon(Icons.remove, color: Colors.black),

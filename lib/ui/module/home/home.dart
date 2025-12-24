@@ -86,7 +86,7 @@ class _HomeState extends State<Home> {
   bool enablelogin=true;
   double width = 0.0; // Our first view in viewport
   void initPhonePeSdk() {
-    PhonePePaymentSdk.init(environmentValue, appId, merchantId, enableLogs)
+    PhonePePaymentSdk.init(environmentValue, merchantId,appPreferences.userId, enableLogs)
         .then((isInitialized) => {
       setState(() {
         result = 'PhonePe SDK Initialized - $isInitialized';
@@ -525,7 +525,7 @@ class _HomeState extends State<Home> {
                   left: 0,
                   right: 0,
                   child: KartCounter(
-                    count: Get.find<CartController>().cartCount,
+                    count: Get.put(CartController()).cartCount,
                   ),
                 )
               ],

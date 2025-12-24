@@ -1,6 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+Future<T?> navigateToo<T>(String route,
+    {String? currentPageTitle, dynamic arguments}) async {
+  Future.delayed(Duration.zero, () async {
+    var result = await Get.toNamed(route, arguments: {
+      'title': currentPageTitle,
+      'arguments': arguments,
+    });
+    try {
+      return result as T;
+    } catch (e) {
+      return null;
+    }
+  });
+
+}
 Future<T?> navigateTo<T>(String route,
     {String? currentPageTitle, dynamic arguments}) async {
   Future.delayed(Duration.zero, () async {
@@ -17,10 +32,26 @@ Future<T?> navigateTo<T>(String route,
 
 }
 
+Future<T?> navigateOffName<T>(String route,
+    {String? currentPageTitle, dynamic arguments}) async {
+  Future.delayed(Duration.zero, () async {
+    var result = await Get.offNamed(route, arguments: {
+      'title': currentPageTitle,
+      'arguments': arguments,
+    });
+    try {
+      return result as T;
+    } catch (e) {
+      return null;
+    }
+  });
+
+}
 Future<T?> navigateOffAndTo<T>(String route,
     {String? currentPageTitle, dynamic arguments}) async {
   Future.delayed(Duration.zero, () async {
-    var result = await Get.offAndToNamed(route, arguments: {
+    //Get.offNamed(route);
+    var result = await Get.offNamed(route, arguments: {
       'title': currentPageTitle,
       'arguments': arguments,
     });

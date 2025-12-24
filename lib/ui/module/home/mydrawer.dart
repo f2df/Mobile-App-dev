@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:mcsofttech/constants/Constant.dart';
 import 'package:mcsofttech/controllers/meridhukaan/meri_dukaan_controller.dart';
 import 'package:mcsofttech/theme/my_theme.dart';
+import 'package:mcsofttech/ui/module/address/add_address.dart';
 import 'package:mcsofttech/ui/module/login/login_page.dart';
 import 'package:mcsofttech/ui/module/meridukaan/my_product.dart';
 import 'package:mcsofttech/ui/module/profile/profile_list.dart';
@@ -42,7 +43,9 @@ class _DrawerDashboardState extends State<DrawerDashboard> {
                     color: MyColors.colorPrimary,
                     child: Column(
                       children: [
-                        Row(
+                        InkWell(onTap: (){
+                          AddAddress.start("Address");
+                        },child: Row(
                           children: <Widget>[
                             Padding(
                               padding: const EdgeInsets.only(top: 18, left: 14),
@@ -92,7 +95,7 @@ class _DrawerDashboardState extends State<DrawerDashboard> {
                               ),
                             ),
                           ],
-                        ),
+                        ),),
                       ],
                     ),
                   ),
@@ -623,7 +626,9 @@ class _DrawerDashboardState extends State<DrawerDashboard> {
 
   Widget get logout {
     return InkWell(
-      onTap: () {},
+      onTap: () {
+        appPreferences.logOut();
+      },
       child: ListTile(
         leading: const Icon(Icons.logout),
         title: Row(

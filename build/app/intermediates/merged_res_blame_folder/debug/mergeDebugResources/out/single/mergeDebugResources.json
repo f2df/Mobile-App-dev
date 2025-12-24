@@ -1,0 +1,58 @@
+[
+    {
+        "merged": "com.f2df.mcsofttech.app-debug-59:/drawable-v21_launch_background.xml.flat",
+        "source": "com.f2df.mcsofttech.app-main-53:/drawable-v21/launch_background.xml"
+    },
+    {
+        "merged": "com.f2df.mcsofttech.app-debug-59:/drawable-xxxhdpi_splash.png.flat",
+        "source": "com.f2df.mcsofttech.app-main-53:/drawable-xxxhdpi/splash.png"
+    },
+    {
+        "merged": "com.f2df.mcsofttech.app-debug-59:/mipmap-xxxhdpi_ic_launcher.png.flat",
+        "source": "com.f2df.mcsofttech.app-main-53:/mipmap-xxxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.f2df.mcsofttech.app-debug-59:/mipmap-xxhdpi_ic_launcher.png.flat",
+        "source": "com.f2df.mcsofttech.app-main-53:/mipmap-xxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.f2df.mcsofttech.app-debug-59:/xml_provider_paths.xml.flat",
+        "source": "com.f2df.mcsofttech.app-main-53:/xml/provider_paths.xml"
+    },
+    {
+        "merged": "com.f2df.mcsofttech.app-debug-59:/drawable_ic_launcher_background.xml.flat",
+        "source": "com.f2df.mcsofttech.app-main-53:/drawable/ic_launcher_background.xml"
+    },
+    {
+        "merged": "com.f2df.mcsofttech.app-debug-59:/drawable-xhdpi_splash.png.flat",
+        "source": "com.f2df.mcsofttech.app-main-53:/drawable-xhdpi/splash.png"
+    },
+    {
+        "merged": "com.f2df.mcsofttech.app-debug-59:/mipmap-xhdpi_ic_launcher.png.flat",
+        "source": "com.f2df.mcsofttech.app-main-53:/mipmap-xhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.f2df.mcsofttech.app-debug-59:/drawable-hdpi_splash.png.flat",
+        "source": "com.f2df.mcsofttech.app-main-53:/drawable-hdpi/splash.png"
+    },
+    {
+        "merged": "com.f2df.mcsofttech.app-debug-59:/drawable-xxhdpi_splash.png.flat",
+        "source": "com.f2df.mcsofttech.app-main-53:/drawable-xxhdpi/splash.png"
+    },
+    {
+        "merged": "com.f2df.mcsofttech.app-debug-59:/mipmap-mdpi_ic_launcher.png.flat",
+        "source": "com.f2df.mcsofttech.app-main-53:/mipmap-mdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.f2df.mcsofttech.app-debug-59:/drawable-mdpi_splash.png.flat",
+        "source": "com.f2df.mcsofttech.app-main-53:/drawable-mdpi/splash.png"
+    },
+    {
+        "merged": "com.f2df.mcsofttech.app-debug-59:/mipmap-hdpi_ic_launcher.png.flat",
+        "source": "com.f2df.mcsofttech.app-main-53:/mipmap-hdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.f2df.mcsofttech.app-debug-59:/drawable-v21_background.png.flat",
+        "source": "com.f2df.mcsofttech.app-main-53:/drawable-v21/background.png"
+    }
+]

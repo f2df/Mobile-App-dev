@@ -46,14 +46,14 @@ class ProductDetail extends AppPageWithAppBar {
     allProduct,
   }) {
     if (comingFrom == "Similar") {
-      return navigatePlacementNamedl(routeName,
-          currentPageTitle: title,
-          arguments: {
-            'allProduct': allProduct,
-          });
+      return navigateOffAndTo("${routeName}/${DateTime.now().millisecondsSinceEpoch}",currentPageTitle: title, arguments: {
+        'allProduct': allProduct,
+        'refreshKey': DateTime.now().millisecondsSinceEpoch,
+      });
     }
     return navigateTo<bool>(routeName, currentPageTitle: title, arguments: {
       'allProduct': allProduct,
+      'refreshKey': DateTime.now().millisecondsSinceEpoch,
     });
   }
 
@@ -128,7 +128,7 @@ class ProductDetail extends AppPageWithAppBar {
                   left: 0,
                   right: 0,
                   child: KartCounter(
-                    count: Get.find<CartController>().cartCount,
+                    count: Get.put(CartController()).cartCount,
                   ),
                 )
               ],
@@ -906,10 +906,17 @@ class ProductDetail extends AppPageWithAppBar {
           ),
           InkWell(
               onTap: () {
-                if (quantity.value >= 1) {
-                  controller.decreaseQuantity(allProduct.p_id.toString(), 1);
-                  quantity.value -= 1;
+                if(controller.cartCount.value>0){
+                  if (quantity.value >= 1) {
+                    controller.decreaseQuantity(allProduct.p_id.toString(), 1,allProduct.quantity);
+                    quantity.value -= 1;
+                  }
+                }else{
+                  if(controller.cartCount<=0){
+                    quantity.value=0;
+                  }
                 }
+
               },
               child: const Icon(
                 Icons.delete_outline_rounded,
@@ -927,7 +934,7 @@ class ProductDetail extends AppPageWithAppBar {
             child: SizedBox(
               width: 40,
               child: Obx(() => Text(
-                    quantity.value.toString(),
+                    controller.getQuanity(allProduct.p_id).toString(),
                     textAlign: TextAlign.center,
                     style: TextStyles.headingTexStyle(color: Palette.appColor),
                   )),
@@ -938,6 +945,9 @@ class ProductDetail extends AppPageWithAppBar {
           ),
           InkWell(
               onTap: () {
+                if(controller.cartCount<=0){
+                  quantity.value=0;
+                }
                 quantity.value += 1;
                 controller.increaseQuantity(allProduct.p_id.toString(), 1);
               },
@@ -1049,7 +1059,7 @@ class ProductDetail extends AppPageWithAppBar {
                       width: 10,
                     ),
                     Obx(() => Text(
-                        "\u{20B9} ${allProduct.productFee * quantity.value}",
+                        "\u{20B9} ${controller.cartCount.value>0?allProduct.productFee * quantity.value:0}",
                         style: TextStyles.headingTexStyle(
                             color: Colors.black,
                             fontSize: 14,
@@ -1207,7 +1217,7 @@ class ProductDetail extends AppPageWithAppBar {
                       width: 10,
                     ),
                     Obx(() => Text(
-                        "\u{20B9} ${allProduct.productFee * quantity.value}",
+                        "\u{20B9} ${allProduct.productFee * controller.getQuanity(allProduct.p_id)}",
                         style: TextStyles.headingTexStyle(
                             color: Colors.black,
                             fontSize: 14,

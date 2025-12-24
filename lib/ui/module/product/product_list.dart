@@ -44,8 +44,7 @@ class ProductList extends AppPageWithAppBar {
           _scrollController.position.maxScrollExtent) {
         if (controller.pageOffSet.value) {
           controller.isLoaderForProduct.value = false;
-
-            controller.productSearch(search: controller.searchController.text);
+          controller.productSearch(search: controller.searchController.text);
 
         }
       }
@@ -56,8 +55,6 @@ class ProductList extends AppPageWithAppBar {
   Widget get body {
    // Analytics.sendCurrentScreen("ProductList");
     setAtScroll();
-
-
     return Obx(() => controller.isLoaderForProduct.value
         ? const Loader()
         : container);

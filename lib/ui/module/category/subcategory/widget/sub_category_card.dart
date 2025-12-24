@@ -19,12 +19,12 @@ import '../../../../../data/preferences/AppPreferences.dart';
 import '../../../../../models/product_filter_model.dart';
 import '../../../../../utils/palette.dart';
 import '../../../../commonwidget/text_style.dart';
+import '../../../address/add_address.dart';
 import '../../../login/login_page.dart';
 
 class SubCatProductCard extends BaseStateLessWidget {
-  SubCatProductCard(this.recommdedProduct);
-
-  final AllProduct recommdedProduct;
+    AllProduct recommdedProduct;
+   SubCatProductCard(this.recommdedProduct);
   final userActionController = Get.put(AddUserActionController());
   final controller = Get.put(CartController());
   final appPreferences = Get.find<AppPreferences>();
@@ -110,11 +110,12 @@ class SubCatProductCard extends BaseStateLessWidget {
                           if (appPreferences.isLoggedIn) {
                             controller.addItems(
                                 recommdedProduct.p_id.toString(),
-                                recommdedProduct.quantity);
+                                recommdedProduct.quantity,product: recommdedProduct);
                           } else {
                             LoginPage.start();
                           }
 
+/*
                           userActionController.userActionApi(
                               recommdedProduct.productName,
                               (recommdedProduct.productFee * 1).toString(),
@@ -128,13 +129,20 @@ class SubCatProductCard extends BaseStateLessWidget {
                               recommdedProduct.img1,
                               "",
                               "1",
-                              "");
+                              "");*/
                         },
                         child: Padding(
                           padding: const EdgeInsets.only(bottom: 5),
-                          child: SvgPicture.asset(
-                              "assets/svg/ic_pluse_icon.svg",
-                              semanticsLabel: 'Acme Logo'),
+                          child: InkWell(onTap: (){
+                            if (appPreferences.isLoggedIn) {
+                              controller.addItems(
+                                  recommdedProduct.p_id.toString(),
+                                  recommdedProduct.quantity,product: recommdedProduct);
+                            } else {
+                              LoginPage.start();
+                            }
+                          },child: SvgPicture.asset("assets/svg/ic_pluse_icon.svg",
+                              semanticsLabel: 'Acme Logo'),),
                         ),
                       )
                     ],
