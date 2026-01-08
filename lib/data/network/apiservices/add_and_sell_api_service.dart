@@ -58,7 +58,7 @@ class AddSellApiServices extends DioClient {
       String longitude,
       String image1,
       String image2,
-      String userId) async {
+      String userId,String pickupPinCode,String pickupLocationId) async {
     String addProductDetail = jsonEncode(AddProductDetailModel(
         pc_id: int.parse(catID),
         psc_id: int.parse(subCatId),
@@ -71,6 +71,8 @@ class AddSellApiServices extends DioClient {
         img1: image1,
         img2: image2,
         userId: userId,
+        pickuppincode:pickupPinCode,
+        pickupLocationId: pickupLocationId,
         productFeature: list));
     //String jsonTags = jsonEncode(list);
     var inputData = {addProductDetail};
@@ -108,7 +110,7 @@ class AddSellApiServices extends DioClient {
             "Authorization": "Bearer ${appPreferences.authToken}",
           },
         ),
-        "${Constant.baseUrl}//api/shiprocket/pickup-locations",
+        "${Constant.baseUrl}/api/shiprocket/pickup-locations",
       );
       if (kDebugMode) {
         print('outPut: ${response.data}');

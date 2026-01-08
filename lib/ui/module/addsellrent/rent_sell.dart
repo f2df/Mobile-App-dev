@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:mcsofttech/models/PickUpList.dart';
 import 'package:mcsofttech/models/add_sell_product_add_model.dart';
 import 'package:mcsofttech/ui/base/page.dart';
 import 'package:mcsofttech/ui/commonwidget/primary_elevated_button.dart';
@@ -88,6 +89,22 @@ class RentSell extends AppPageWithAppBar {
                     Obx(() => controller.isSubCatEnable.value
                         ? dropDownField2
                         : const SizedBox.shrink()),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    const Divider(
+                      color: Palette.kColorGrey,
+                    ),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    labelText("Pick Up Location"),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    controller.pickUpList.isNotEmpty
+                        ? pickupLocation()
+                        : const SizedBox.shrink(),
                     const SizedBox(
                       height: 10,
                     ),
@@ -236,7 +253,44 @@ class RentSell extends AppPageWithAppBar {
       ),
     );
   }
+  Widget pickupLocation() {
+    return Container(
+      padding: const EdgeInsets.only(left: 10, right: 10),
+      decoration: BoxDecoration(
+          color: Palette.colorWhite,
+          borderRadius: BorderRadius.circular(10),
+          border: Border.all(
+            color: Colors.grey, //                   <--- border color
+            width: 1.0,
+          )),
+      child: DropdownButton(
+        isExpanded: true,
+        underline: Container(),
+        // Initial Value
+        value: controller.pickUpListData.value,
 
+        // Down Arrow Icon
+        icon: const Align(
+          alignment: Alignment.centerRight,
+          child: Icon(Icons.keyboard_arrow_down),
+        ),
+
+        // Array list of items
+        items: controller.pickUpList.map((PickUpList items) {
+          return DropdownMenuItem(
+            value: items,
+            child: Text(items.address),
+          );
+        }).toList(),
+        // After selecting the desired option,it will
+        // change button value to selected value
+        onChanged: (PickUpList? item) {
+          controller.pickupLocationId = item?.pickupLocation??"";
+          controller.pickupPinCode = item?.pickupPinCode ?? "123456";
+        },
+      ),
+    );
+  }
   Widget get dropDownField2 {
     return Container(
       padding: const EdgeInsets.only(left: 10, right: 10),

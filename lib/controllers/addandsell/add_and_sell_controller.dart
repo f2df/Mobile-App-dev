@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:ffi';
 import 'dart:io';
 import 'dart:typed_data';
 import 'package:flutter/cupertino.dart';
@@ -25,21 +26,25 @@ class AddAndSellController extends BaseController {
   final appPreferences = Get.find<AppPreferences>();
   final categoryDataList = <CategoryCatData>[];
   final bannerList = <BannerData>[].obs;
-  final pickUpList = <PickUpList>[].obs;
   final priceCheck = false.obs;
   late final Rx<CategoryCatData> categoryCatData = CategoryCatData(
       categoryName: "", categoryImg: "", pc_id: 1, subCategories: []).obs;
 
   RxList<SubCategory> subCatList = <SubCategory>[].obs;
+  RxList<PickUpList> pickUpList = <PickUpList>[].obs;
   List<ProductFeature> productFeatureList = [];
   bool buy = false;
   RxBool rent = false.obs;
   RxBool sell = true.obs;
   String latitude = "0";
   String longitude = "0";
+  String pickupPinCode = "123456";
+  String pickupLocationId = "";
   late final Rx<SubCategory> subCategoryData = subCatList.first.obs;
+  late final Rx<PickUpList> pickUpListData = pickUpList.first.obs;
   RxList<SubCategoryFeatures> subCategoryFeaturesList =
       <SubCategoryFeatures>[].obs;
+
 
   final isSubCatEnable = false.obs;
   final isFeatureEnable = false.obs;
@@ -74,6 +79,12 @@ class AddAndSellController extends BaseController {
       if (response.data != null && response.data!.isNotEmpty) {
         pickUpList.clear();
         pickUpList.addAll(response.data!);
+        if(pickUpList.isNotEmpty){
+          pickUpListData.value = pickUpList.firstOrNull!;
+          pickupLocationId =pickUpListData.value.pickupLocation;
+          pickupPinCode = pickUpListData.value.pickupPinCode;
+        }
+
       }
     }
   }
@@ -93,7 +104,6 @@ class AddAndSellController extends BaseController {
       }
       if (response.categoryData != null && response.categoryData!.isNotEmpty) {
         categoryDataList.clear();
-
         categoryDataList.addAll(response.categoryData!);
         categoryCatData.value = categoryDataList.first;
         isLoader.value = false;
@@ -117,7 +127,7 @@ class AddAndSellController extends BaseController {
       String productType,
       String latitude,
       String longitude,
-      String userId) async {
+      String userId,String pickupPinCode) async {
     if (productName.isEmpty) {
       Common.showToast("product_name_validation".tr);
       return;
@@ -147,7 +157,7 @@ class AddAndSellController extends BaseController {
         longitude,
         productImage1.value,
         productImage2.value,
-        userId);
+        userId,pickupPinCode,pickupLocationId);
     isLoader.value = false;
     //if (response == null) Common.showToast("Server Error!");
     if (response != null && response.status == 200) {
@@ -288,7 +298,7 @@ class AddAndSellController extends BaseController {
         productType,
         latitude,
         longitude,
-        appPreferences.userId);
+        appPreferences.userId,pickupPinCode);
   }
 
   Future<Position> _getGeoLocationPosition() async {

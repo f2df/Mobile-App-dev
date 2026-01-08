@@ -12,6 +12,8 @@ class AddProductDetailModel {
   String img1;
   String img2;
   String userId;
+  String pickuppincode;
+  String pickupLocationId;
   List<ProductFeature> productFeature;
 
   AddProductDetailModel(
@@ -26,6 +28,8 @@ class AddProductDetailModel {
       required this.img1,
       required this.img2,
       required this.userId,
+        required this.pickuppincode,
+        required this.pickupLocationId,
       required this.productFeature});
 
   Map toJson() => {
@@ -41,6 +45,8 @@ class AddProductDetailModel {
         'img1': img1,
         'img2': img2,
         'userId': userId,
+        'pickuppincode':pickuppincode,
+    'pickupLocationId':pickupLocationId,
         'featureDetailsValue': productFeature
       };
 }

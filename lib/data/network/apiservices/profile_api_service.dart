@@ -43,6 +43,7 @@ class ProfileApiServices extends DioClient {
       }
     };
     debugPrint('inputData: ${jsonEncode(inputData).toString()}');
+    print('tokenrr: $token');
     try {
       final response = await client.post(
         options: Options(
