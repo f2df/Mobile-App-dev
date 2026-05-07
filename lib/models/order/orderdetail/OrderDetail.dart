@@ -21,7 +21,7 @@ class OrderDetail {
 
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
-    if (orders != null) {
+    if (orders != null && orders.isNotEmpty) {
       map['orders'] = orders.map((v) => v.toJson()).toList();
     }
     return map;

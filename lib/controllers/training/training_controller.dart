@@ -32,7 +32,7 @@ class TrainingController extends BaseController {
   late TrainingType trainingTypeSelected;
   late Venue venueSelected;
   final trainingType = "".obs;
-  final trainingMode = "".obs;
+  final trainingMode = "Offline".obs;
   final trainingVenueValue = "".obs;
   final timeDate = "".obs;
   final isLoader = false.obs;
@@ -57,7 +57,7 @@ class TrainingController extends BaseController {
         venueSelected = trainingVenue.first;
         return;
       }
-      Common.showToast("something_went_wrong".tr);
+      //Common.showToast("something_went_wrong".tr);
     } catch (e) {
       debugPrint(e.toString());
     }

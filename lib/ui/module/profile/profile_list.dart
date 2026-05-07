@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:mcsofttech/services/navigator.dart';
 import 'package:mcsofttech/ui/base/page.dart';
 import 'package:mcsofttech/ui/commonwidget/more_card_widget.dart';
+import 'package:mcsofttech/ui/module/address/add_address.dart';
 import 'package:mcsofttech/ui/module/login/login_page.dart';
 import 'package:mcsofttech/ui/module/orders/customer_order_list_page.dart';
 import 'package:mcsofttech/ui/module/profile/profile_page.dart';
@@ -32,11 +33,16 @@ class ProfileOptions extends AppPageWithAppBar {
                 const SizedBox(
                   width: 10,
                 ),
-                orders
+                delevaryAddress
               ],
             ),
             const SizedBox(
               height: 10,
+            ),
+            Row(
+              children: [
+                orders,
+              ],
             ),
           ],
         ),
@@ -60,6 +66,17 @@ class ProfileOptions extends AppPageWithAppBar {
     );
   }
 
+  Widget get delevaryAddress {
+    return InkWell(
+      onTap: () {
+        AddAddress.start("Delivary Address");
+      },
+      child: const MoreWidgetCard(
+          assetName: "assets/svg/ic_mandi_bhav_card.png",
+          text: "Delivary Address",
+          iconAsset: "assets/svg/ic_mondi_icon.png"),
+    );
+  }
   Widget get orders {
     return InkWell(
       onTap: () {

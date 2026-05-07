@@ -113,20 +113,22 @@ class LoginController extends BaseController {
 
     if (response == null) Common.showToast("Network Error!");
     if (response != null &&
-        response.status == 200 &&
-        response.loginData != null) {
-      loginModel = response.loginData!;
-      appPreferences.saveEmail(loginModel.loginData!.email);
-      appPreferences.saveAuthToken(loginModel.token);
-      appPreferences.saveUserName(loginModel.loginData!.name);
-      appPreferences.saveUserId(loginModel.loginData!.id.toString());
-      appPreferences.saveUserImage(loginModel.loginData!.img);
-      appPreferences.saveLoggedIn(true);
-      appPreferences.saveAddress1(loginModel.loginData?.address?.address1??"");
-      appPreferences.saveAddress2(loginModel.loginData?.address?.address2??"");
-      appPreferences.savePinPCode(loginModel.loginData?.address?.pincode??"");
-      appPreferences.savePCity(loginModel.loginData?.address?.city??"");
-      appPreferences.savePState(loginModel.loginData?.address?.state??"");
+        response.status == 200 ) {
+      if(response.loginData != null){
+        loginModel = response.loginData!;
+        appPreferences.saveEmail(loginModel.loginData!.email);
+        appPreferences.saveAuthToken(loginModel.token);
+        appPreferences.saveUserName(loginModel.loginData!.name);
+        appPreferences.saveUserId(loginModel.loginData!.id.toString());
+        appPreferences.saveUserImage(loginModel.loginData!.img);
+        appPreferences.saveLoggedIn(true);
+        appPreferences.saveAddress1(loginModel.loginData?.address?.address1??"");
+        appPreferences.saveAddress2(loginModel.loginData?.address?.address2??"");
+        appPreferences.savePinPCode(loginModel.loginData?.address?.pincode??"");
+        appPreferences.savePCity(loginModel.loginData?.address?.city??"");
+        appPreferences.savePState(loginModel.loginData?.address?.state??"");
+      }
+
       if (response.loginData!.loginData!.userExist) {
         Home.start(0);
       } else {

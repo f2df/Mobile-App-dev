@@ -14,6 +14,7 @@ import '../../ui/commonwidget/outline_elevated_button.dart';
 import '../../ui/commonwidget/primary_elevated_button.dart';
 import '../../ui/commonwidget/text_style.dart';
 import '../../utils/common_util.dart';
+import '../cart/cart_controller.dart';
 import '../meridhukaan/total_visitor_controller.dart';
 
 class HomeController extends BaseController {
@@ -27,6 +28,7 @@ class HomeController extends BaseController {
   final pageNo = 0.obs;
   final isLoader = false.obs;
   final wishController = Get.put(TotalVisitorController());
+  final cartController = Get.find<CartController>();
   @override
   void onInit() {
     super.onInit();
@@ -66,6 +68,8 @@ class HomeController extends BaseController {
         showOfferSheet(Get.context!, Get.height, Get.width);
       });
     }
+    cartController.getList();
+
   }
 
   void callProductListFromHomeApi({page, paramValue}) async {
@@ -84,6 +88,7 @@ class HomeController extends BaseController {
           DynamicLinksApi.createReferralLink(element.p_id.toString());
         });
       }
+      cartController.getList();
     }
   }
 

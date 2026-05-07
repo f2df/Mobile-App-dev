@@ -23,11 +23,11 @@ class User {
 
   User.fromJson(dynamic json) {
     id = json['id'];
-    name = json['name'];
-    img = json['img'];
-    mobile = json['mobile'];
+    name = json['name']??"";
+    img = json['img']??"";
+    mobile = json['mobile']??0;
     email = json['email'];
-    otp = json['otp'];
+    otp = json['otp']??0;
     userType = json['userType'];
     password = json['password'];
     status = json['status'];
@@ -36,11 +36,11 @@ class User {
     googleId = json['googleId'];
     address = json['address'];
     type = json['type'];
-    dukanName = json['dukanName'];
-    userExist = json['userExist'];
-    reffralCode = json['reffralCode'];
-    createDate = json['createDate'];
-    updateDate = json['updateDate'];
+    dukanName = json['dukanName']??"";
+    userExist = json['userExist']??false;
+    reffralCode = json['reffralCode']??"";
+    createDate = json['createDate']??"";
+    updateDate = json['updateDate']??"";
     intro = json['intro'];
   }
   int id=0;
@@ -80,11 +80,11 @@ class User {
     map['googleId'] = googleId;
     map['address'] = address;
     map['type'] = type;
-    map['dukanName'] = dukanName;
-    map['userExist'] = userExist;
-    map['reffralCode'] = reffralCode;
-    map['createDate'] = createDate;
-    map['updateDate'] = updateDate;
+    map['dukanName'] = dukanName??"";
+    map['userExist'] = userExist??false;
+    map['reffralCode'] = reffralCode??"";
+    map['createDate'] = createDate??"";
+    map['updateDate'] = updateDate??"";
     map['intro'] = intro;
     return map;
   }

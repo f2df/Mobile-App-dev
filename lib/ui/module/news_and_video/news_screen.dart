@@ -50,9 +50,8 @@ class NewsScreen extends AppPageWithAppBar {
     _scrollController.addListener(() {
       if (_scrollController.position.pixels ==
           _scrollController.position.maxScrollExtent) {
-        controller.isLoader.value = false;
-        controller.callScrollNewsApi(
-            pageNo: controller.pageCount, size: 10, type: "news");
+
+
       }
     });
   }

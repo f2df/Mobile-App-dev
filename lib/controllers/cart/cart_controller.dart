@@ -35,9 +35,8 @@ class CartController extends BaseController {
       final serviceAbility=await apiServices.checkServiceability(p_id: productId,delivary_Id: appPreferences.pinCode,code: 1);
       if(!(serviceAbility?.data!.serviceable ?? false)){
         hideLoader();
-        Common.showToast(serviceAbility?.message??"");
+        Common.showToast(serviceAbility?.message??"Unavailable service please change you pinCode");
         AddAddress.start("Add Address");
-
         return;
       }
       final response = await apiServices.addToCartApi(

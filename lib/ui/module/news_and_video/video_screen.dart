@@ -62,7 +62,7 @@ class VideoScreen extends AppPageWithAppBar {
     //Analytics.sendCurrentScreen("VideoScreen");
     setAtScroll();
     controller.callVideoApi(pageNo: controller.pageCount, size: 10, type: "Video");
-    return Obx(() => controller.isLoader.value
+    return Obx(() => controller.newsList.isEmpty
         ? const Loader()
         : controller.newsList.isNotEmpty
         ? SingleChildScrollView(

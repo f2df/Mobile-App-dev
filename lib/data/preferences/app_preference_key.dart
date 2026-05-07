@@ -4,6 +4,7 @@ class AppPreferenceKey {
   static const String keyEmail = "email";
   static const String authToken = "authToken";
   static const String userId = "userId";
+  static const String userType = "userType";
   static const String userImage = "userImage";
   static const String userName = "userName";
   static const String address1 = "address1";

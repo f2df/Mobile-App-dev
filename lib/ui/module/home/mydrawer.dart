@@ -102,6 +102,7 @@ class _DrawerDashboardState extends State<DrawerDashboard> {
                 ],
               ),
               shipingAndDelivery,
+              deliveryAddress,
               sellerTermAndCondition,
               privacyPolicy,
               supportAndSecurity,
@@ -334,6 +335,36 @@ class _DrawerDashboardState extends State<DrawerDashboard> {
     );
   }
 
+  Widget get deliveryAddress {
+    return InkWell(
+      onTap: () {},
+      child: ListTile(
+        leading: const Icon(Icons.delivery_dining),
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            RichText(
+              text: TextSpan(children: [
+                TextSpan(
+                    text: "delivery_address".tr,
+                    style: const TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontFamily: 'Montserrat',
+                        color: Colors.black87)),
+              ]),
+            ),
+            Icon(
+              Icons.chevron_right,
+              size: size_20,
+            ),
+          ],
+        ),
+        onTap: () {
+          AddAddress.start("delivery_address".tr);
+        },
+      ),
+    );
+  }
   Widget get shipingAndDelivery {
     return InkWell(
       onTap: () {},

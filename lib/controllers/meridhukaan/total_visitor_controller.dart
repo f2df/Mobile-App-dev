@@ -44,10 +44,8 @@ class TotalVisitorController extends BaseController {
   }
 
   Future<void> createOrderId(amount, List<Map<String, dynamic>> items) async {
-
     showLoader();
     final response = await cartApiServices.createOrderApi();
-
     hideLoader();
     if (response == null) return;
     if (response.orders.isNotEmpty) {
@@ -103,10 +101,18 @@ class TotalVisitorController extends BaseController {
     }
     //Home.start(0);
   }
-  void buyNow(String orderId, int amount,String merchantId,String token) {
+  void buyNow(String orderId, int amount,String merchantId,String token)  {
      //String value=getSalt("335",amount,merchantId);
+   /* bool isInstalled =  PhonePePaymentSdk.isPhonePeInstalled();
+
+    if (!isInstalled) {
+      handleError("PhonePe app is not installed");
+      showAlertDialog(Get.context!, "PhonePe app is not installed","Please installed Phone pay app");
+
+      return; // ❌ stop here
+    }*/
      Map<String,dynamic> payload = {
-       "orderId": orderId,
+       "orderId": merchantId,
        "merchantId": "M220EMX87XH1T",
        "token": token,
        "paymentMode": {"type": "PAY_PAGE"}
@@ -203,6 +209,7 @@ class TotalVisitorController extends BaseController {
       String merchantTransectionId,String orderId,int totalAmount) async {
     final response = await apiServices.sendOrderToShipRocket(merchantTransectionId);
     if (response == null){
+
       Home.start(0);
       return;
     }

@@ -29,13 +29,13 @@ class OrderItems {
     productUserId = json['productUserId']??0;
     orderItemUuid = json['orderItemUuid']??"";
     orderDate = json['orderDate']??"";
-    orderUpdatedDate = json['orderUpdatedDate'];
+    orderUpdatedDate = json['orderUpdatedDate']??"";
     shipRocketOrderId = json['shipRocketOrderId'];
     shipRocketShipmentId = json['shipRocketShipmentId'];
     shipRocketAwbCode = json['shipRocketAwbCode'];
     assignAwbResponse = json['assignAwbResponse'];
     generatePickupResponse = json['generatePickupResponse'];
-    pickupLocationId = json['pickupLocationId'];
+    pickupLocationId = json['pickupLocationId']??"";
     shipRocketStatus = json['shipRocketStatus'];
     shipRocketStatusCode = json['shipRocketStatusCode'];
     shipRocketPickupStatus = json['shipRocketPickupStatus'];
@@ -79,13 +79,13 @@ class OrderItems {
     map['shipRocketAwbCode'] = shipRocketAwbCode;
     map['assignAwbResponse'] = assignAwbResponse;
     map['generatePickupResponse'] = generatePickupResponse;
-    map['pickupLocationId'] = pickupLocationId;
-    map['shipRocketStatus'] = shipRocketStatus;
-    map['shipRocketStatusCode'] = shipRocketStatusCode;
-    map['shipRocketPickupStatus'] = shipRocketPickupStatus;
-    map['shipRocketPickupToken'] = shipRocketPickupToken;
-    map['shipRocketPickupScheduledDate'] = shipRocketPickupScheduledDate;
-    map['shipRocketPickupConfirmationMsg'] = shipRocketPickupConfirmationMsg;
+    map['pickupLocationId'] = pickupLocationId??"";
+    map['shipRocketStatus'] = shipRocketStatus??"";
+    map['shipRocketStatusCode'] = shipRocketStatusCode??"";
+    map['shipRocketPickupStatus'] = shipRocketPickupStatus??"";
+    map['shipRocketPickupToken'] = shipRocketPickupToken??"";
+    map['shipRocketPickupScheduledDate'] = shipRocketPickupScheduledDate??"";
+    map['shipRocketPickupConfirmationMsg'] = shipRocketPickupConfirmationMsg??"";
     return map;
   }
 

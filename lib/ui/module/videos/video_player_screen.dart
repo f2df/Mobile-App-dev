@@ -131,9 +131,9 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
           _isPlayerReady = true;
         },
         onEnded: (data) {
-          _controller
+        /*  _controller
               .load(_ids[(_ids.indexOf(data.videoId) + 1) % _ids.length]);
-          _showSnackBar('Next Video Started!');
+          _showSnackBar('Next Video Started!');*/
         },
       ),
       builder: (context, player) => Scaffold(

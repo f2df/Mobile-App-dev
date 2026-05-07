@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../controllers/addaddress/add_address_controller.dart';
+import '../../../controllers/addaddress/address_list_controller.dart';
 import '../../../data/preferences/AppPreferences.dart';
 import '../../../services/navigator.dart';
 import '../../base/page.dart';
@@ -18,6 +19,8 @@ class AddAddress extends AppPageWithAppBar {
   }
 
   final addressController = Get.put(AddressController());
+  final addressListController = Get.put(AddressListController());
+
   final appPreferences = Get.find<AppPreferences>();
 
   @override

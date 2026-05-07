@@ -18,7 +18,7 @@ class PrimeFbVideo extends BaseStateLessWidget {
 
   @override
   Widget build(BuildContext context) {
-   // Analytics.sendCurrentScreen("prime_fb");
+    Analytics.sendCurrentScreen("prime_fb");
     return WebView(
           initialUrl: url);
   }

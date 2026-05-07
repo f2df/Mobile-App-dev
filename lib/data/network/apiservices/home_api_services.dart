@@ -16,17 +16,13 @@ class HomeApiServices extends DioClient {
   final client = DioClient.client;
   final appPreferences = Get.find<AppPreferences>();
 
+
   Future<HomeModel?> homeListApi({size = 10, page = 0}) async {
     var inputData = {"size": size, "page": page ?? 0};
     HomeModel? homeModel;
     try {
       debugPrint('token: Bearer ${appPreferences.authToken.trim()}');
       final response = await client.post(
-        options: Options(
-          headers: {
-            "Authorization": "Bearer ${appPreferences.authToken.trim()}",
-          },
-        ),
         "${Constant.baseUrl}/home/homeApi",
         data: jsonEncode(inputData),
       );
@@ -50,11 +46,6 @@ class HomeApiServices extends DioClient {
     debugPrint('inputData:Bearer ${appPreferences.authToken.trim()}');
     try {
       final response = await client.post(
-        options: Options(
-          headers: {
-            "Authorization": "Bearer ${appPreferences.authToken.trim()}",
-          },
-        ),
         "${Constant.baseUrl}/product/products",
         data: jsonEncode(inputData),
       );

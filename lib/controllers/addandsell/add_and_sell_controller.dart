@@ -206,8 +206,8 @@ class AddAndSellController extends BaseController {
           final image =
           await ImagePicker().pickImage(source: ImageSource.gallery);
           if (image != null) {
-            productImage2.value = (await readToBytes(image.path.toString()))!;
-            bytesImage2.value =
+            productImage1.value = (await readToBytes(image.path.toString()))!;
+            bytesImage1.value =
                 const Base64Decoder().convert(productImage1.value);
           }
         } on PlatformException catch (e) {

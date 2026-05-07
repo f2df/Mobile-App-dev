@@ -100,7 +100,7 @@ class OtpPage extends AppPageWithAppBar {
               const SizedBox(
                 height: 10,
               ),
-              Text("Please sent 4-digit OTP code",
+              Text("We have sent 4-digit OTP code",
                   style: TextStyles.headingTexStyle(
                     color: MyColors.kColorBlack,
                     fontSize: 15,
@@ -110,7 +110,7 @@ class OtpPage extends AppPageWithAppBar {
               const SizedBox(
                 height: 5,
               ),
-              Text("Sent - ${arguments['mobile']}",
+              Text("Sent to - ${arguments['mobile']}",
                   style: TextStyles.headingTexStyle(
                     color: MyColors.kColorBlack,
                     fontSize: 15,
@@ -138,11 +138,11 @@ class OtpPage extends AppPageWithAppBar {
                       )),
                 ),
               ),
-              if (appPreferences.isUserExist)
+
                 const SizedBox(
                   height: 10,
                 ),
-              if (appPreferences.isUserExist) refferalCode,
+              refferalCode,
               const SizedBox(
                 height: 20,
               ),
@@ -224,7 +224,6 @@ class OtpPage extends AppPageWithAppBar {
         fieldStyle: FieldStyle.underline,
         onCompleted: (pin) {
           otpCode = pin;
-          debugPrint("Completed: $pin");
         },
       ),
     );

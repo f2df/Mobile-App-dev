@@ -285,6 +285,7 @@ class RentSell extends AppPageWithAppBar {
         // After selecting the desired option,it will
         // change button value to selected value
         onChanged: (PickUpList? item) {
+          controller.pickUpListData.value = item!;
           controller.pickupLocationId = item?.pickupLocation??"";
           controller.pickupPinCode = item?.pickupPinCode ?? "123456";
         },

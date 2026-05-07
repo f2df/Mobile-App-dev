@@ -8,7 +8,7 @@ class CheckServiceResModel {
 
   CheckServiceResModel.fromJson(dynamic json) {
     data = json['data'] != null ? Data.fromJson(json['data']) : null;
-    message = json['message'];
+    message = json['message']??"Unavailable service please change you pinCode";
     status = json['status'];
   }
   Data? data;

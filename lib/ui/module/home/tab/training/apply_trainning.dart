@@ -376,6 +376,7 @@ class ApplyTraining extends BaseStateLessWidget {
               controller.trainingTypeSelected = newValue!;
               controller.trainingType.value = newValue.id.toString();
               controller.trainingVenue.value = newValue.venue;
+              controller.venueSelected = controller.trainingVenue.first;
               if (controller.trainingVenue.isNotEmpty)
                 controller.venueSelected = controller.trainingVenue.first;
               // dropdownvalue = newValue!;
@@ -407,7 +408,7 @@ class ApplyTraining extends BaseStateLessWidget {
             isExpanded: true,
             underline: Container(),
             // Initial Value
-            value: items.first,
+            value: controller.trainingMode.value,
 
             // Down Arrow Icon
             icon: const Align(

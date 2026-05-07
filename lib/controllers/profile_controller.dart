@@ -36,7 +36,7 @@ class ProfileController extends BaseController {
   final isLoader = true.obs;
   RxList<String> userTypeList = ["Farmer","FPO","Business Entity"
   ].obs;
-  late final Rx<String> selectTypeValue = userTypeList.first.obs;
+  late final Rx<String> selectTypeValue = userTypeList.lastWhere((element) => element ==appPreferences.userType).obs;
 
   bool get isProfilePicPresent => profilePicUrl.value.isNotEmpty;
 
@@ -46,7 +46,7 @@ class ProfileController extends BaseController {
     mobileController.text = appPreferences.mobile;
     addressController.text = appPreferences.mobile;
     emailController.text = appPreferences.email;
-   // callGetProfile();
+    //callGetProfile();
     profilePicUrl.value = Constant.baseImageUrl + appPreferences.userImage;
     imageUrl.value = Constant.baseImageUrl + appPreferences.userImage;
     addressLine1Controller.text=appPreferences.address_1;
@@ -148,6 +148,7 @@ class ProfileController extends BaseController {
     hideLoader();
     if (response == null) Common.showToast("Something went wrong!");
     if (response!.status == 200) {
+      appPreferences.saveUserType(userType);
       appPreferences.saveUserName(userNameController.text);
       appPreferences.saveEmail(emailController.text);
       appPreferences.saveAddress1(addressLine1Controller.text);

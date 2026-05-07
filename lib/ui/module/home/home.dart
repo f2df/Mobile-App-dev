@@ -1,5 +1,6 @@
 import 'dart:io' show Platform;
 
+import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -54,6 +55,9 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  final FirebaseAnalytics analytics = FirebaseAnalytics();
+
+
   String location = 'Null, Press Button';
   String address = 'Location';
   String locality = 'Your Current\n';
@@ -132,7 +136,7 @@ class _HomeState extends State<Home> {
   }
 
   Widget get body {
-    // Analytics.sendCurrentScreen(AnalyticsConstants.screenHome);
+     Analytics.sendCurrentScreen(AnalyticsConstants.screenHome);
     return Scaffold(
         drawer: const DrawerDashboard(),
         appBar: appBar(context),
@@ -403,7 +407,7 @@ class _HomeState extends State<Home> {
           ),
         );
       }),
-      title: InkWell(
+       /*InkWell(
         onTap: () async {
           Position position = await _getGeoLocationPosition();
           location = 'Lat: ${position.latitude} , Long: ${position.longitude}';
@@ -442,7 +446,7 @@ class _HomeState extends State<Home> {
             ),
           ],
         ),
-      ),
+      )*/
       actions: [
         InkWell(
           onTap: () {
@@ -541,14 +545,14 @@ class _HomeState extends State<Home> {
   Future<Position> _getGeoLocationPosition() async {
     LocationPermission permission;
     permission = await Geolocator.checkPermission();
-    if (permission == LocationPermission.denied) {
+    /*if (permission == LocationPermission.denied) {
       permission = await Geolocator.requestPermission();
       if (permission == LocationPermission.deniedForever) {
         return Future.error('Location Not Available');
       }
     } else {
       throw Exception('Error');
-    }
+    }*/
     return await Geolocator.getCurrentPosition();
   }
 
@@ -557,13 +561,15 @@ class _HomeState extends State<Home> {
         await placemarkFromCoordinates(position.latitude, position.longitude);
     debugPrint(placemarks.toString());
     Placemark place = placemarks[0];
-    address =
-        //'${place.subLocality},'
-        ' ${place.locality}, '
-        //'${place.postalCode},'
-        ' ${place.country}';
-    locality = '${place.subLocality},\n';
-    setState(() {});
+
+    setState(() {
+      address =
+      //'${place.subLocality},'
+      ' ${place.locality}, '
+      //'${place.postalCode},'
+          ' ${place.country}';
+      locality = '${place.subLocality},\n';
+    });
   }
 
   void getAddress() async {

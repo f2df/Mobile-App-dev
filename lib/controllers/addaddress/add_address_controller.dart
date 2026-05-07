@@ -4,6 +4,7 @@ import 'package:mcsofttech/controllers/addaddress/address_list_controller.dart';
 import '../../data/network/apiservices/address_services.dart';
 import '../../data/preferences/AppPreferences.dart';
 import '../../models/address/AddressItem.dart';
+import '../../ui/module/address/add_address.dart';
 import '../../utils/common_util.dart';
 import '../base_getx_controller.dart';
 
@@ -11,6 +12,7 @@ class AddressController extends BaseController {
   final _apiService = Get.put(AddressApiServices());
   final appPreferences = Get.find<AppPreferences>();
   final isLoader = false.obs;
+  final RxList<AddressItem> addressListt = <AddressItem>[].obs;
   final nameController =TextEditingController();
   final mobileController =TextEditingController();
   final houseNoController =TextEditingController();
@@ -26,7 +28,39 @@ class AddressController extends BaseController {
   ].obs;
   late final Rx<String> selectTypeValue = userTypeList.first.obs;
   final List<AddressItem> addressList = [];
+  @override
+  void onInit() {
+    callAddressApi();
+    super.onInit();
+  }
+  void callAddressApi() async {
+    isLoader.value = true;
+    try {
+      final response = await _apiService.getAddresList();
 
+      isLoader.value = false;
+      //if (response == null) Common.showToast("Server Error!");
+      if (response != null && response.status == 200) {
+        addressList.clear();
+        if (response.data.isNotEmpty) {
+          addressListt.value.addAll(response.data);
+          nameController.text=response.data[0].name??"";
+          mobileController.text=response.data[0].mobile??"";
+          houseNoController.text=response.data[0].houseNo??"";
+          streetController.text=response.data[0].street??"";
+          areaController.text=response.data[0].area??"";
+          landmarkController.text=response.data[0].landmark??"";
+          cityController.text=response.data[0].city??"";
+          stateController.text=response.data[0].state??"";
+          countryController.text=response.data[0].country??"";
+          pincodeController.text=response.data[0].pincode??"";
+        }
+      }
+    } catch (e) {
+      Common.showToast("Something went wrong!");
+      debugPrint(e.toString());
+    }
+  }
    void addAddress() async{
     if(nameController.text.toString().isEmpty){
       Common.showToast("Please enter user name");

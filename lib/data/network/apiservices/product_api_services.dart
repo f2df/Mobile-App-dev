@@ -110,6 +110,7 @@ class ProductApiServices extends DioClient {
     var inputData = {"searchKeyword": search,"pageNo":page,"size":size};
     ProductByCatIdModel? productByCatIdModel;
     debugPrint('inputData: $inputData');
+    var header={"headers":""};
     try {
       final response = await client.post(
         options: Options(

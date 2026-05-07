@@ -16,7 +16,7 @@ import '../../../../dialog/loader.dart';
 import '../../../profile/widget/text_field_widget.dart';
 
 class UpcomingTrainingPage extends BaseStateLessWidget {
-  final String dropdownvalue = '';
+   String dropdownvalue = '';
   final controller = Get.put(TrainingController());
 
   // List of items in our dropdown menu
@@ -279,7 +279,7 @@ class UpcomingTrainingPage extends BaseStateLessWidget {
             // After selecting the desired option,it will
             // change button value to selected value
             onChanged: (String? newValue) {
-              // dropdownvalue = newValue!;
+               dropdownvalue = newValue??"";
             },
           ),
         )

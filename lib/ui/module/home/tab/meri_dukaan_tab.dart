@@ -38,7 +38,7 @@ class _MeriDukaanTabTabsState extends State<MeriDukaanTabTabs> {
   double screenWidth = 0.0;
   @override
   Widget build(BuildContext context) {
-    //Analytics.sendCurrentScreen(AnalyticsConstants.screenUserDashboard);
+    Analytics.sendCurrentScreen(AnalyticsConstants.screenUserDashboard);
     controller.callUserDashboard();
     screenWidth = MediaQuery.of(context).size.width;
     return Obx(() => controller.isLoader.value

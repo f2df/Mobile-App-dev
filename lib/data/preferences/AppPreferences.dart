@@ -68,6 +68,13 @@ class AppPreferences {
   String get userId {
     return _getString(AppPreferenceKey.userId, defaultValue: "")!;
   }
+  Future<void> saveUserType(String userId) {
+    return _saveString(AppPreferenceKey.userType, userId);
+  }
+
+  String get userType {
+    return _getString(AppPreferenceKey.userType, defaultValue: "Farmer")!;
+  }
 
   Future<void> saveUserImage(String userImage) {
     return _saveString(AppPreferenceKey.userImage, userImage);
